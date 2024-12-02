@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-20397.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>C#和TS/JS的对比学习02：函数与方法</title>
+        <meta name="description" content="程序本质上，就是由数据和处理数据的方法构成。函数和方法，这两个名词虽然字面不同，但意义上其实没有区别。只是因为它们出现的地方有异，给予了不同的名称，比如在全局环境中，叫函数，在对象或类中，叫方法。而C" />
+        <link rel="icon" href="__ADDON__/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                <span>Singbox Node</span>
+                            </a>
+                                                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">C#和TS/JS的对比学习02：函数与方法</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<p>程序本质上，就是由数据和处理数据的方法构成。函数和方法，这两个名词虽然字面不同，但意义上其实没有区别。只是因为它们出现的地方有异，给予了不同的名称，比如在全局环境中，叫函数，在对象或类中，叫方法。而C#没有全局的概念，所以绝大多数时候，都叫方法。本节内容比较多，列一下目录：</p> <ol> <li>基本概念</li> <li>函数的声明和调用</li> <li>函数表达式</li> <li>通过Function的构造函数来声明函数（JS/TS）</li> <li>函数/变量提升（JS）</li> <li>值参数</li> <li>引用参数/输出参数</li> <li>可选参数/默认值参数</li> <li>数组参数/剩余参数</li> <li>扩展方法</li> <li>闭包和委托捕获</li> </ol> <p><strong><span style="color: rgba(128, 0, 128, 1)">一、基本概念</span></strong></p> <p><strong><span style="color: rgba(128, 0, 128, 1)">JS：</span></strong></p> <p>①一等公民，和number、string、bool等一样，是一种值；</p> <p>②是object的子类型；</p> <p>③可以全局定义和使用；</p> <p>④当函数作为对象的属性时，称之为方法</p> <p><strong><span style="color: rgba(128, 0, 128, 1)">TS：</span></strong></p> <p>和JS一样，只是多了类型约束</p> <p><strong><span style="color: rgba(128, 0, 128, 1)">C #</span></strong></p> <p>①类中有两个成员：数据成员和方法成员，方法规定了类的行为</p> <p>②只能在类里申明、类里使用；</p> <p>③方法可否视为一种值？C#中，方法不是一种值，但使用委托时，有类似表现</p> <p><strong><span style="color: rgba(128, 0, 128, 1)">二、函数声明和调用</span></strong></p> <p><strong><span style="color: rgba(128, 0, 128, 1)">JS/TS的函数可以声明在全局、对象和类中，C#只能在类中声明。三者的参数和返回值等概念及用法没有什么不同，只是JS没有类型约束，TS在JS基础上增加了类型约束（还可以通过接口约束），而C#本身就是强类型。C#中多了一些修饰符，比如public等访问修饰符，以及static、abtract等，TS中，当方法在类中申明时，也引入了部分修饰符。</span></strong></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//==========JS==========<br/><br/>//</span><span style="color: rgba(0, 128, 0, 1)">全局声明和调用</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> sum(x,y){</span><span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y; }<br/>sum(1,2);<br/></span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">对象中声明和调用</span> const mc =<span style="color: rgba(0, 0, 0, 1)"> {     name:</span>'MC'<span style="color: rgba(0, 0, 0, 1)">,     sayHi:</span><span style="color: rgba(0, 0, 255, 1)">function</span>(){console.log('Hi,i am MC'<span style="color: rgba(0, 0, 0, 1)">);} ,</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">还可以写成</span>     sayHi(){console.log('Hi,i am MC'<span style="color: rgba(0, 0, 0, 1)">);} }<br/>mc.sayHi();</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">类中声明（暂略，比较类时再具体谈）</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//==========TS==========<br/><br/>//</span><span style="color: rgba(0, 128, 0, 1)">全局声明和调用，多了类型约束</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> sum(x:number,y:number):number{</span><span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y; }<br/>sum(1,2);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">对象中声明和调用，通过接口约束</span><span style="color: rgba(0, 0, 0, 1)">interface{     name: string,     sayHi():</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> } const person</span>=<span style="color: rgba(0, 0, 0, 1)"> {     name:</span>'MC'<span style="color: rgba(0, 0, 0, 1)">,     sayHi(){console.log(</span>'Hi,i am MC'<span style="color: rgba(0, 0, 0, 1)">);} }<br/>person.sayHi();</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">类中声明（暂略，比较类时再具体谈）</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========C#==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">需要在类中声明，如果不是静态方法，需要创建对象后，才能调用</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Person {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">string</span> Name{<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span><span style="color: rgba(0, 0, 0, 1)">}</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">int</span> Sum(<span style="color: rgba(0, 0, 255, 1)">int</span> x,<span style="color: rgba(0, 0, 255, 1)">int</span> y){<span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y;}</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">void</span> SayHi(){Console.WriteLine(<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">Hi, i am MC</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);} }<br/>var p1 = new Person();<br/>p1.SayHi();</span></pre> </div> <p><span style="color: rgba(153, 51, 102, 1)"><strong>三、函数表达式（JS/TS）</strong></span></p> <p><span style="color: rgba(153, 51, 102, 1)"><strong>仅限于JS/TS，使用非常灵活，是函数作为一种值的突出表现。C#中没有此概念，但是通过委托貌似能实现类似功能。</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========JS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">将函数赋值给变量，变量sum也是方法的名称</span> let sum =<span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)">(x,y){</span><span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y; }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">方法调用</span> sum(5,6)</pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========TS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">通过类型推断来声明</span> let sum =<span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)">(x:number,y:number):number{</span><span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y; }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">完整的写法应该是这样</span> let sum1:(x:number,y:number) =&gt; number =<span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)">(x:number,y:number):number{</span><span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y; }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">也可以通过接口来约束申明</span><span style="color: rgba(0, 0, 0, 1)">interface ISum{     (x:number,y:number):number } let sum2:ISum</span>=<span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)">(x:number,y:number):number{</span><span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y; }</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========C#==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">定义一个委托类型</span><span style="color: rgba(0, 0, 255, 1)">delegate</span><span style="color: rgba(0, 0, 255, 1)">int</span> DeleSum(<span style="color: rgba(0, 0, 255, 1)">int</span> x,<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> y);</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> HelloWorld {</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span> Main(<span style="color: rgba(0, 0, 255, 1)">string</span><span style="color: rgba(0, 0, 0, 1)">[] args)     {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">定义一个委托对象，并将匿名函数“赋值”给委托“变量”</span>         DeleSum deleSum =<span style="color: rgba(0, 0, 255, 1)">delegate</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> x,<span style="color: rgba(0, 0, 255, 1)">int</span> y){<span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y;};         Console.WriteLine(deleSum(</span><span style="color: rgba(128, 0, 128, 1)">2</span>,<span style="color: rgba(128, 0, 128, 1)">2</span><span style="color: rgba(0, 0, 0, 1)">));      }  }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">对比一下，都使用Lambda表达式，像不像？</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">TS中：let sum = (int x,int y)=&gt;{return x + y;}</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">C#中，使用自定义委托类型：DeleSum deleSum = (int x,int y)=&gt;{return x + y;}</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">C#中，使用内置泛型委托：Func&lt;int,int,int&gt; sum =  (int x,int y)=&gt;{return x + y;}</span></pre> </div> <p><span style="color: rgba(153, 51, 102, 1)"><strong>四、通过Function的构造函数来声明函数/有点拗口（JS/TS）</strong></span></p> <p><span style="color: rgba(153, 51, 102, 1)"><strong>仅限于JS/TS，极少使用。JS中，几个类型都有相对应的包装类，都有对应的构造方法，如number&gt;Number，string&gt;String<strong>，</strong>array&gt;Array<strong>，</strong>function&gt;Function<strong>，</strong>object&gt;Object等。所以函数也可以通过构造函数创建。<br /></strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========JS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">构造函数的参数，最后一个为返回值，前面的均为参数</span> let sum =<span style="color: rgba(0, 0, 255, 1)">new</span> Function('x','y','return x+y'<span style="color: rgba(0, 0, 0, 1)">); console.log(sum(</span>1,2<span style="color: rgba(0, 0, 0, 1)">));</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">TS？不知道咋搞，类型约束放在哪？</span></pre> </div> <p><span style="color: rgba(153, 51, 102, 1)"><strong>五、函数提升（JS/TS）</strong></span></p> <p><span style="color: rgba(153, 51, 102, 1)"><strong>仅限于JS/TS，在全局或一个作用域中，编译时，变量和函数的定义会先执行，函数定义优先于变量定义。函数提升仅限于通过“函数声明”定义的方法，函数表达式定义的方法，不存在变量提升；变量提升仅限var定义的变量。let和const定义的变量，不存在变量提升。</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========JS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">全局中，虽然函数声明在后面，但先执行了</span> console.log(sum1(1,2<span style="color: rgba(0, 0, 0, 1)">));</span><span style="color: rgba(0, 0, 255, 1)">function</span> sum1(x,y){<span style="color: rgba(0, 0, 255, 1)">return</span> x+<span style="color: rgba(0, 0, 0, 1)">y;}</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">函数作用域中，函数声明也提前到了作用域的顶部</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> f1(){     console.log(sum2(</span>1,2<span style="color: rgba(0, 0, 0, 1)">));</span><span style="color: rgba(0, 0, 255, 1)">function</span> sum2(x,y){<span style="color: rgba(0, 0, 255, 1)">return</span> x+<span style="color: rgba(0, 0, 0, 1)">y;} }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">TS中有一样的表现</span><span style="color: rgba(0, 128, 0, 1)"> //</span><span style="color: rgba(0, 128, 0, 1)">C#中不存在变量提升</span></pre> </div> <p><span style="color: rgba(153, 51, 102, 1)"><strong>六、值参数</strong></span></p> <p><span style="color: rgba(153, 51, 102, 1)"><strong>形参和实参是值复制关系，调用方法时，实参的值复制给了形参。如果是基本类型，直接复制值，如果是引用类型，则复制引用地址。C#和JS/TS，基本一致。</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========JS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">参数为值类型（复制值）</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> sum(x,y){</span><span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y; }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">调用时分别将1和2的值，复制给了形参x和y</span> sum(1,2<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">参数为引用类型（复制引用地址）</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> sayName(x){     console.log(x.name);     x.name</span>= 'functionMC'<span style="color: rgba(0, 0, 0, 1)">; } let p1</span>=<span style="color: rgba(0, 0, 0, 1)"> {     name:</span>'MC'<span style="color: rgba(0, 0, 0, 1)">,     age:</span>18<span style="color: rgba(0, 0, 0, 1)"> }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">调用时将p1的引用地址复制给了形参x，两者指向的堆中的值是同一个</span> sayName(p1);<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出MC</span> console.log(p1.name);<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出functionMC</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========TS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">参数为值类型（复制值）</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> sum(x:number,y:number):number{</span><span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y; }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">调用时分别将1和2的值，复制给了x和y</span> sum(1,2<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">参数为引用类型。注：此处使用接口来约束形参和实参</span><span style="color: rgba(0, 0, 0, 1)">interface IPerson{     name: string,     age: number }</span><span style="color: rgba(0, 0, 255, 1)">function</span> sayName(x:IPerson):<span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">{     console.log(x.name);     x.name</span>= 'functionMC'<span style="color: rgba(0, 0, 0, 1)">; } let p1:IPerson</span>=<span style="color: rgba(0, 0, 0, 1)"> {     name:</span>'MC'<span style="color: rgba(0, 0, 0, 1)">,     age:</span>18<span style="color: rgba(0, 0, 0, 1)"> } sayName(p1);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出MC</span> console.log(p1.name);<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出functionMC</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========C#==========</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Program {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> Main()     {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">静态方法中，不能直接调用实例成员，所以先将自己实例化</span>         Program program =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Program();</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">值类型参数，方法调用时，直接将值复制给形参</span>         program.Sum(<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>);<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果为3</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">引用类型参数，方法调用时，将引用地址复制给形参</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">形参和实参指向的堆中的数据，是同一个</span><span style="color: rgba(0, 0, 255, 1)">var</span> p1 =<span style="color: rgba(0, 0, 255, 1)">new</span> Person() { Name =<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">MC</span><span style="color: rgba(128, 0, 0, 1)">"</span>, Age =<span style="color: rgba(128, 0, 128, 1)">18</span><span style="color: rgba(0, 0, 0, 1)"> };         program.SayName(p1);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输入MC</span>         Console.WriteLine(p1.Name);<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出functionMC</span><span style="color: rgba(0, 0, 0, 1)">    }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">定义一个使用值类型参数的方法</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">int</span> Sum(<span style="color: rgba(0, 0, 255, 1)">int</span> x,<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> y)     {</span><span style="color: rgba(0, 0, 255, 1)">return</span> x +<span style="color: rgba(0, 0, 0, 1)"> y;     }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">定义一个使用引用类型参数的方法</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> SayName(Person p)     {         Console.WriteLine(p.Name);         p.Name</span>=<span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">functionMC</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">;     } }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">自定义类，用来测试引用类型参数</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Person {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">string</span>? Name {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span><span style="color: rgba(0, 0, 0, 1)">; }</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">int</span>? Age {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span><span style="color: rgba(0, 0, 0, 1)">; } }</span></pre> </div> <p><span style="color: rgba(153, 51, 102, 1)"><strong>七、引用参数和输出参数</strong></span></p> <p><span style="color: rgba(153, 51, 102, 1)"><strong>引用参和输出参，是C#中的概念。和值参数不同的是，实参作为形参的别名直接进入方法体中运算。所以，在方法体中如果改变了形参，也会同时改变实参。JS/TS中，因为var的作用域问题，也会产生类似结果。</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========C#==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">引用参数使用ref，输出参数用out，原理和用法参不多</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">在申明和调用的时候都要用ref或out关键词</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">调用时，只能使用变量</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">out的特殊在于，在调用的方法体中，在给输出参数赋值</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">out在方法调用里，变量可以不用赋值，赋值也没有意义，因为方法体中需要赋值</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> HelloWorld {</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span> Main(<span style="color: rgba(0, 0, 255, 1)">string</span><span style="color: rgba(0, 0, 0, 1)">[] args)     {         Count a1</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Count();</span><span style="color: rgba(0, 0, 255, 1)">int</span> a2 =<span style="color: rgba(128, 0, 128, 1)">10</span><span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">调用时，也要用ref关键词修饰实参，且实参只能用变量</span>         RefMethod(<span style="color: rgba(0, 0, 255, 1)">ref</span> a1,<span style="color: rgba(0, 0, 255, 1)">ref</span><span style="color: rgba(0, 0, 0, 1)"> a2);         Console.WriteLine($</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(128, 0, 0, 1)">a1值变成了{a1.Val},a2值变成了{a2}</span><span style="color: rgba(128, 0, 0, 1)">"</span><span style="color: rgba(0, 0, 0, 1)">);     }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">方法定义时，使用ref关键词修饰形参</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span> RefMethod(<span style="color: rgba(0, 0, 255, 1)">ref</span> Count c1,<span style="color: rgba(0, 0, 255, 1)">ref</span><span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> i1)     {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">形参和实参是同一个，形参值变了，实参值也会变</span>         c1.Val +=<span style="color: rgba(128, 0, 128, 1)">2</span><span style="color: rgba(0, 0, 0, 1)">;      i1</span>+=<span style="color: rgba(128, 0, 128, 1)">2</span><span style="color: rgba(0, 0, 0, 1)">;             } }</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Count {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">int</span> Val =<span style="color: rgba(128, 0, 128, 1)">20</span><span style="color: rgba(0, 0, 0, 1)">; }</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========JS/TS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">方法体中，直接找到全局的变量count修改值</span><span style="color: rgba(0, 0, 255, 1)">var</span> count = 10<span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> Method(){     count</span>+= 2<span style="color: rgba(0, 0, 0, 1)">; } Method(); console.log(count);</span></pre> </div> <p><span style="color: rgba(153, 51, 102, 1)"><strong>八、可选参数/默认值参数</strong></span></p> <p><span style="color: rgba(153, 51, 102, 1)"><strong>C#和TS都是强类型，所以方法参数要受到一定约束，可选参数、数组参数等，都是在可约束条件下的增加灵活性。而JS的参数则不受任务约束，爱传不传，爱传啥就传啥。</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========JS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">JS中没有可选参数的概念，因为它不受约束</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> f1(a,b){</span><span style="color: rgba(0, 0, 255, 1)">return</span> a +<span style="color: rgba(0, 0, 0, 1)"> b; }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">爱咋咋滴</span> f1(1,2,3<span style="color: rgba(0, 0, 0, 1)">); f1(</span>1<span style="color: rgba(0, 0, 0, 1)">); f1(</span>1,'MC'<span style="color: rgba(0, 0, 0, 1)">); f1();</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========TS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">“？”号定义可选参数</span><span style="color: rgba(0, 0, 255, 1)">function</span> f1(a:string,b?:string):<span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">{     console.log(a</span>+'-'+<span style="color: rgba(0, 0, 0, 1)"> b); }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">可传可不传，不传时默认为undefined</span> f1('function','MC');<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果function-MC</span> f1('function');<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果function-undefined</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">设置参数默认值</span><span style="color: rgba(0, 0, 255, 1)">function</span> f2(a:string,b:string='MC'):<span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)">{     console.log(a</span>+'-'+<span style="color: rgba(0, 0, 0, 1)"> b); } f2(</span>'function','MC');<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果function-MC</span> f2('function');<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果function-MC</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========C#==========</span><span style="color: rgba(0, 0, 0, 1)"> public class Program {     public static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> Main()     {         f1(</span>"function", "MC");<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出结果function-MC</span>         f1("function");<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出结果function-MC</span><span style="color: rgba(0, 0, 0, 1)">         f2(</span>"function", "MC");<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出结果function-MC</span>         f2("function");<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">输出结果function-</span><span style="color: rgba(0, 0, 0, 1)">     }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">可选参数，设置默认值</span>     static<span style="color: rgba(0, 0, 255, 1)">void</span> f1(string a, string b = "MC"<span style="color: rgba(0, 0, 0, 1)">)     {         Console.WriteLine(a</span>+ "-" +<span style="color: rgba(0, 0, 0, 1)"> b);     }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">可空参数，如果不传，则为null</span>     static<span style="color: rgba(0, 0, 255, 1)">void</span> f2(string a, string? b =<span style="color: rgba(0, 0, 255, 1)">null</span><span style="color: rgba(0, 0, 0, 1)">)     {         Console.WriteLine(a</span>+ "-" +<span style="color: rgba(0, 0, 0, 1)"> b);     } }</span></pre> </div> <p><span style="color: rgba(153, 51, 102, 1)"><strong>九、数组参数/剩余参数</strong></span></p> <p><span style="color: rgba(153, 51, 102, 1)"><strong>C#和TS都是强类型，所以方法参数要受到一定约束，可选参数、数组参数等，都是在可约束条件下的增加灵活性。而JS的参数则不受任务约束，爱传不传，爱传啥就传啥。</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========C#==========</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Program {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> Main()     {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">调用方式一</span>         f1(<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>,<span style="color: rgba(128, 0, 128, 1)">3</span>,<span style="color: rgba(128, 0, 128, 1)">4</span><span style="color: rgba(0, 0, 0, 1)">);         f1(</span><span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>,<span style="color: rgba(128, 0, 128, 1)">3</span><span style="color: rgba(0, 0, 0, 1)">);         f1(</span><span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span><span style="color: rgba(0, 0, 0, 1)">);         f1();</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">调用方式二</span><span style="color: rgba(0, 0, 255, 1)">var</span> a1 =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 255, 1)">int</span>[] {<span style="color: rgba(128, 0, 128, 1)">1</span>,<span style="color: rgba(128, 0, 128, 1)">2</span>,<span style="color: rgba(128, 0, 128, 1)">3</span>,<span style="color: rgba(128, 0, 128, 1)">4</span>,<span style="color: rgba(128, 0, 128, 1)">5</span>,<span style="color: rgba(128, 0, 128, 1)">6</span><span style="color: rgba(0, 0, 0, 1)"> };         f1(a1);     }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">使用关键词params定义数组参数</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span> f1(<span style="color: rgba(0, 0, 255, 1)">params</span><span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)">[] intVals)     {</span><span style="color: rgba(0, 0, 255, 1)">if</span> ((intVals !=<span style="color: rgba(0, 0, 255, 1)">null</span>) &amp;&amp; (intVals.Length !=<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)">))         {</span><span style="color: rgba(0, 0, 255, 1)">foreach</span> (<span style="color: rgba(0, 0, 255, 1)">var</span> item<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> intVals)             {                 Console.WriteLine(item);             }         }      } }</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========TS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">TS中用“...”定义剩余参数</span><span style="color: rgba(0, 0, 255, 1)">function</span> push(array: any[], ...items: any[]):<span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> {     items.forEach(</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)">(item) {         array.push(item);     }); }  let a</span>=<span style="color: rgba(0, 0, 0, 1)"> []; push(a,</span>1, 2, 3);<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果[1,2,3]</span> push(a, 2, 3, 4);<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果[1,2,3,2,3,4]</span></pre> </div> <p><span style="color: rgba(153, 51, 102, 1)"><strong>十、扩展方法</strong></span></p> <p><span style="color: rgba(153, 51, 102, 1)"><strong>扩展方法是C#中的概念，通过新类扩展定义新的方法，调用时，直接用原对象调用，就好像这个方法属于原类一样。JS和TS中，不动类，一样也可以扩展，直接粗鲁的“.”符号就可以，即使是引入了类，也能通过原型随意扩展，和C#不一样的是，实质上这个方法是添加到了原对像里。</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========C#==========</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Program {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> Main()     {</span><span style="color: rgba(0, 0, 255, 1)">var</span> cal =<span style="color: rgba(0, 0, 255, 1)">new</span> Cal(<span style="color: rgba(128, 0, 128, 1)">2</span>,<span style="color: rgba(128, 0, 128, 1)">4</span><span style="color: rgba(0, 0, 0, 1)">);         cal.Sum();</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果为6,原类的方法</span>         cal.Avg();<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果为3,新类的扩展方法</span><span style="color: rgba(0, 0, 0, 1)">    }  }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">原类</span><span style="color: rgba(0, 0, 255, 1)">internal</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Cal {</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> d1;</span><span style="color: rgba(0, 0, 255, 1)">private</span><span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> d2;</span><span style="color: rgba(0, 0, 255, 1)">public</span> Cal(<span style="color: rgba(0, 0, 255, 1)">int</span> d1,<span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> d2)     {</span><span style="color: rgba(0, 0, 255, 1)">this</span>.d1 =<span style="color: rgba(0, 0, 0, 1)"> d1;</span><span style="color: rgba(0, 0, 255, 1)">this</span>.d2 =<span style="color: rgba(0, 0, 0, 1)"> d2;     }</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">int</span><span style="color: rgba(0, 0, 0, 1)"> Sum()     {</span><span style="color: rgba(0, 0, 255, 1)">return</span> d1 +<span style="color: rgba(0, 0, 0, 1)"> d2;     } }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">在一个静态的新类里，"静静的"增加了一个新的方法</span><span style="color: rgba(0, 0, 255, 1)">internal</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> CalExtend {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">公开的静态方法</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">参数为原类型，且使用this关键词修饰</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">int</span> Avg(<span style="color: rgba(0, 0, 255, 1)">this</span><span style="color: rgba(0, 0, 0, 1)"> Cal c1)     {</span><span style="color: rgba(0, 0, 255, 1)">return</span> c1.Sum() /<span style="color: rgba(128, 0, 128, 1)">2</span><span style="color: rgba(0, 0, 0, 1)">;     } }</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========JS==========</span><span style="color: rgba(0, 0, 0, 1)"> let a</span>=<span style="color: rgba(0, 0, 0, 1)"> {     name:</span>'MC'<span style="color: rgba(0, 0, 0, 1)">,     sayHi(){console.log(</span>'HI,MC'<span style="color: rgba(0, 0, 0, 1)">);} }; a.sayHi();</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">随意的扩展一个方法</span> a.sayHello = ()=&gt;{console.log('Hello,MC'<span style="color: rgba(0, 0, 0, 1)">)}; a.sayHello();</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========TS==========</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">下面这个案例，无法运行，提示Object没有assign方法，TS中去掉这个方法了？</span><span style="color: rgba(0, 128, 0, 1)"> //</span><span style="color: rgba(0, 128, 0, 1)">下面的代码，去掉类型，可以在JS中运行</span><span style="color: rgba(0, 0, 0, 1)">class Cal{     x:number;     y:number;     constructor(x:number,y:number){</span><span style="color: rgba(0, 0, 255, 1)">this</span>.x =<span style="color: rgba(0, 0, 0, 1)"> x;</span><span style="color: rgba(0, 0, 255, 1)">this</span>.y =<span style="color: rgba(0, 0, 0, 1)"> y;     }      sum():number{</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 255, 1)">this</span>.x +<span style="color: rgba(0, 0, 255, 1)">this</span><span style="color: rgba(0, 0, 0, 1)">.y;     }          }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">随意的添加一个扩展方法</span><span style="color: rgba(0, 0, 0, 1)">Object.assign(Cal.prototype, {     avg():number{</span><span style="color: rgba(0, 0, 255, 1)">return</span> 2<span style="color: rgba(0, 0, 0, 1)">;     } }); let cal</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Cal(2,4<span style="color: rgba(0, 0, 0, 1)">); cal.sum(); cal.avg();</span></pre> </div> <p><span style="color: rgba(153, 51, 102, 1)"><strong>十一、闭包和委托捕获</strong></span></p> <p><span style="color: rgba(153, 51, 102, 1)"><strong>JS/TS中，对于作用域的嵌套，内层作用域可以看到和使用外层作用域的东西，就像一个隐私玻璃，里面可以看外面，外面看不到里面。闭包可以简单的类比为，外层作用域派出的，混入内层作用域的一个函数间谍，通过它将内层作用域的东西“偷出来”，这样外层作用域也能看到和使用内层作用域的东西，而且这个函数间谍还很敬业，把内层的环境也一起打包带了出来，使得内层环境不会塌陷。巧得是，C#中也有类似的功能，叫匿名方法的捕获。</strong></span></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">==========JS/TS==========</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> outF(){     const x</span>= '我是内层的x'<span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 0, 255, 1)">function</span><span style="color: rgba(0, 0, 0, 1)"> inF(){</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> x;     }</span><span style="color: rgba(0, 0, 255, 1)">return</span><span style="color: rgba(0, 0, 0, 1)"> inF(); }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">inF就是我们派出的间谍函数-闭包</span><span style="color: rgba(0, 128, 0, 1)"> //</span><span style="color: rgba(0, 128, 0, 1)">他不仅带出了x,还把他潜入的作用域，整个都一锅端了出来</span> console.log(outF());<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">结果为'我是内层的x'</span> console.log(x);<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">报错，提示x没有定义，外层直接向内层要是要不到的</span></pre> </div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span><span style="color: rgba(0, 0, 0, 1)"> Program {</span><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">void</span><span style="color: rgba(0, 0, 0, 1)"> Main()     {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">定义一个委托对象</span>         Func&lt;<span style="color: rgba(0, 0, 255, 1)">int</span>&gt;<span style="color: rgba(0, 0, 0, 1)"> f1;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">下面是内层作用域</span><span style="color: rgba(0, 0, 0, 1)">        {</span><span style="color: rgba(0, 0, 255, 1)">int</span> x =<span style="color: rgba(128, 0, 128, 1)">3</span><span style="color: rgba(0, 0, 0, 1)">;             f1</span>= () =&gt; {<span style="color: rgba(0, 0, 255, 1)">return</span> x; };<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">捕获了变量x</span><span style="color: rgba(0, 0, 0, 1)">        }</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">委托对象f1将捕获到的x带到了外层作用域,获得变量x</span><span style="color: rgba(0, 0, 0, 1)">        Console.WriteLine(f1());         Console.WriteLine(x);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">报错提示当前上下文不存在x</span><span style="color: rgba(0, 0, 0, 1)">     }  }</span></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-20396.htm">mysql驱动依赖中mysql-connector-java爆红的原因。</a></p>
+                                        <p>下一个：<a href="/news/article-20855.htm">养猫容易得肺癌吗（养猫容易得肺癌吗女性）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-16-node-share.htm" title="「9月16日」最高速度22.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「9月16日」最高速度22.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-node-subscribe-links.htm" title="「11月5日」最高速度19M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月5日」最高速度19M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-18-free-subscribe-node.htm" title="「9月18日」最高速度20.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「9月18日」最高速度20.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-subscribe-node.htm" title="「9月6日」最高速度18.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「9月6日」最高速度18.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-free-subscribe-node.htm" title="「11月1日」最高速度20.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月1日」最高速度20.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-3-free-node-subscribe.htm" title="「9月3日」最高速度18.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「9月3日」最高速度18.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-high-speed-nodes.htm" title="「11月21日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月21日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-25-free-high-speed-nodes.htm" title="「8月25日」最高速度18.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「8月25日」最高速度18.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe-links.htm" title="「11月11日」最高速度18.7M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月11日」最高速度18.7M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-free-node-subscribe.htm" title="「12月1日」最高速度19.1M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月1日」最高速度19.1M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
