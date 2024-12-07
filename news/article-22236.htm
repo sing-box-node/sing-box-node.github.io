@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-22236.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>linux下运行jsp（Linux下tomcat安装与配置）</title>
+        <meta name="description" content="一、前期准备 1、下载文件：JDK、Tomcat 2、使用软件：Xshell、Xftp  二、JDK安装与配置 1、使用Xshell连接服务器，执行如下命令 mkdir /usr/java//在usr" />
+        <link rel="icon" href="__ADDON__/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                <span>Singbox Node</span>
+                            </a>
+                                                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">linux下运行jsp（Linux下tomcat安装与配置）</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="htmledit_views"> <p><span style="font-size:24px; font-family:Helvetica; text-align:justify"><strong>一、前期准备</strong></span></p> <p style="margin-top:0px; margin-bottom:0px; text-align:justify; line-height:normal; font-family:Helvetica"><span style="font-size:14px">1、下载文件：JDK、</span><span style="font-size:14px; white-space:pre">Tomcat</span></p> <p style="margin-top:0px; margin-bottom:0px; text-align:justify; line-height:normal"><span style="font-family:Helvetica; font-size:14px">2、使用软件：Xshell、Xftp</span></p> <div></div> <p><strong><span style="font-size:24px">二、JDK安装与配置</span></strong></p> <p><span style="font-size:14px">1、使用Xshell连接服务器，执行如下命令</span></p> <p><span style="font-size:14px"><span style="white-space:pre"></span><span style="white-space:pre"></span><span style="white-space:pre"></span>mkdir /usr/java<span style="white-space:pre">//</span>在usr目录下创建java文件夹</span></p> <p><span style="font-size:14px"><span style="white-space:pre"></span><span style="white-space:pre"></span><span style="white-space:pre"></span>cd<span style="font-size:14px">/usr/java<span style="white-space:pre">//</span>切换到java文件夹</span></span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/6190479c2856461bcce7e9f3c486de7a.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"></p> <p><span style="font-size:14px">2、使用Xftp连接服务器，依次打开文件夹usr 、java，将jdk-XXXXXXXX.tar.gz上传到java目录</span></p> <p><span style="font-size:14px">（注意）用xftp连服务器需满足：①安全组开放22端口 &nbsp;②服务器已安装vsftpd</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/9eea86d397f60f352fc3dd1699a763e7.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"></p> <p><span style="font-size:14px">确认java目录下有jdk-XXXXXXXXX.tar.gz压缩包</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/f8eff23be3a2722e28dcb3cf9487cd9d.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">3、将</span><span style="font-size:14px">jdk-XXXXXXXXX.tar.gz压缩包解压</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/b7526db906150cc5ccccc81b58d53335.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">技巧：输入tar –zxvf j后按tab键就不用把jdk-XXXXXXXXX.tar.gz的名字打全了</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/8931eb3ecd619c6fc9026698a1896568.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">刷新就可以看到java目录下多了个文件夹jdkXXXX_xxx，将其改名为default</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/c75a156aec706a558c8093298a435024.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/26555237c15f7a18bf500c46c7c505e0.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">4、配置环境变量</span></p> <p><span style="font-size:14px">用vi编辑器打开profile文件</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/148c835287d90cb0b7327096e8d3ca8d.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">在最后面加入以下语句：</span></p> <p><span style="font-size:14px">&nbsp; &nbsp; export JAVA_HOME=/usr/java/default<br /> &nbsp; &nbsp; export JAVA_BIN=$JAVA_HOME/bin<br /> &nbsp; &nbsp; export PATH=$PATH:$JAVA_HOME/bin<br /> &nbsp; &nbsp; exportCLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar<br /> &nbsp; &nbsp; export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/864c9807246b793bfe83923cfdfc246a.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">关于vi编辑器的使用：</span></p> <p><span style="font-size:14px">① &nbsp; 将光标移到文件尾，按a键后输入以上代码</span></p> <p><span style="font-size:14px">②&nbsp;&nbsp;&nbsp;按ecs后输入:wq保存退出</span></p> <p><span style="font-size:14px">③&nbsp;&nbsp;&nbsp;输入错了的话按ecs找到错误的地方按x键删除，然后再按a继续输入</span></p> <p><span style="font-size:14px">使配置生效</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/b330f6c440af6b8f715da914b9c5b5cd.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px"><br /></span></p> <p><span style="font-size:14px">5、测试是否成功</span></p> <p><span style="font-size:14px">失败：<img decoding="async" src="" alt=""/><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/5dffa61aaa03155638125a656a398df5.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"></span></p> <p><span style="font-size:14px">成功：<img decoding="async" src="" alt=""/><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/dd17a8f9d555e73593a32f4f17b62d04.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"></span></p> <p><span style="font-size:14px"></span></p> <p><span style="font-size:24px">三、Tomcat的安装</span></p> <p><span style="font-size:14px">1、执行如下命令，创建tomcat目录</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/55fde576824cef79b5d51c388af39c9e.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">2、使用Xftp连接服务器，依次打开文件夹usr 、local、tomcat，将apache-tomcat-XXXX.tar.gz上传到tomcat目录</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/f0b8460cef164c0dd32cc161274ab9d0.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">确认tomcat目录下有apache-tomcat-XXXX.tar.gz压缩包</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/6231c37fc5cfb961188afcc169a8f71a.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">3、使用Xshell执行如下命令解压缩</span></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/68d3b22bb42794b301b9c79e56280679.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"></p> <p><span style="font-size:14px">刷新就可以看到tomcat目录下多了个文件夹apache-tomcat-xxx，将其改名为server</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/937ae322f404aa3eda98bc00933c510d.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"></span><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/7ee3c8f63f1c74611e49be20f2086beb.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"></p> <p><span style="font-size:14px">4、</span><span style="font-size:14px">执行如下命令，</span><span style="font-size:14px">启动tomcat</span></p> <p><span style="font-size:14px"><span style="white-space:pre"><span style="white-space:pre"></span>cd /usr/local/tomcat/server/bin</span><span style="white-space:pre"> //切换到bin目录</span></span></p> <p><span style="font-size:14px"><span style="white-space:pre"><span style="white-space:pre"></span>./startup.sh</span><span style="white-space:pre"> //</span><span style="font-size:14px">启动tomcat</span></span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/164c9ec63ea5cef9e5dc6f37563d3207.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">在浏览器输入服务器ip:8080 成功的话会出现以下界面</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/ac87343a6d0bcd0b1697a5c8a42a06fc.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">注意：部分服务器提供商（如：阿里云）需要在安全组里开放8080端口</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/dbdd47e6638d42e94cf68d9382011b5d.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px"></span><span style="font-size:14px"><img decoding="async" src="" alt=""/></span></p> <p><span style="font-size:24px">四、部署Web项目的War包到Tomcat服务器</span></p> <p><span style="font-size:14px">1、使用Xftp将war包上传到tomcat的webapps目录下，例如：我的war包名称为d3new.war</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/5ae406d692e459abe7c0bd377863899f.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">用浏览器访问路径：http://服务器ip:8080/war包名称</span></p> <p><span style="font-size:14px"><img decoding="async" src="http://img.555519.xyz/uploads3/20220824/482783f36151d6c386a2e885f3f2d7ba.jpg" alt="linux下运行jsp（Linux下tomcat安装与配置）"><br /></span></p> <p><span style="font-size:14px">成功了</span></p> <p><span style="font-size:14px"></span></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-22235.htm">win11系统找不到记事本如何解决</a></p>
+                                        <p>下一个：<a href="/news/article-22686.htm">SpringBoot深入浅出系列集成Elasticsearch</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-subscribe-node.htm" title="「10月9日」最高速度18.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月9日」最高速度18.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-node-share.htm" title="「10月8日」最高速度19.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月8日」最高速度19.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19016.htm" title="猫给抓了出一点点血要紧吗我和酒精擦了（猫抓了一下出了点血用酒精消毒可以吗）">猫给抓了出一点点血要紧吗我和酒精擦了（猫抓了一下出了点血用酒精消毒可以吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-29-node-share.htm" title="「9月29日」最高速度18.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「9月29日」最高速度18.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-subscribe-node.htm" title="「10月10日」最高速度22M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月10日」最高速度22M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-20396.htm" title="mysql驱动依赖中mysql-connector-java爆红的原因。">mysql驱动依赖中mysql-connector-java爆红的原因。</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-free-high-speed-nodes.htm" title="「10月28日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月28日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-node-share-links.htm" title="「8月27日」最高速度20.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「8月27日」最高速度20.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-subscribe-node.htm" title="「10月11日」最高速度21.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月11日」最高速度21.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19483.htm" title="怎么给猫&#25171;&#38024;打在哪里（怎样给猫&#25171;&#38024;需要扎入多深）">怎么给猫&#25171;&#38024;打在哪里（怎样给猫&#25171;&#38024;需要扎入多深）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
