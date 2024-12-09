@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-23148.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>python-数据类型的转换_变量的缓存机制</title>
+        <meta name="description" content="1. Number 数字类型的强制类型转换 # 我们先定义几个数字类型的变量 			var1 = 24 			var2 = 3.14 			var3 = True 			var4 = 5-8j 			" />
+        <link rel="icon" href="__ADDON__/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                <span>Singbox Node</span>
+                            </a>
+                                                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">python-数据类型的转换_变量的缓存机制</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <h2> <a id="1_Number___2" rel="nofollow"></a>1. Number 数字类型的强制类型转换</h2> <pre><code># 我们先定义几个数字类型的变量 			var1 = 24 			var2 = 3.14 			var3 = True 			var4 = 5-8j 			var5 = "4399" 			var6 = "abcf1234" 			 # 1.int 强制转换成整型 			res = int(var2) # 24 			res = int(var3) # False =&gt; 0 True =&gt; 1 			# res = int(var4) error 			res = int(var5) # 4399 			# res = int(var6) error 			print(res , type(res)) 			 # 2.float 强制转换成浮点型 			res = float(var1) # 24.0 			res = float(var3) # True =&gt; 1.0 False =&gt; 0.0 			res = float(var5) # 4399.0 			print(res , type(res)) 			 # 3.complex 强制转换成复数 			res = complex(var1) # 24 + 0j 			res = complex(var2) # 3.14 + 0j 			res = complex(var3) # False =&gt; 0j True =&gt; 1+0j 			res = complex(var5) # 4399 + 0j 			# res = complex(var6) error 			print(res , type(res)) 			 # 4.bool 强制转换成布尔型 	""" 	bool类型为假的十种情况 	0 , 0.0 , 0j , False , '' , [] , () , set() , {} , None 	""" 	# None 是python的关键字,代表空的,什么也没有,一般用来做初始化操作, eg. a1 = None , b1 = None 			res = bool(None)	 			print(res , type(res)) 			 	""" 	总结: 		int() float() bool() complex() 		默认创建一个该数据类型的值 		res = int()  		res = float() 		res = bool() 		res = complex() 		print(res) 	""" </code></pre> <h2> <a id="2_Number__54" rel="nofollow"></a>2. Number 数字类型的自动类型转换</h2> <p>转换规则 =&gt; 默认精度从低到高进行转换: bool -&gt; int -&gt; float -&gt; complex</p> <pre><code># 1.bool + int             res =True + 100 # 1 + 100             print(res) 		 # 2.bool + float             res = True + 3.14 # 1.0 + 3.14             print(res)  # 3.bool + complex             res = False + 5-2j # 0j + 5-2j             res = True + 5-2j  # 1+0j + 5-2j             print(res)  # 4.int + float             res = 5 + 3.14 # 5.0 + 3.14             print(res) 		 # 5.int + complex             res = 20 + 5-2j # 20+0j + 5-2j             print(res) 		 # 6. float + complex             res = 3.14 + 20-9j # 3.14+0j + 20-9j             print(res) </code></pre> <h2> <a id="3__83" rel="nofollow"></a>3. 容器类型数据的强制转换</h2> <pre><code># 我们先定义几个容器类型数据的变量: 		strvar = '红灯停绿灯行' 		listvar = ["张飞","李逵","王瑶"] 		tuplevar = ("小明","小红","小花","小东") 		setvar = {"大喷子","大棍子","大背头"} # 推荐使用变量命名的字符串作为字典的键 		dictvar = {"aaa":123,"bbb":321,"dpz":"巧舌如簧","dgz":"刚正不阿","dbt":"文武双全"} 		intvar = 6666 </code></pre> <h3> <a id="1_str___93" rel="nofollow"></a>1. str 字符串: 强制转换成字符串</h3> <pre><code># str 字符串对容器类型数据和数字类型数据都可以转换 # 特点: 强制转换成字符串,就是在原有数据的基础上两边套上引号 			res = str(listvar) 			res = str(intvar) 			print(res , typr(res))		 # repr: 可以原型化输出字符串,不转义字符(显示出引号) 			print(repr(res)) </code></pre> <h3> <a id="2_list___103" rel="nofollow"></a>2. list 列表: 强制转换成列表</h3> <pre><code># 特点: #	如果是字符串,会把每一个字符单独的作为一个元素放到列表中 #	如果是字典,只保留键,形成一套新的列表 #	如果是其他容器,值是单纯的在原有数据基础上换上[] 			res = list(strvar) 			res = list(tuplevar) 			res = list(setvar) 			res = list(dictvar) 			print(res , type(res)) </code></pre> <h3> <a id="3_tuple___115" rel="nofollow"></a>3. tuple 元组: 强制转换成元组</h3> <pre><code># 注意点: 逗号是区分是否是元组的标识符 # 特点: #	如果是字符串,会把每一个字符单独的作为一个元素放到元组中 #	如果是字典,只保留键,形成一套新的元组 #	如果是其他容器,值是单纯的在原有数据基础上换上() 			res = tuple(strvar) 			res = tuple(listvar) 			res = tuple(setvar) 			res = tuple(dictvar) 			print(res , typr(res)) </code></pre> <h3> <a id="4_set___126" rel="nofollow"></a>4. set 集合: 强制转换成集合</h3> <pre><code># 注意点: 集合无序,且自动去重 # 特点: #	如果是字符串,会把每一个字符单独的作为一个元素放到集合中 #	如果是字典,只保留键,形成一套新的集合 #	如果是其他容器,值是单纯的在原有数据基础上换上{} 			res = set(strvar) 			res = set(listvar) 			res = set(tuplevar) 			res = set(dictvar) 			print(res , type(res)) 			 # 练习:去掉列表中所有重复的数据 			lst =['a','b','c','f','a','c','d',111,123] # 表达方式1 			res = set(lst) 			print(res) 			res = list(res) 			print(res) # 表达方式2 			res = list( set(lst) ) 			print(res) </code></pre> <h3> <a id="5_dict___149" rel="nofollow"></a>5. dict 字典: 强制转换成字典</h3> <pre><code># 特点: 字典强制转换时,必须是等长的二级容器,并且容器里面的元素个数是两个  # 二级容器 (list tuple set dict)  # 等长的二级容器 : 里面的元素都是容器,并且容器里面的元素个数都相同 			lst = [(1,2,3),[4,5,6]] 			lst = [(99,88),(77,66)] # 二级列表 list 			lst = [1,2,[3,4]] # 二级元组 tuple 			tup = (5,6,7,(8,9,10)) # 二级集合 (集合中元素的数据类型要求: int bool float complex str tuple) 			setvar = {11,12,13,(14,15,16)} # 二级字典 (字典中的键的数据类型要求: int bool float complex str tuple) 			dic = {"a":1,"b":{"c":2,"d":3}} # 练习1: 获取'3'这个元素 			res1 = dic["b"] 			print(res1) # {"c":2,"d":3} 			res2 = res1["d"] 			print(res2) # 简写 			res = dic["b"]["d"] 			print(res) # 练习2: 获取'Hello' 	container = [1,2,(3,4,{"a":11,"b":{"c":22,"d":[33,44,"Hello"]}})] # 五级容器 			res1 = container[-1] 			print(res1) 			res2 = res1[-1] 			print(res2) 			res3 = res2["b"] 			print(res3) 			res4 = res3["d"] 			print(res4) 			res5 = res4[-1] 			print(res5) # 简写 			res = container[-1][-1]["b"]["d"][-1] 			print(res) 			 # 强制转换成字典  # 1.外层是列表/元组/集合,里面的容器是列表/元组 			lst = [("a",1),["b",2]] 			tup = (("c",3),["d",4]) 			setvar = {(5,6),[7,8],("f1",1),["f2",2]} 			res = dict(lst) # {"a":1,"b":2} 			res = dict(tup) # {"c":3,"d":4} 			res = dict(setvar) # {6:5,7:8,"f1":1,"f2":2}  			# 因为集合无序,虽然语法上允许,但不符合定义的本意,不推荐使用 			print(res) # 2. 如果使用字符串,语法是哪个正确,但有局限性 			lst = [("q",1),"p8"] # 字符串长度只能是2个 #			lst = [("q",1),"p88"] error 			print( dict(lst) ) # 总结: #	str() list() tuple() set() dict() #	默认创建一个该数据类型的值 </code></pre> <h2> <a id="4__python36_209" rel="nofollow"></a>4. 变量的缓存机制 (仅对python3.6版本负责)</h2> <p><strong>python3.7 和 python3.8 的缓存机制 : 只要两个值相同,就之开辟一个空间</strong></p> <h3> <a id="1_Number__213" rel="nofollow"></a>1. Number 数字类型数据</h3> <pre><code># 1. int 对于整型而言, -5 ~ 正无穷范围内的相同值 id一致 			var1 = 111 			var2 = 222 			var3 = -6 			var4 = -6 			var5 = var6 = -100 # 相同的地址 			print(id(var1) , id(var2)) 			print(id(var3) , id(var4)) 			print(id(var5) , id(var6)) # 2. float 对应浮点型而言, 非负数范围内的相同值 id一致 			var1 = 3.14 			var2 = 3.14 			var3 = -3.14 			var4 = -3.14 			print(id(var1) , id(var2)) 			print(id(var3) , id(var4)) # 3. bool 对应布尔型而言,值相同的情况下 id一致 			var1 = True 			var2 = False 			print(id(var1) , id(var2)) # 4. complex 复数 : 实数 + 虚数 =&gt; 这样的结构中 id永不相同 (只有虚数的情况例外) 			var1 = 3+4j 			var2 = 3+4j 			var3 = 21j 			var4 = 21j 			print(id(var1) , id(var2)) 			print(id(var3) , id(var4)) </code></pre> <h3> <a id="2__241" rel="nofollow"></a>2. 容器类型数据</h3> <pre><code># 1. 字符串 和 空元组 相同的情况下,地址相同 			var1 = "三叉戟" 			var2 = "三叉戟" 			var3 = () 			var4 = () 			print(id(var1) , id(var2)) 			print(id(var3) , id(var4)) # 2. 列表,元组,字典,集合无论什么情况 id都不相同 (空元组除外) 			var1 = (1,2,3) 			var2 = (1,2,3) 			print(id(var1) , id(var2)) </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-22687.htm">活体买卖的法律纠纷 活体买卖的法律纠纷诈骗</a></p>
+                                        <p>下一个：<a href="/news/article-23150.htm">南宁领养宠物中心在哪里（南宁宠物领养南宁宠物赠送）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe-links.htm" title="「11月17日」最高速度22.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月17日」最高速度22.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-node-share.htm" title="「9月26日」最高速度20.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「9月26日」最高速度20.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-23614.htm" title="动物医院管理办法最新修订时间（动物医院管理流程）">动物医院管理办法最新修订时间（动物医院管理流程）</a></li>
+                        <li class="py-2"><a href="/news/article-20857.htm" title="宠物领养的软件（宠物领养的平台）">宠物领养的软件（宠物领养的平台）</a></li>
+                        <li class="py-2"><a href="/news/article-22686.htm" title="SpringBoot深入浅出系列集成Elasticsearch">SpringBoot深入浅出系列集成Elasticsearch</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-high-speed-nodes.htm" title="「9月27日」最高速度18.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「9月27日」最高速度18.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22687.htm" title="活体买卖的法律纠纷 活体买卖的法律纠纷诈骗">活体买卖的法律纠纷 活体买卖的法律纠纷诈骗</a></li>
+                        <li class="py-2"><a href="/news/article-21315.htm" title="宠物粮食股票代码（国产宠物粮股票）">宠物粮食股票代码（国产宠物粮股票）</a></li>
+                        <li class="py-2"><a href="/news/article-23615.htm" title="成人自考校考一般都会让过吗（自考里面的校考容易过吗）">成人自考校考一般都会让过吗（自考里面的校考容易过吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-22-node-share.htm" title="「9月22日」最高速度22.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「9月22日」最高速度22.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
