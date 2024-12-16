@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-26371.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>SpringBoot实现动态定时任务</title>
+        <meta name="description" content="项目情况： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在当前项目中需要一个定时任务来清除过期的校验码，如果使用数据库存储过程的话不方便维护。因此" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                <span>Singbox Node</span>
+                            </a>
+                                                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">SpringBoot实现动态定时任务</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				<div id="content_views" class="htmledit_views"> <p>项目情况：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 在当前项目中需要一个定时任务来清除过期的校验码，如果使用数据库存储过程的话不方便维护。因此采用SpringBoot自带的方式来设置定时任务。</p> <p>技术说明：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SpringBoot自带的方式有两种可以实现：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 一种是使用@<span style="color:#808000;">Scheduled</span>注解的方式，只需要在启动类或者它所在的类上添加<span style="color:#808000;">@EnableScheduling<span style="color:#666666;">注解</span></span><span style="color:#666666;"></span>允许执行定时任务，并且设置Schecduled注解的参数，诸如:</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.cron是设置定时执行的表达式，如 0 0/5 * * * ?每隔五分钟执行一次</p> <p>&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; 2.zone表示执行时间的时区</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.fixedDelay 和fixedDelayString 表示一个固定延迟时间执行，上个任务完成后，延迟多长时间执行</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.fixedRate 和fixedRateString表示一个固定频率执行，上个任务开始后，多长时间后开始执行</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.initialDelay 和initialDelayString表示一个初始延迟时间，第一次被调用前延迟的时间</p> <p>&nbsp;&nbsp;&nbsp; 示例代码如下：</p> <pre><code class="language-java">package com.allcom.service;  import com.allcom.dao.MysqlDao; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.scheduling.annotation.Scheduled; import org.springframework.stereotype.Service;  /** * @Author: zy * @Description: 定时任务 * @Date: 2018/7/12_15:15 **/ @Service public class TaskService {      @Autowired     private MysqlDao mysqlDao;      @Scheduled(fixedRate = 5*1000)     public void deleteInvalidCheckCode() {         mysqlDao.deleteInvalidCheckCode();     }   }</code></pre> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 另一种方式是通过自定义配置类的方式，步骤如下：</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第一步：新建一个类实现SchedulingConfigurer接口，并添加@Configuration注解，@EnableScheduling注解可以写在这里也可以写在启动类上，这里我写在了启动类上。</p> <p align="center">&nbsp;&nbsp;&nbsp; <img fetchpriority="high" decoding="async" src="http://img.555519.xyz/uploads/20230108/f5f268c1f417b5bd9f5111caf6a0c7a8.jpg" alt="SpringBoot实现动态定时任务" width="452" height="270"></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 第二步： 重写configureTasks方法如下代码所示：</p> <pre><code class="language-java">package com.allcom.task;  import com.allcom.service.TaskService; import org.apache.ibatis.annotations.Mapper; import org.apache.ibatis.annotations.Select; import org.springframework.beans.factory.annotation.Autowired; import org.springframework.context.annotation.Configuration; import org.springframework.scheduling.Trigger; import org.springframework.scheduling.TriggerContext; import org.springframework.scheduling.annotation.SchedulingConfigurer; import org.springframework.scheduling.config.ScheduledTaskRegistrar; import org.springframework.scheduling.support.CronTrigger;    import java.util.Date;   @Configuration public class MyScheduledTask implements SchedulingConfigurer {      @Mapper     public interface CronMapper {         @Select("select cron from user_cron limit 1")         String getCron();     }      @Autowired     @SuppressWarnings("all")     CronMapper cronMapper;       @Autowired     @SuppressWarnings("all")     private TaskService taskService;      @Override     public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {            scheduledTaskRegistrar.addTriggerTask(new Runnable() {                @Override                public void run() {                    try {                        taskService.deleteInvalidCheckCode();  //异步定时操作                    } catch (Exception e) {                        e.printStackTrace();                    }                }            }, new Trigger() {                @Override                public Date nextExecutionTime(TriggerContext triggerContext) {                    String cron =cronMapper.getCron();                     if("".equals(cron)||cron==null)                         return null;                    //定时任务触发,可修改定时任务的执行周期                    CronTrigger trigger=new CronTrigger(cron);                    Date nextExecDate= trigger.nextExecutionTime(triggerContext);                    return nextExecDate;                }            });     } } </code></pre> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 第三步：启动项目，定时任务就自动添加了。</p> <p>&nbsp;&nbsp; 注意：这里我使用的是@Mapper注解使用Mybatis写了一个获取cron表达式的接口，可以从数据库中查询自定义表的cron字段值。这样的话项目运行的过程中，不用重新启动项目，只需要修改数据库中的字段值就可以动态的修改定时任务中的cron值，实现动态修改定时任务执行时间的功能。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 但是，这种方式有一个缺点就是，将数据库cron字段值设为null或者“”以及不正确的值，这样定时任务就会停止执行，这样就算你下一次再给cron字段添加了正确的值，项目也不会执行定时任务了，这个时候就需要重新启动数据库才行。</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 这种方式适合于前台给几个特定的值给用户选择，不能让用户随便填。</p> <p>附定时任务执行内容：</p> <pre><code class="language-java">/** * @Author: zy * @Description: 删除用户过期的校验码 * @Date: 2018/7/12_15:20 **/ @Delete("DELETE from registinfo where id in (select id from (SELECT id FROM registinfo WHERE TIMESTAMPDIFF(MINUTE,lastupdatetime,NOW()) &gt;= 15)a )") void deleteInvalidCheckCode();</code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25927.htm">动物打一针疫苗多少钱啊图片大全（小动物打疫苗多少钱一只）</a></p>
+                                        <p>下一个：<a href="/news/article-26374.htm">养猫打一次疫苗多少钱（养只猫打疫苗多少钱）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24453.htm" title="新疆和田哪里有宠物医院呀 新疆和田哪里有宠物医院呀电话">新疆和田哪里有宠物医院呀 新疆和田哪里有宠物医院呀电话</a></li>
+                        <li class="py-2"><a href="/news/article-19941.htm" title="动物疫苗品牌排行前十（动物疫苗品牌排行前十名有哪些）">动物疫苗品牌排行前十（动物疫苗品牌排行前十名有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-node-share.htm" title="「9月2日」最高速度22.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「9月2日」最高速度22.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-node-share.htm" title="「11月7日」最高速度18.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月7日」最高速度18.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-node-share-links.htm" title="「11月16日」最高速度20.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月16日」最高速度20.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-node-share.htm" title="「8月26日」最高速度19.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「8月26日」最高速度19.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-high-speed-nodes.htm" title="「12月6日」最高速度22.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月6日」最高速度22.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-free-high-speed-nodes.htm" title="「11月25日」最高速度18M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月25日」最高速度18M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-subscribe-node.htm" title="「10月31日」最高速度22.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月31日」最高速度22.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-20396.htm" title="mysql驱动依赖中mysql-connector-java爆红的原因。">mysql驱动依赖中mysql-connector-java爆红的原因。</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">47</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">7</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
