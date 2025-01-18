@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-42729.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Jpa框架下拼接原生sql 并执行</title>
+        <meta name="description" content="利用jpa的entityManager 执行sql 并执行 其中： EntityManager.createNativeQuery(SQL)返回的是Object对象 entityManager.cre" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-42729.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="Jpa框架下拼接原生sql 并执行" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/58ea9c0795c5e014ff8cacb706be34ae.webp" />
+        <meta property="og:release_date" content="2025-01-18T07:16:01" />
+    <meta property="og:updated_time" content="2025-01-18T07:16:01" />
+        <meta property="og:description" content="利用jpa的entityManager 执行sql 并执行 其中： EntityManager.createNativeQuery(SQL)返回的是Object对象 entityManager.cre" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                <span>Singbox Node</span>
+                            </a>
+                                                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">Jpa框架下拼接原生sql 并执行</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>利用jpa的entityManager 执行sql 并执行<br /> 其中：<br /> EntityManager.createNativeQuery(SQL)返回的是Object对象<br /> entityManager.createNativeQuery(SQL,WebInfo.class)返回的是映射后的实例对象</p> <p>Query.getSingleResult() 执行SQL语句，返回一个查询结果，常用的还有以下方法<br /> Query.getResultList() () 执行SQL语句，返回一个List集合<br /> Query.getFirstResult() () 执行SQL语句，返回一个系列结果集合的第一个</p> <p>直接上例子：</p> <ol> <li>EntityManager.createNativeQuery(SQL)返回的是Object对象<br /> entityManager.createNativeQuery(SQL,WebInfo.class)返回的是映射后的实例对象</li> </ol> <pre><code>  public List&lt;User&gt; getByCompanyFinanceRoleManager(Long companyID , String authorityName){         StringBuffer querySql = new StringBuffer("select a.* from art_user a , art_user_authority b where a.id = b.user_id and a.company_id = :companyId " +                 " and b.authority_name =  :authorityName");         Query query = entityManager.createNativeQuery(querySql.toString() , User.class);         query.setParameter("companyId" , companyID);         query.setParameter("authorityName" , authorityName);         List&lt;User&gt; list = query.getResultList();         return list;     }</code></pre> <ol start="2"> <li>Query.getSingleResult() 执行SQL语句，返回一个查询结果</li> </ol> <pre><code>  public Long getByFinanceRoleApplicationCount(ApplicationSearchParamDTO param){         StringBuffer queryCount = new StringBuffer("select count(er.id) from atl_application er , atl_loan_application b where er.application_oid = b.application_oid and er.status not in (1010 ,1011)");         getSql(queryCount , param);         Query count = entityManager.createNativeQuery(queryCount.toString() );         setQueryParam(count , param);         Object obj = count.getSingleResult();         Long countNum = ((BigInteger) obj).longValue();         return countNum;     }  public void getSql(StringBuffer querySql , ApplicationSearchParamDTO param ){         //公司oid         if (!StringUtils.isEmpty(param.getCompanyOID())) {             querySql.append(" and er.company_oid = :companyOID ");         }         //申请人oid         if (CollectionUtils.isNotEmpty(param.getApplicantOIDs())){             querySql.append(" and er.applicant_oid in ( :applicantOID ) ");         }         if (!StringUtils.isEmpty(param.getBusinessCode())){             querySql.append(" and b.business_code like CONCAT('%' , :businessCode , '%') ");         }         if (CollectionUtils.isNotEmpty(param.getDepartmentOIDs()) &amp;&amp; CollectionUtils.isNotEmpty(param.getFinanceRoleCorporationOids()) &amp;&amp; CollectionUtils.isEmpty(param.getCorporationOIDs())) {             querySql.append(" and ( b.department_oid in ( :departmentOID ) or er.corporation_oid in ( :corporationOID ) OR b.department_oid is null OR er.corporation_oid is null )");         }else if(CollectionUtils.isNotEmpty(param.getDepartmentOIDs()) &amp;&amp; CollectionUtils.isEmpty(param.getCorporationOIDs())){             querySql.append(" and ( b.department_oid in ( :departmentOID ) OR b.department_oid is null ) ");         }else if(CollectionUtils.isNotEmpty(param.getFinanceRoleCorporationOids()) &amp;&amp; CollectionUtils.isEmpty(param.getCorporationOIDs())){             querySql.append(" and ( er.corporation_oid in ( :corporationOID ) OR er.corporation_oid is null ) ");         }         if (CollectionUtils.isNotEmpty(param.getCorporationOIDs())){             querySql.append(" and er.corporation_oid in ( :corporationOID ) ");         }         //开始时间         if (param.getStartDate() != null) {             querySql.append(" and er.last_modified_date &gt;= :startDate ");         }         //结束时间         if (param.getEndDate() != null) {             querySql.append(" and er.last_modified_date &lt;= :endDate ");         }         //单据类型         if (CollectionUtils.isNotEmpty(param.getType())) {             querySql.append(" and er.type in ( :type ) ");         }         //单据状态         if (CollectionUtils.isNotEmpty(param.getStatus())) {             querySql.append(" and er.status in ( :status )");         }        /* //申请单oid         if (CollectionUtils.isNotEmpty(param.getApplicationOIDs())) {             querySql.append(" and er.application_oid in ( :applicationOID )");         }*/          //反选         if(CollectionUtils.isNotEmpty(param.getExcludedApplicationOIDs())){             querySql.append(" and er.application_oid not in ( :excludedApplicationOID )");         }     }</code></pre> <ol start="3"> <li>Query.getResultList()</li> </ol> <pre><code>    public List&lt;DepartmentDTO&gt; getDepartmentsOfReportLine(UUID reportLineOID) {         String sql = "SELECT d.department_oid, d.`name` FROM art_department d INNER JOIN art_report_obj ro on ro.obj_oid = d.department_oid AND ro.obj_type = '2' "             + "and ro.report_line_oid = '" + reportLineOID + "'";         Query query = entityManager.createNativeQuery(sql);         List&lt;DepartmentDTO&gt; list = new ArrayList&lt;&gt;();         List&lt;Object[]&gt; rtList = query.getResultList();         for (Object[] objects : rtList) {             DepartmentDTO departmentDTO = new DepartmentDTO();             departmentDTO.setDepartmentOID(UUID.fromString(objects[0].toString()));             departmentDTO.setName(objects[1].toString());             list.add(departmentDTO);         }         return list;     }     ```  直接参考例子，拼接正确sql 即可。   如果觉得本篇文章帮到你的话， 请关注我新建的公众号： **程序员BenJi ** 定期分享优质的知识思维导图，帮助大家建立结构化的知识体系，欢迎关注~</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-42726.htm">SpringBoot注解内容的动态配置</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-28248.htm" title="自己给宠物打疫苗（自己给宠物打疫苗算无证行医吗）">自己给宠物打疫苗（自己给宠物打疫苗算无证行医吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-node-subscribe.htm" title="「10月25日」最高速度20.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月25日」最高速度20.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-node-share.htm" title="「1月17日」最高速度20M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月17日」最高速度20M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-subscribe-node.htm" title="「10月9日」最高速度18.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月9日」最高速度18.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-free-node-subscribe.htm" title="「1月3日」最高速度21.5M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月3日」最高速度21.5M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-32984.htm" title="猫三联每针多久打一次疫苗（猫三联要隔多久打一针）">猫三联每针多久打一次疫苗（猫三联要隔多久打一针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-node-subscribe-links.htm" title="「12月22日」最高速度18.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月22日」最高速度18.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-32514.htm" title="成都宠物领养平台正规吗现在（成都宠物领养网免费）">成都宠物领养平台正规吗现在（成都宠物领养网免费）</a></li>
+                        <li class="py-2"><a href="/news/article-22686.htm" title="SpringBoot深入浅出系列集成Elasticsearch">SpringBoot深入浅出系列集成Elasticsearch</a></li>
+                        <li class="py-2"><a href="/news/article-34894.htm" title="比较好的狗粮牌子（质量最好的狗粮）">比较好的狗粮牌子（质量最好的狗粮）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
