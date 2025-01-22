@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-44720.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>分布式应用运行时 Dapr 1.7 发布</title>
+        <meta name="description" content="Dapr 是一个开源、可移植的、事件驱动的运行时，可以帮助开发人员构建在云和边缘上运行的弹性的、微服务的、无状态和有状态应用程序，并且关注于业务逻辑而不用考虑分布式相关的问题。 分布式相关的问题交给D" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-44720.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="分布式应用运行时 Dapr 1.7 发布" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/3632c734aaea8d83684bbb1178b44c3b.webp" />
+        <meta property="og:release_date" content="2025-01-22T10:15:07" />
+    <meta property="og:updated_time" content="2025-01-22T10:15:07" />
+        <meta property="og:description" content="Dapr 是一个开源、可移植的、事件驱动的运行时，可以帮助开发人员构建在云和边缘上运行的弹性的、微服务的、无状态和有状态应用程序，并且关注于业务逻辑而不用考虑分布式相关的问题。 分布式相关的问题交给D" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="分布式应用运行时 Dapr 1.7 发布">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                <span>Singbox Node</span>
+                            </a>
+                                                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">分布式应用运行时 Dapr 1.7 发布</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>Dapr 是一个开源、可移植的、事件驱动的运行时，可以帮助开发人员构建在云和边缘上运行的弹性的、微服务的、无状态和有状态应用程序，并且关注于业务逻辑而不用考虑分布式相关的问题。 分布式相关的问题交给Dapr来解决。</p> <p>2022年4月8日正式发布了1.7 版本， 这是<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://mp.weixin.qq.com/s?__biz=MjM5MTc4MDM1MQ==&amp;mid=2651733524&amp;idx=1&amp;sn=caf8d308604fb3e1aab00a8e8fe707c3&amp;chksm=bd4ac2848a3d4b92d00f2f52ada62ff48d581b69d543ce570aa05e4c0d7f9443ba7a18895afd&amp;scene=21#wechat_redirect"  rel="nofollow">这是自Dapr v1.0 发布</a>以来的第七次小版本更新，Dapr 1.7.0 版本的贡献者数量最多。我们要感谢所有 83 位新的和现有的贡献者，他们帮助实现了这个版本。 这次更新的内容很多都是大家期盼的功能，例如支持离线部署、更多的成熟Stable组件等，接下来我们一起来看看更新的内容。</p> <h5><span style="font-size: small"><span style="font-weight: normal">1、跨 Dapr API 配置重试、超时和断路器 ，这部分我也写了一篇文章：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/shanyou/p/15996654.html"  rel="nofollow">Dapr 弹性的策略</a>，Dapr 1.7.0 实现了第一阶段目标。分布式应用程序通常由许多服务组成，任何给定应用程序都有数十个甚至数百个实例。这些应用程序并非孤立存在，而是多次依赖于数据库、缓存、发布/订阅、秘密存储和其他基础设施服务。随着更多的依赖关系，系统故障的可能性增加。例如，由于硬件故障、数据库运行缓慢、请求数量过多、应用程序重新启动/横向扩展或其他几个原因，实例可能会失败或无响应。设计和实施具有容错能力（检测、缓解和响应故障的能力）的应用程序可以使您的应用程序恢复到正常运行状态并自我修复，还有助于防止级联故障一直到您的基础设施服务。</span></span></h5> <p>Dapr 提供了通过弹性规范定义和应用<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/resiliency/"  rel="nofollow">容错弹性策略的能力。</a>弹性规范保存在与组件规范相同的位置，并在 Dapr sidecar 启动时应用。Sidecar确定如何将<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/resiliency/policies/"  rel="nofollow">弹性策略</a>应用于您的 Dapr API 调用。在弹性规范中，您可以为流行的弹性模式定义策略，例如：</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/resiliency/policies/#timeouts"  rel="nofollow">超时</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/resiliency/policies/#retries"  rel="nofollow">重试</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/resiliency/policies/#circuit-breakers"  rel="nofollow">断路器</a></li> </ul> <p>然后可以将策略一致地应用于目标，其中包括：</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/resiliency/targets/#apps"  rel="nofollow">通过服务调用的应用程序</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/resiliency/targets/#components"  rel="nofollow">组件</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/resiliency/targets/#actors"  rel="nofollow">Actor</a></li> </ul> <p>2、在可观测性方面进一步加强，为了提高操作的可见性，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dapr/dapr/blob/release-1.7/docs/development/dapr-metrics.md#dapr-component-metrics"  rel="nofollow">组件中添加了新的指标</a>，包括发布/订阅、绑定、状态存储等。例如：</p> <ul> <li>使用组件时的延迟。</li> <li>调用给定组件的次数。</li> </ul> <h6><span style="font-weight: normal; font-size: small">Dapr 运行时</span><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/troubleshooting/logs-troubleshooting/"  rel="nofollow"><span style="font-weight: normal; font-size: small">将事件记录</span></a><span style="font-weight: normal; font-size: small">到标准输出以便于诊断；例如，列出启动时加载的组件的其他运行时信息。使用此版本，您现在可以：</span></h6> <ul> <li>打开应用程序和 Dapr sidecar 之间<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/troubleshooting/api-logs-troubleshooting/"  rel="nofollow">API 调用的日志记录。</a></li> <li>在输出日志中查看这些调用。</li> </ul> <p>3、组件改进，在之前的 Dapr 版本中具有稳定候选版本的以下组件已升级为<strong>稳定</strong>版本，特别是MQTT 发布订阅组件的进入稳定状态，对于在边缘计算的采用提供了一个非常好的支持：</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-pubsub/setup-mqtt/"  rel="nofollow">MQTT 发布/订阅</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-pubsub/setup-rabbitmq/"  rel="nofollow">RabbitMQ 发布/订阅</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-bindings/blobstorage/"  rel="nofollow">Azure Blob 存储绑定</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-bindings/cosmosdb/"  rel="nofollow">Azure CosmosDB 绑定</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-bindings/servicebusqueues/"  rel="nofollow">Azure 服务总线队列绑定</a></li> </ul> <p>在这个版本中添加了3个状态组件，一共有23个状态组件了，华为云也开始提交了一个新的状态组件，1.8 版本会成为新增的状态组件。</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-state-stores/setup-cockroachdb/"  rel="nofollow">CockroachDB 状态存储组件</a>见<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dapr/components-contrib/issues/1556"  rel="nofollow">1556</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-state-stores/setup-jetstream-kv/"  rel="nofollow">NATS JetStream 状态存储组件</a>参见<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dapr/components-contrib/issues/1422"  rel="nofollow">1422</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-state-stores/setup-oracledatabase/"  rel="nofollow">Oracle 数据库状态存储组件</a>参见<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dapr/components-contrib/issues/1444"  rel="nofollow">1444</a></li> </ul> <p>在现有组件中加入了新的功能:</p> <p>influxdb<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-bindings/influxdb/"  rel="nofollow">绑定</a>现在支持<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/components-reference/supported-bindings/influxdb/#query"  rel="nofollow">查询</a>。在这个版本中，现在共有 97 个组件，包括 41 个绑定、1 个配置、8 个 HTTP 中间件、3 个名称解析、13 个 pub/sub、8 个秘密存储和 23 个状态存储。</p> <p>4、功能从预览版移至稳定版</p> <p>在至少两个版本可用并征求反馈和修复后，一些功能从<strong>预览</strong>状态转移到<strong>稳定状态。</strong>此版本中的以下功能现已稳定：</p> <ul> <li>Actor<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/developing-applications/building-blocks/actors/actor-reentrancy/"  rel="nofollow">重入</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/developing-applications/building-blocks/service-invocation/howto-invoke-services-grpc/"  rel="nofollow">gRPC 代理</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/developing-applications/building-blocks/state-management/howto-encrypt-state/"  rel="nofollow">自动状态存储加密</a>，包括添加对使用 128 位、192 位和 256 位密钥大小的新支持。</li> </ul> <p>5、CLI 更新</p> <p>Kubernetes 命名空间支持</p> <p><span style="text-decoration: underline"><span style="color: rgba(70, 70, 70, 1)">CLI 的命令</span></span><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/cli/dapr-components/"  rel="nofollow"><code>components</code></a>,<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/cli/dapr-configurations/"  rel="nofollow"><code>configurations</code></a>, 和<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/cli/dapr-list/"  rel="nofollow"><code>list</code></a> 在返回的输出结果中支持Kubernetes的命名空间</p> <p>简化新根证书和应用程序证书的更新：</p> <ul> <li>引入了<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/cli/dapr-mtls/dapr-mtls-export/"  rel="nofollow">dapr mtls renew-certificate</a>命令，可以更轻松地解决集群中的根证书到期和续订问题。</li> <li><code>-k</code>如果根证书到期时间不足 30 天，任何使用 Kubernetes 选项的 CLI 命令现在都会引发警告消息。</li> </ul> <p>6、在自托管模式下安装 Dapr 的新方法</p> <p><strong>私有和备用映像注册表（预览）</strong><br />在自托管模式下，CLI<code>init</code>命令现在可以：</p> <ul> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/reference/cli/dapr-init/"  rel="nofollow">指定任何私有注册表以提取</a>安装 Dapr 所需的容器Image。</li> <li>提供选择公共 Docker hub 或 Github 存储库的能力。这使您能够： <ul> <li>将Image放置在您选择的受信任存储库中。</li> <li>在Image 限制的情况下从不同的公共资源中提取。</li> </ul> </li> </ul> <p><strong></strong></p> <p><strong>离线安装（预览版）</strong></p> <p><strong></strong>默认情况下，Dapr 会下载二进制文件并从网络中提取Image 以设置开发环境。在此版本中，Dapr 现在支持使用预下载的制品进行离线 安装，无论是使用 Docker 还是silm环境。每个 Dapr 版本的制品现在都内置在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dapr/installer-bundle"  rel="nofollow">Dapr Installer Bundle</a>中，可以从 repo :<a title="https://github.com/dapr/installer-bundle" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dapr/installer-bundle"  rel="nofollow">https://github.com/dapr/installer-bundle</a> 下载。<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://v1-7.docs.dapr.io/operations/hosting/self-hosted/self-hosted-airgap/"  rel="nofollow">通过将此安装程序包与 Dapr CLI<code>init</code>命令</a>一起使用，从而实现离线安装。</p> <p>7、性能改进</p> <h6><span style="font-size: small"><span style="font-weight: normal">Unix 域套接字现在在 Kubernetes 上可用，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.dapr.io/reference/arguments-annotations-overview/"  rel="nofollow">现在，您可以在使用注释</a>&nbsp; dapr.io/unix-domain-socket-path 调用 Dapr sidecar 时将 Unix Domain Sockets 与 Kubernetes（以及自托管）一起使用，以提高吞吐量并降低延迟。</span></span></h6> <p>如果您不熟悉 Dapr，请访问<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.dapr.io/getting-started/"  rel="nofollow">入门</a>页面并熟悉 Dapr。 文档已更新，包含此版本的所有新功能和更改。通过<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.dapr.io/concepts/"  rel="nofollow">概念</a>和<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.dapr.io/developing-applications/"  rel="nofollow">开发应用程序</a>文档开始使用此版本中引入的新功能。要将 Dapr 升级到 1.7.0 版，请跳至<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.dapr.io/posts/2022/04/08/dapr-v1.7-is-now-available/#upgrading-to-dapr-1.7.0"  rel="nofollow">本节</a>。</p> <p>更多详情，参见<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/dapr/dapr/releases/tag/v1.7.0"  rel="nofollow">https://github.com/dapr/dapr/releases/tag/v1.7.0</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-44719.htm">利用 onnxruntime 库同时推理多个模型的效率研究</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-33936.htm" title="12306宠物托运价格表（12306宠物托运官网）">12306宠物托运价格表（12306宠物托运官网）</a></li>
+                        <li class="py-2"><a href="/news/article-22235.htm" title="win11系统找不到记事本如何解决">win11系统找不到记事本如何解决</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-high-speed-nodes.htm" title="「10月13日」最高速度18.7M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月13日」最高速度18.7M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-free-high-speed-nodes.htm" title="「12月28日」最高速度19.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月28日」最高速度19.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-subscribe-node.htm" title="「12月7日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月7日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-31076.htm" title="MSSQL基本语法及实例操作语句_MsSql_">MSSQL基本语法及实例操作语句_MsSql_</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-free-subscribe-node.htm" title="「10月23日」最高速度20.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月23日」最高速度20.3M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21723.htm" title="宠物店一年利润怎么样北京（北京开宠物店一月盈利多少）">宠物店一年利润怎么样北京（北京开宠物店一月盈利多少）</a></li>
+                        <li class="py-2"><a href="/news/article-37790.htm" title="win11系统怎么关闭自动锁屏">win11系统怎么关闭自动锁屏</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-node-subscribe-links.htm" title="「1月19日」最高速度22.5M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月19日」最高速度22.5M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
