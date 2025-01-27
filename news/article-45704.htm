@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-45704.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>ES6基础语法之模块化介绍_基础知识</title>
+        <meta name="description" content="ES6 引入了模块化， ES6 的模块化分为导出（export） @与导入（import）两个模块。 ES6模块化特点： （1）ES6 的模块自动开启严格模式，不管你有没有在模块头部加上 use st" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-45704.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="ES6基础语法之模块化介绍_基础知识" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/7f6af7867bc39696f3d2707a3146a366.webp" />
+        <meta property="og:release_date" content="2025-01-24T09:28:50" />
+    <meta property="og:updated_time" content="2025-01-24T09:28:50" />
+        <meta property="og:description" content="ES6 引入了模块化， ES6 的模块化分为导出（export） @与导入（import）两个模块。 ES6模块化特点： （1）ES6 的模块自动开启严格模式，不管你有没有在模块头部加上 use st" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ES6基础语法之模块化介绍_基础知识">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                <span>Singbox Node</span>
+                            </a>
+                                                        <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">ES6基础语法之模块化介绍_基础知识</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>ES6 引入了模块化， ES6 的模块化分为导出（export） @与导入（import）两个模块。</p> <p><strong>ES6模块化特点：</strong></p> <p>（1）ES6 的模块自动开启严格模式，不管你有没有在模块头部加上 <strong>use strict;</strong>。</p> <p>（2） 模块中可以导入和导出各种类型的变量，如函数，对象，字符串，数字，布尔值，类等。</p> <p>（3） 每个模块都有自己的上下文，每一个模块内声明的变量都是局部变量，不会污染全局作用域。</p> <p>（4） 每一个模块只加载一次（是单例的）， 若再去加载同目录下同文件，直接从内存中读取。</p> <h2>一、export与import基本使用</h2> <p><strong>export 命令用于导出， import 命令 用于导入：</strong></p> <p>module1.js</p> <div class="ay1code"> <pre class="brush:js;">// export let name = "孙悟空";  // export let sex = "男";  //或  let name = "孙悟空";  let sex = "男";  export {name,sex};</pre> </div> <p>test1.js</p> <div class="ay1code"> <pre class="brush:js;">// import { name,sex } from "../export/module1.js";  // console.log(name); //孙悟空  // console.log(sex);  //男  //或导入部分变量  import { sex } from "../export/module1.js";  console.log(sex);  //男</pre> </div> <p>Demo01.html</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!--       module1.js:模块代码,通过export暴露变量      test1.js:导入module1.js提供的变量      Demo01.html:引入test1.js内容  --&gt;  &lt;script type="module" src="import/test1.js"&gt;&lt;/script&gt;</pre> </div> <h2>二、网页中直接import模块</h2> <p>module1.js</p> <div class="ay1code"> <pre class="brush:js;">// export let name = "孙悟空";  // export let sex = "男";  //或  let name = "孙悟空";  let sex = "男";  export {name,sex};</pre> </div> <p>HTML:</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!DOCTYPE html&gt;  &lt;html&gt;  	&lt;head&gt;  		&lt;meta charset="utf-8"&gt;  		&lt;title&gt;网页中import模块&lt;/title&gt;  	&lt;/head&gt;  	&lt;body&gt;  		&lt;h1&gt;姓名:&lt;span id="spanName"&gt;&lt;/span&gt;&lt;/h1&gt;  		&lt;h1&gt;性别:&lt;span id="spanSex"&gt;&lt;/span&gt;&lt;/h1&gt;  	&lt;/body&gt;  &lt;/html&gt;  &lt;!--    module1.js:模块代码,通过export暴露变量   Demo02.html:导入module1.js提供的变量   --&gt;  &lt;script type="module"&gt;  	import {name,sex} from "./export/module1.js";  	document.getElementById("spanName").innerHTML = name;  	document.getElementById("spanSex").innerHTML = sex;  &lt;/script&gt;</pre> </div> <h2>三、as的使用</h2> <p><strong>（1）as在export中的用法：</strong>变量使用别名,隐藏模块内部的变量</p> <p>module2.js：</p> <div class="ay1code"> <pre class="brush:js;">let name = "孙悟空";  let sex = "男";  export {name as expName,sex as expSex};</pre> </div> <p>HTML:</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!DOCTYPE html&gt;  &lt;html&gt;  	&lt;head&gt;  		&lt;meta charset="utf-8"&gt;  		&lt;title&gt;as在export中的用法&lt;/title&gt;  	&lt;/head&gt;  	&lt;body&gt;  		&lt;h1&gt;姓名:&lt;span id="spanName"&gt;&lt;/span&gt;&lt;/h1&gt;  		&lt;h1&gt;性别:&lt;span id="spanSex"&gt;&lt;/span&gt;&lt;/h1&gt;  	&lt;/body&gt;  &lt;/html&gt;  &lt;!--    module2.js:模块代码,通过export暴露变量(变量使用别名,隐藏模块内部的变量)   Demo03.html:导入module2.js提供的变量   --&gt;  &lt;script type="module"&gt;  	import {expName,expSex} from "./export/module2.js";  	document.getElementById("spanName").innerHTML = expName;  	document.getElementById("spanSex").innerHTML = expSex;  &lt;/script&gt;</pre> </div> <p><strong>（2）as在import中的用法：</strong>导入多个模块的变量,使用as解决命名冲突。</p> <p>module1.js</p> <div class="ay1code"> <pre class="brush:js;">// export let name = "孙悟空";  // export let sex = "男";  //或  let name = "孙悟空";  let sex = "男";  export {name,sex};</pre> </div> <p>module3.js</p> <div class="ay1code"> <pre class="brush:js;">// export let name = "孙悟空";  // export let sex = "男";  //或  let name = "猪八戒";  let sex = "男";  export {name,sex};</pre> </div> <p>HTML:</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!DOCTYPE html&gt;  &lt;html&gt;  	&lt;head&gt;  		&lt;meta charset="utf-8"&gt;  		&lt;title&gt;as在import中的用法&lt;/title&gt;  	&lt;/head&gt;  	&lt;body&gt;  		&lt;h1&gt;姓名:&lt;span id="spanName1"&gt;&lt;/span&gt;&lt;/h1&gt;  		&lt;h1&gt;性别:&lt;span id="spanSex1"&gt;&lt;/span&gt;&lt;/h1&gt;  		&lt;hr /&gt;  		&lt;h1&gt;姓名:&lt;span id="spanName2"&gt;&lt;/span&gt;&lt;/h1&gt;  		&lt;h1&gt;性别:&lt;span id="spanSex2"&gt;&lt;/span&gt;&lt;/h1&gt;  	&lt;/body&gt;	  &lt;/html&gt;  &lt;!--    module1.js:模块代码(暴露name,sex)   module3.js:模块代码(暴露name,sex)   Demo04.html:导入两个模块的变量,使用as解决命名冲突   --&gt;  &lt;script type="module"&gt;  	import {name as name1,sex as sex1} from "./export/module1.js";  	import {name as name2,sex as sex2} from "./export/module3.js";  	document.getElementById("spanName1").innerHTML = name1;  	document.getElementById("spanSex1").innerHTML = sex1;  	document.getElementById("spanName2").innerHTML = name2;  	document.getElementById("spanSex2").innerHTML = sex2;  &lt;/script&gt;</pre> </div> <h2>四、导入模块中的函数和类</h2> <h3>（1）导入模块中的函数</h3> <p>module4.js</p> <div class="ay1code"> <pre class="brush:js;">// function Add(...items)  // {  // 	let sum = 0;  // 	for(let item of items)  // 	{  // 		sum += item;  // 	}  // 	return sum;  // }  // export{Add};  //或  export function Add(...items)  {  	let sum = 0;  	for(let item of items)  	{  		sum += item;  	}  	return sum;  };</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:js;">&lt;script type="module"&gt;  	//导入函数  	import {Add} from './export/module4.js';  	let result = Add(1,2,3,4,5);  	console.log(result); //15  &lt;/script&gt;</pre> </div> <h3>（2）导入模块中的类：</h3> <p>module4.js</p> <div class="ay1code"> <pre class="brush:js;">// class Student  // {  // 	constructor(stuno,stuname)   // 	{  // 		this.stuno = stuno;  // 		this.stuname = stuname;  // 	}  // 	sayHi()  // 	{  // 		console.log("大家好,我是"+this.stuname+",我的学号是"+this.stuno);  // 	}  // }  // export {Student};  //或  export class Student  {  	constructor(stuno,stuname)   	{  		this.stuno = stuno;  		this.stuname = stuname;  	}  	sayHi()  	{  		console.log("大家好,我是"+this.stuname+",我的学号是"+this.stuno);  	}  }</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//导入类  	import {Student} from './export/module4.js';  	let stu = new Student("001","孙悟空");  	stu.sayHi();  &lt;/script&gt;</pre> </div> <h2>五、import的特点</h2> <p>module5.js</p> <div class="ay1code"> <pre class="brush:js;">let name = "孙悟空";  let sex = "男";  let emp = {name:"孙悟空",sex:"男"};  export {name,sex,emp};</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//只读特点  	//import {name,sex,emp} from './export/module5.js';  	//(1)普通类型的值不能改变  	// name = "猪八戒"; //报错  	// sex = "男";//报错  	//(2)不能直接改变对象  	//emp = {name:"猪八戒",sex:"男"};  	//(3)可以改变变量的属性值  	// emp.name = "猪八戒";  	// emp.sex = "男";  	  	//单例特点  	//(1)下面两句import只会执行一次  	//import {name,sex,emp} from './export/module5.js';  	//import {name,sex,emp} from './export/module5.js';  	//(2)下面两句import相当于 import {name,sex} from './export/module5.js';  	// import {name} from './export/module5.js';  	// import {sex} from './export/module5.js';  	  	//静态特点  	//(1)不支持表达式  	//import {"na"+"me"} from './export/module5.js'; //报错  	//(2)不支持动态导入,以下代码也会报错  	// if(true)  	// 	import {name,sex} from './export/module5.js';  	// else  	// 	import {emp} from './export/module5.js';	  &lt;/script&gt;</pre> </div> <h2>六、模块的整体import加载</h2> <p>module5.js</p> <div class="ay1code"> <pre class="brush:js;">let name = "孙悟空";  let sex = "男";  let emp = {name:"孙悟空",sex:"男"};  export {name,sex,emp};</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//加载module5中所有暴露出来的内容  	import * as test from './export/module5.js';  	console.log(test.name);  	console.log(test.emp.name);  &lt;/script&gt;</pre> </div> <h2>七、export default命令</h2> <p>使用import命令的时候，用户需要知道所要加载的变量名或函数名，否则无法加载，export default 向外暴露的</p> <p>成员，可以使用任意变量来接收，解决上述问题。</p> <p><strong>export default 命令特点:</strong></p> <p>（1）在一个文件或模块中，export、import 可以有多个，export default 仅有一个。</p> <p>（2）export default 中的 default 是对应的导出接口变量。</p> <p>（3）导入导出不需要{}符号。</p> <p>（4）export default 向外暴露的成员，可以使用任意变量来接收。</p> <h3>（1）export default导出变量</h3> <p>module6.js</p> <div class="ay1code"> <pre class="brush:js;">//export default导出变量不需要var    //export var a = 10; // 正确    // 正确  var a = 10;  export default a;    // 错误  //export default var a = 10;</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//接受默认变量  	import b from './export/module6.js'; //此处可以用任意变量(b)来接受  	console.log(b);  &lt;/script&gt;</pre> </div> <h3>（2）export default导出函数</h3> <p>module6.js</p> <div class="ay1code"> <pre class="brush:js;">function Add(...items)  {  	let sum = 0;  	for(let item of items)  	{  		sum += item;  	}  	return sum;  }  //此处Add不需要{}  export default Add</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//接受默认函数  	import sum from './export/module6.js'; //此处可以用任意变量(sum)来接受  	let result = sum(1,2,3,4,5);  	console.log(result);  &lt;/script&gt;</pre> </div> <h2>八、export与import的复合写法</h2> <p>export 与 import 可以在同一模块使用，我们称为复合使用。</p> <h3>（1）复合使用的基本语法</h3> <p>module1.js</p> <div class="ay1code"> <pre class="brush:js;">// export let name = "孙悟空";  // export let sex = "男";  //或  let name = "孙悟空";  let sex = "男";  export {name,sex};</pre> </div> <p>module7.js</p> <div class="ay1code"> <pre class="brush:js;">//复合使用的语法  let emp = {name:"猪八戒",sex:"男"};    export { name, sex } from './module1.js';  // //上面的export等于如下：  // // import { name, sex } from './module1.js';  // // export { name, sex };    export {emp}</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//导入module7,在module7中导出module1内容  	import {name,sex,emp} from "./export/module7.js";  	console.log(name);  	console.log(emp.name);  &lt;/script&gt;</pre> </div> <h3>（2）复合写法实现接口改名</h3> <p>module1.js</p> <div class="ay1code"> <pre class="brush:js;">// export let name = "孙悟空";  // export let sex = "男";  //或  let name = "孙悟空";  let sex = "男";  export {name,sex};</pre> </div> <p>module7.js</p> <div class="ay1code"> <pre class="brush:js;">//复合写法实现接口改名  let emp = {name:"猪八戒",sex:"男"};  export { name as myname, sex as mysex } from './module1.js';  export {emp}</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//导入改名后的变量  	// import {myname,mysex,emp} from "./export/module7.js";  	// console.log(myname);  	// console.log(emp.name);	  &lt;/script&gt;</pre> </div> <h3>（3）转换为默认接口</h3> <p>module1.js</p> <div class="ay1code"> <pre class="brush:js;">// export let name = "孙悟空";  // export let sex = "男";  //或  let name = "孙悟空";  let sex = "男";  export {name,sex};</pre> </div> <p>module7.js</p> <div class="ay1code"> <pre class="brush:js;">// 转换为默认接口  let emp = {name:"猪八戒",sex:"男"};  export {name as default,sex} from './module1.js';  export {emp}</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//导入修改成默认接口的name,使用abc接收  	import abc from "./export/module7.js";  	import {sex,emp} from "./export/module7.js";  	console.log(abc);  	console.log(emp.name);  &lt;/script&gt;</pre> </div> <h3>（4）默认接口转换为命名接口</h3> <p>module6.js</p> <div class="ay1code"> <pre class="brush:js;">function Add(...items)  {  	let sum = 0;  	for(let item of items)  	{  		sum += item;  	}  	return sum;  }  //此处Add不需要{}  export default Add</pre> </div> <p>module7.js</p> <div class="ay1code"> <pre class="brush:js;">//将默认接口转换为命名接口  export {default as sum} from './module6.js';</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//导入默认接口转换成的sum接口  	import {sum} from "./export/module7.js";  	let result = sum(1,2,3,4,5);  	console.log(result);  &lt;/script&gt;</pre> </div> <h3>（5）导出所有接口</h3> <p>module1.js</p> <div class="ay1code"> <pre class="brush:js;">// export let name = "孙悟空";  // export let sex = "男";  //或  let name = "孙悟空";  let sex = "男";  export {name,sex};</pre> </div> <p>module7.js</p> <div class="ay1code"> <pre class="brush:js;">//导出所有  export * from './module1.js'</pre> </div> <p>HTML</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;script type="module"&gt;  	//接收导出的所有接口  	import {name,sex} from "./export/module7.js";  	console.log(name);  	console.log(sex);  &lt;/script&gt;</pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-45703.htm">Spring Boot运行原理</a></p>
+                                        <p>下一个：<a href="/news/article-46209.htm">获取java泛型真实类型的方式</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-free-high-speed-nodes.htm" title="「10月19日」最高速度19.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月19日」最高速度19.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-free-node-subscribe.htm" title="「10月26日」最高速度21.1M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月26日」最高速度21.1M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-high-speed-nodes.htm" title="「12月14日」最高速度22.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月14日」最高速度22.9M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21315.htm" title="宠物粮食股票代码（国产宠物粮股票）">宠物粮食股票代码（国产宠物粮股票）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-node-share-links.htm" title="「1月11日」最高速度23M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月11日」最高速度23M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-node-subscribe-links.htm" title="「12月10日」最高速度18.7M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月10日」最高速度18.7M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-32515.htm" title="农大动物医院几点关门营业（农大动物医院急诊电话）">农大动物医院几点关门营业（农大动物医院急诊电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-node-share-links.htm" title="「12月23日」最高速度20M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月23日」最高速度20M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21316.htm" title="动物防疫工作部署（2020年动物防疫工作计划）">动物防疫工作部署（2020年动物防疫工作计划）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-high-speed-nodes.htm" title="「11月21日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月21日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
