@@ -1,4 +1,4 @@
-# 「1月31日」最高速度22.5M/S，2025年Singbox Node每天更新免费机场订阅节点链接  更新时间 2025-01-31 07:35:37
+# 「2月6日」最高速度21.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接  更新时间 2025-02-06 05:36:20
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://sing-box-node.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://sing-box-node.github.io/uploads/2025/01/0-20250131.yaml
-- https://sing-box-node.github.io/uploads/2025/01/1-20250131.yaml
-- https://sing-box-node.github.io/uploads/2025/01/2-20250131.yaml
-- https://sing-box-node.github.io/uploads/2025/01/3-20250131.yaml
-- https://sing-box-node.github.io/uploads/2025/01/4-20250131.yaml
+- https://sing-box-node.github.io/uploads/2025/02/0-20250206.yaml
+- https://sing-box-node.github.io/uploads/2025/02/1-20250206.yaml
+- https://sing-box-node.github.io/uploads/2025/02/2-20250206.yaml
+- https://sing-box-node.github.io/uploads/2025/02/3-20250206.yaml
+- https://sing-box-node.github.io/uploads/2025/02/4-20250206.yaml
 
 ### V2ray订阅链接
 
-- https://sing-box-node.github.io/uploads/2025/01/0-20250131.txt
-- https://sing-box-node.github.io/uploads/2025/01/1-20250131.txt
-- https://sing-box-node.github.io/uploads/2025/01/2-20250131.txt
-- https://sing-box-node.github.io/uploads/2025/01/3-20250131.txt
-- https://sing-box-node.github.io/uploads/2025/01/4-20250131.txt
+- https://sing-box-node.github.io/uploads/2025/02/0-20250206.txt
+- https://sing-box-node.github.io/uploads/2025/02/1-20250206.txt
+- https://sing-box-node.github.io/uploads/2025/02/2-20250206.txt
+- https://sing-box-node.github.io/uploads/2025/02/3-20250206.txt
+- https://sing-box-node.github.io/uploads/2025/02/4-20250206.txt
 
 ### Sing-box订阅链接
 
-- https://sing-box-node.github.io/uploads/2025/01/20250131.json
+- https://sing-box-node.github.io/uploads/2025/02/20250206.json
 
 ## 更多clash节点订阅 ：
 

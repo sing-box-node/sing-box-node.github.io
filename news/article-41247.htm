@@ -8,7 +8,36 @@
     <title>异步复位同步释放在实际项目中的应用</title>
         <meta name="description" content="1 引言 最近看了“How do I reset my FPGA?”和一些时序分析的内容，发现之前ov5640图像采集项目中的几个问题： 问题1：用了全局时钟复位，全局复位一般具有高扇出（需要驱动的后" />
         <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-41247.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="异步复位同步释放在实际项目中的应用" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/0aeba513b7a84df95c93d617a55e6944.webp" />
+        <meta property="og:release_date" content="2025-01-15T09:51:27" />
+    <meta property="og:updated_time" content="2025-01-15T09:51:27" />
+        <meta property="og:description" content="1 引言 最近看了“How do I reset my FPGA?”和一些时序分析的内容，发现之前ov5640图像采集项目中的几个问题： 问题1：用了全局时钟复位，全局复位一般具有高扇出（需要驱动的后" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="异步复位同步释放在实际项目中的应用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Web Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
@@ -126,16 +155,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-node-subscribe-links.htm" title="「12月22日」最高速度18.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月22日」最高速度18.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-22687.htm" title="活体买卖的法律纠纷 活体买卖的法律纠纷诈骗">活体买卖的法律纠纷 活体买卖的法律纠纷诈骗</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share.htm" title="「12月13日」最高速度18.1M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月13日」最高速度18.1M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-38761.htm" title="免费领养宠物的软件有哪些（免费领养宠物的小程序）">免费领养宠物的软件有哪些（免费领养宠物的小程序）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-node-subscribe-links.htm" title="「10月18日」最高速度20.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月18日」最高速度20.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-29643.htm" title="学宠物美容后悔了（学宠物美容有出息吗）">学宠物美容后悔了（学宠物美容有出息吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-15-free-node-subscribe.htm" title="「12月15日」最高速度22.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月15日」最高速度22.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-31449.htm" title="动物疫苗排名前三名是什么 动物疫苗排名前三名是什么意思">动物疫苗排名前三名是什么 动物疫苗排名前三名是什么意思</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-subscribe-node.htm" title="「10月9日」最高速度18.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「10月9日」最高速度18.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-20397.htm" title="C#和TS/JS的对比学习02：函数与方法">C#和TS/JS的对比学习02：函数与方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-node-share.htm" title="「1月4日」最高速度20.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月4日」最高速度20.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-free-node-subscribe.htm" title="「1月31日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月31日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-node-share-links.htm" title="「11月10日」最高速度18.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月10日」最高速度18.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-node-subscribe-links.htm" title="「11月17日」最高速度22.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月17日」最高速度22.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-node-share-links.htm" title="「12月27日」最高速度18.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月27日」最高速度18.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-subscribe-node.htm" title="「1月25日」最高速度22.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月25日」最高速度22.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-29179.htm" title="动物疫苗的作用意义是什么意思啊（动物疫苗的重要性）">动物疫苗的作用意义是什么意思啊（动物疫苗的重要性）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe.htm" title="「11月26日」最高速度21.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月26日」最高速度21.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-24451.htm" title="宠物医院好评模板50字怎么写 宠物医院好评模板50字怎么写的">宠物医院好评模板50字怎么写 宠物医院好评模板50字怎么写的</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-node-share-links.htm" title="「1月23日」最高速度18.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月23日」最高速度18.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -147,16 +176,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
