@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-56670.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>关于Android安装apk出现解析包异常问题情况总结</title>
+        <meta name="description" content="说之前，可以推荐下各位使用这个开源库AndroidUtilCode，下面提及到的工具类，都是在此库中  以下说的解析包异常，是指进到安装页面就立马出现了错误提示 而不是在可以正常进入安装界面，然后点击" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-56670.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="关于Android安装apk出现解析包异常问题情况总结" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/246d752b0cd257f4d6be3a247a8989a4.webp" />
+        <meta property="og:release_date" content="2025-02-14T10:03:58" />
+    <meta property="og:updated_time" content="2025-02-14T10:03:58" />
+        <meta property="og:description" content="说之前，可以推荐下各位使用这个开源库AndroidUtilCode，下面提及到的工具类，都是在此库中  以下说的解析包异常，是指进到安装页面就立马出现了错误提示 而不是在可以正常进入安装界面，然后点击" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="关于Android安装apk出现解析包异常问题情况总结">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                        <span>Singbox Node</span>
+                                                        </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">关于Android安装apk出现解析包异常问题情况总结</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p><span style="font-size: 1em;">说之前，可以推荐下各位使用这个开源库</span><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/Blankj/AndroidUtilCode"  target="_blank" rel="nofollow" style="font-size: 1em;">AndroidUtilCode</a><span style="font-size: 1em;">，下面提及到的工具类，都是在此库中</span></p> <blockquote> <p>以下说的解析包异常，是指<strong>进到安装页面就立马出现了错误提示</strong></p> <p>而不是在可以正常进入安装界面，然后点击了安装按钮之后后，最后弹出个安装失败的提示</p> </blockquote> <p>这两个情况是有所区别的,需要注意！！</p> <p>而下面总结的6种情况，第6种情况就是进入到安装界面了，然后点击安装按钮，出现了127的错误码提示</p> <p>当然，遇到的情况不多，可能总结不全，若是有所遗漏，各位可以在评论区回复下</p> <h2 id="总结">总结</h2> <ol> <li>apk下载过程中损坏</li> <li>安装的代码有问题（没有申请对应权限）</li> <li>高版本下载apk不成功（apk文件读取不到导致报错）</li> <li>存储权限未申请，Android8以上，没有申请允许应用安装未知应用的权限</li> <li>apk要使用v1+v2签名，v2是适用于Android7.0以上版本的安装</li> <li>Android12版本安装才出现的问题，原因是清单文件中需要声明exported属性</li> </ol> <h2 id="1apk下载过程中损坏">1.apk下载过程中损坏</h2> <p>这个情况，没有太多展开可以说的，比较少见，及网络下载过程中，apk文件损坏了，导致解析包出现异常</p> <h2 id="2安装apk代码有问题">2.安装apk代码有问题</h2> <p>这里统一推荐使用<code>AppUtils.installApp();</code>方法去安装apk，里面进行了Android8.0的版本兼容处理，包含安装第三方应用的权限申请</p> <p>动态申请前，别忘了需要在清单文件中声明此权限</p> <pre><code>&lt;uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /&gt;</code></pre> <h2 id="3高版本下载apk不成功">3.高版本下载apk不成功</h2> <p>这个问题是我目前排查apk出现过的问题，由于之前的项目中，是固定下载在Download文件夹中，但是，在Android10之后，存储权限发生变更，导致无法直接将文件下载到Download文件夹，从而导致文件下载失败，进而导致出现解析包异常</p> <p>解决方法只要适配下Android10之后的路径问题即可</p> <p>这里推荐下载在app自己的files文件夹中即可解决问题，使用此路径<code>PathUtils.getExternalAppDownloadPath()</code>即可</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/dec42c24fb63913d107c0acb6d13e8f8.jpg" alt="关于Android安装apk出现解析包异常问题情况总结"></p> <h2 id="4权限未申请">4.权限未申请</h2> <p>这里需要说下有两种权限，一个是存储权限，另外一个则是安装第三方应用的权限</p> <pre><code>&lt;uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /&gt;</code></pre> <p>存储权限的话，Android6.0需要手动申请，这里不再过多赘述</p> <h2 id="5apk签名问题">5.apk签名问题</h2> <p>这里也是比较常见的问题了，原因是我项目使用了360加固，然后，进行了重签名导致</p> <p>之前一直都是使用命令行进行重签名，没太注意到，其实v2的参数需要声明，加固后的安装包一直没有v2签名</p> <p>而Android7.0版本都是需要验证v2版本签名，自然是出现了问题</p> <p>之后进行了尝试，并且稍微封装了一个用来签名的工具，就不用每次都要输入命令了</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6eb7e0c543388a3bba7267d417673fc5.jpg" alt="关于Android安装apk出现解析包异常问题情况总结"></p> <p>感兴趣的可看此链接<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/stars-one/ASCTool"  target="_blank" rel="nofollow">ASCTool: apk签名验证破解工具 Apk Signature Crack Tool</a></p> <h2 id="6android12版本安装出现问题">6.Android12版本安装出现问题</h2> <p>targetSdkVersion为31【以Android 12为目标】的应用务必要加入v2签名，务必要对使用的activity，service，broadcast receiver含有intent-filter，显示声明android:exported属性。</p> <p>AndroidManifest文件中，有intent-filter的属性的四大组件，需要声明exported属性为true</p> <p>即下面截图这种情况</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c268531ab2e55014ceb5018d72be38d5.jpg" alt="关于Android安装apk出现解析包异常问题情况总结"></p> <blockquote> <p>如果适配安卓12的系统，调用的sdk是31的话。可能需要进行适配。</p> <p>出现安装失败22的，有可能是因为activity或者receiver，service里面没有加上android:exported="false"这个字段。</p> <p>注意在launcheractivity里面一定要设置android:exported为true。这个是外部引用的意思。</p> <p>如果在launcheractivity里面没有设置为true。那么APP图标点击就会出现未安装该应用程序。</p> <p>如果出现安装失败-127的话。是因为你的manifest里面声明的权限重复了。</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-56113.htm">幼猫去跳蚤最简单的方法（幼猫去跳蚤最简单的方法视频）</a></p>
+                                        <p>下一个：<a href="/news/article-56671.htm">北京观赏动物医院鹦鹉 北京能看鹦鹉的动物医院</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-14-free-subscribe-node.htm" title="「2月14日」最高速度18.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「2月14日」最高速度18.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-40748.htm" title="动物疫苗管理法律法规最新文件 动物疫苗管理法律法规最新文件是什么">动物疫苗管理法律法规最新文件 动物疫苗管理法律法规最新文件是什么</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-free-high-speed-nodes.htm" title="「12月8日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月8日」最高速度21.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-free-high-speed-nodes.htm" title="「1月24日」最高速度19.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月24日」最高速度19.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-node-share.htm" title="「1月28日」最高速度19.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月28日」最高速度19.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-43724.htm" title="宠物领养协议是啥意思啊怎么写 宠物领养协议是啥意思啊怎么写啊">宠物领养协议是啥意思啊怎么写 宠物领养协议是啥意思啊怎么写啊</a></li>
+                        <li class="py-2"><a href="/news/article-26848.htm" title="武汉哪家宠物医院好（武汉哪家宠物医院好点）">武汉哪家宠物医院好（武汉哪家宠物医院好点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-free-subscribe-node.htm" title="「2月3日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「2月3日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-44228.htm" title="被宠物猫抓出一点点血要***吗（被宠物猫抓出了一点血有事吗）">被宠物猫抓出一点点血要***吗（被宠物猫抓出了一点血有事吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-node-share.htm" title="「1月14日」最高速度18M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月14日」最高速度18M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
