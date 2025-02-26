@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-61275.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>victoriaMetrics库之布隆过滤器</title>
+        <meta name="description" content="victoriaMetrics库之布隆过滤器 代码路径：/lib/bloomfilter 概述 victoriaMetrics的vmstorage组件会接收上游传递过来的指标，在现实场景中，指标或瞬时" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-61275.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="victoriaMetrics库之布隆过滤器" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/7f6af7867bc39696f3d2707a3146a366.webp" />
+        <meta property="og:release_date" content="2025-02-22T07:13:28" />
+    <meta property="og:updated_time" content="2025-02-22T07:13:28" />
+        <meta property="og:description" content="victoriaMetrics库之布隆过滤器 代码路径：/lib/bloomfilter 概述 victoriaMetrics的vmstorage组件会接收上游传递过来的指标，在现实场景中，指标或瞬时" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="victoriaMetrics库之布隆过滤器">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                        <span>Singbox Node</span>
+                                                        </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">victoriaMetrics库之布隆过滤器</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="victoriametrics库之布隆过滤器">victoriaMetrics库之布隆过滤器</h2> <p>代码路径：<code>/lib/bloomfilter</code></p> <h3 id="概述">概述</h3> <p>victoriaMetrics的<code>vmstorage</code>组件会接收上游传递过来的指标，在现实场景中，指标或瞬时指标的数量级可能会非常恐怖，如果不限制缓存的大小，有可能会由于cache miss而导致出现过高的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.victoriametrics.com/FAQ.html#what-is-a-slow-insert"  target="_blank" rel="nofollow">slow insert</a>。</p> <p>为此，vmstorage提供了两个参数：<code>maxHourlySeries</code>和<code>maxDailySeries</code>，用于限制每小时/每天添加到缓存的唯一序列。</p> <blockquote> <p>唯一序列指表示唯一的时间序列，如<code>metrics{label1="value1",label2="value2"}</code>属于一个时间序列，但多条不同值的<code>metrics{label1="value1",label2="value2"}</code>属于同一条时间序列。victoriaMetrics使用如下方式来获取时序的唯一标识：</p> <pre><code class="language-go">func getLabelsHash(labels []prompbmarshal.Label) uint64 { 	bb := labelsHashBufPool.Get() 	b := bb.B[:0] 	for _, label := range labels { 		b = append(b, label.Name...) 		b = append(b, label.Value...) 	} 	h := xxhash.Sum64(b) 	bb.B = b 	labelsHashBufPool.Put(bb) 	return h }</code></pre> </blockquote> <h3 id="限速器的初始化">限速器的初始化</h3> <p>victoriaMetrics使用了一个类似限速器的概念，限制每小时/每天新增的唯一序列，但与普通的限速器不同的是，它需要在序列级别进行限制，即判断某个序列是否是新的唯一序列，如果是，则需要进一步判断一段时间内缓存中新的时序数目是否超过限制，而不是简单地在请求层面进行限制。</p> <pre><code class="language-go">hourlySeriesLimiter = bloomfilter.NewLimiter(*maxHourlySeries, time.Hour) dailySeriesLimiter = bloomfilter.NewLimiter(*maxDailySeries, 24*time.Hour)</code></pre> <p>下面是新建限速器的函数，传入一个最大(序列)值，以及一个刷新时间。该函数中会：</p> <ol> <li>初始化一个限速器，限速器的最大元素个数为<code>maxItems</code></li> <li>则启用了一个goroutine，当时间达到<code>refreshInterval</code>时会重置限速器</li> </ol> <pre><code class="language-go">func NewLimiter(maxItems int, refreshInterval time.Duration) *Limiter { 	l := &amp;Limiter{ 		maxItems: maxItems, 		stopCh:   make(chan struct{}), 	} 	l.v.Store(newLimiter(maxItems)) //1 	l.wg.Add(1) 	go func() { 		defer l.wg.Done() 		t := time.NewTicker(refreshInterval) 		defer t.Stop() 		for { 			select { 			case &lt;-t.C: 				l.v.Store(newLimiter(maxItems))//2 			case &lt;-l.stopCh: 				return 			} 		} 	}() 	return l }</code></pre> <p>限速器只有一个核心函数<code>Add</code>，当vmstorage接收到一个指标之后，会(通过<code>getLabelsHash</code>计算该指标的唯一标识(h)，然后调用下面的<code>Add</code>函数来判断该唯一标识是否存在于缓存中。</p> <p>如果当前存储的元素个数大于等于允许的最大元素，则通过过滤器判断缓存中是否已经存在该元素；否则将该元素直接加入过滤器中，后续允许将该元素加入到缓存中。</p> <pre><code class="language-go">func (l *Limiter) Add(h uint64) bool { 	lm := l.v.Load().(*limiter) 	return lm.Add(h) }  func (l *limiter) Add(h uint64) bool { 	currentItems := atomic.LoadUint64(&amp;l.currentItems) 	if currentItems &gt;= uint64(l.f.maxItems) { 		return l.f.Has(h) 	} 	if l.f.Add(h) { 		atomic.AddUint64(&amp;l.currentItems, 1) 	} 	return true }</code></pre> <p>上面的过滤器采用的是布隆过滤器，核心函数为<code>Has</code>和<code>Add</code>，分别用于判断某个元素是否存在于过滤器中，以及将元素添加到布隆过滤器中。</p> <p>过滤器的初始化函数如下，<code>bitsPerItem</code>是个常量，值为16。<code>bitsCount</code>统计了过滤器中的总bit数，每个bit表示某个值的存在性。<code>bits</code>以64bit为单位的(后续称之为slot，目的是为了在bitsCount中快速检索目标bit)。计算<code>bits</code>时加上<code>63</code>的原因是为了四舍五入向上取值，比如当maxItems=1时至少需要1个unit64的slot。</p> <pre><code class="language-go">func newFilter(maxItems int) *filter { 	bitsCount := maxItems * bitsPerItem 	bits := make([]uint64, (bitsCount+63)/64) 	return &amp;filter{ 		maxItems: maxItems, 		bits:     bits, 	} }</code></pre> <blockquote> <p>为什么<code>bitsPerItem</code>为16？<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zhuanlan.zhihu.com/p/282864286"  target="_blank" rel="nofollow">这篇文章</a>给出了如何计算布隆过滤器的大小。在本代码中，k为4(<code>hashesCount</code>)，期望的漏失率为0.003(可以从官方的<code>filter_test.go</code>中看出)，则要求总存储和总元素的比例为15，为了方便检索slot(64bit，为16的倍数)，将之设置为16。</p> <pre><code class="language-go">	if p &gt; 0.003 { 		t.Fatalf("too big false hits share for maxItems=%d: %.5f, falseHits: %d", maxItems, p, falseHits) 	}</code></pre> <p><img decoding="async" src="https://img2022.cnblogs.com/blog/1334952/202204/1334952-20220404235017277-1492083064.png" alt="victoriaMetrics库之布隆过滤器" style="zoom: 80%"/></p></blockquote> <p>下面是过滤器的<code>Add</code>操作，目的是在过滤器中添加某个元素。<code>Add</code>函数中没有使用多个哈希函数来计算元素的哈希值，转而改变同一个元素的值，然后对相应的值应用相同的哈希函数，元素改变的次数受<code>hashesCount</code>的限制。</p> <ol> <li>获取过滤器的完整存储，并转换为以bit单位</li> <li>将元素<code>h</code>转换为byte数组，便于xxhash.Sum64计算</li> <li>后续将执行hashesCount次哈希，降低漏失率</li> <li>计算元素h的哈希</li> <li>递增元素<code>h</code>，为下一次哈希做准备</li> <li>取余法获取元素的bit范围</li> <li>获取元素所在的slot(即uint64大小的bit范围)</li> <li>获取元素所在的slot中的bit位，该位为1表示该元素存在，为0表示该元素不存在</li> <li>获取元素所在bit位的掩码</li> <li>加载元素所在的slot的数值</li> <li>如果<code>w &amp; mask</code>结果为0，说明该元素不存在，</li> <li>将元素所在的slot(<code>w</code>)中的元素所在的bit位(mask)置为1，表示添加了该元素</li> <li>由于<code>Add</code>函数可以并发访问，因此<code>bits[i]</code>有可能被其他操作修改，因此需要通过重新加载(14)并通过循环来在<code>bits[i]</code>中设置该元素的存在性</li> </ol> <pre><code class="language-go">func (f *filter) Add(h uint64) bool { 	bits := f.bits 	maxBits := uint64(len(bits)) * 64 //1 	bp := (*[8]byte)(unsafe.Pointer(&amp;h))//2 	b := bp[:] 	isNew := false 	for i := 0; i &lt; hashesCount; i++ {//3 		hi := xxhash.Sum64(b)//4 		h++ //5 		idx := hi % maxBits //6 		i := idx / 64 //7 		j := idx % 64 //8 		mask := uint64(1) &lt;&lt; j //9 		w := atomic.LoadUint64(&amp;bits[i])//10 		for (w &amp; mask) == 0 {//11 			wNew := w | mask //12 			if atomic.CompareAndSwapUint64(&amp;bits[i], w, wNew) {//13 				isNew = true//14 				break 			} 			w = atomic.LoadUint64(&amp;bits[i])//14 		} 	} 	return isNew }</code></pre> <p>看懂了<code>Add</code>函数，<code>Has</code>就相当简单了，它只是<code>Add</code>函数的缩减版，无需设置<code>bits[i]</code>：</p> <pre><code class="language-go">func (f *filter) Has(h uint64) bool { 	bits := f.bits 	maxBits := uint64(len(bits)) * 64 	bp := (*[8]byte)(unsafe.Pointer(&amp;h)) 	b := bp[:] 	for i := 0; i &lt; hashesCount; i++ { 		hi := xxhash.Sum64(b) 		h++ 		idx := hi % maxBits 		i := idx / 64 		j := idx % 64 		mask := uint64(1) &lt;&lt; j 		w := atomic.LoadUint64(&amp;bits[i]) 		if (w &amp; mask) == 0 { 			return false 		} 	} 	return true }</code></pre> <h3 id="总结">总结</h3> <p>由于victoriaMetrics的过滤器采用的是布隆过滤器，因此它的限速并不精准，在源码条件下， 大约有3%的偏差。但同样地，由于采用了布隆过滤器，降低了所需的内存以及相关计算资源。此外victoriaMetrics的过滤器实现了并发访问。<br /> 过滤器为了支持并发访问，使用atomic来实现数值存储和加载以及数值变更等操作。</p> <p>在大流量场景中，如果需要对请求进行相对精准的过滤，可以考虑使用布隆过滤器，降低所需要的资源，但前提是过滤的结果能够忍受一定程度的漏失率。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-60685.htm">北京中农大动物医院有限公司怎么样 北京中农大动物医院有限公司怎么样啊</a></p>
+                                        <p>下一个：<a href="/news/article-61276.htm">Python用re模块实现简易tokenizer_在线工具</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-46689.htm" title="Java 选择排序法">Java 选择排序法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-node-subscribe.htm" title="「12月17日」最高速度19M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月17日」最高速度19M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-node-share-links.htm" title="「2月12日」最高速度18.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「2月12日」最高速度18.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-subscribe-node.htm" title="「1月10日」最高速度22.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月10日」最高速度22.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-36801.htm" title="动物疫苗市场占有率排名 动物疫苗市场占有率排名榜">动物疫苗市场占有率排名 动物疫苗市场占有率排名榜</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-free-node-subscribe-links.htm" title="「1月2日」最高速度20.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月2日」最高速度20.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19483.htm" title="怎么给猫&#25171;&#38024;打在哪里（怎样给猫&#25171;&#38024;需要扎入多深）">怎么给猫&#25171;&#38024;打在哪里（怎样给猫&#25171;&#38024;需要扎入多深）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-node-share.htm" title="「1月16日」最高速度20M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月16日」最高速度20M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-23614.htm" title="动物医院管理办法最新修订时间（动物医院管理流程）">动物医院管理办法最新修订时间（动物医院管理流程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-subscribe-node.htm" title="「1月8日」最高速度18M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月8日」最高速度18M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">72</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

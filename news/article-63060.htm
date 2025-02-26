@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-63060.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Vue3学习之旅&#8211;Vue3组件化开发(二)-非父子组件通信及组件插槽&#8211;细节太多建议反复观看</title>
+        <meta name="description" content="文章目录  Vue3组件化开发(二)-非父子组件通信及插槽的使用   非父子组件的通信   Provide和Inject   概述 Provide和Inject基本使用 Provide和Inject函" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-63060.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="Vue3学习之旅&#8211;Vue3组件化开发(二)-非父子组件通信及组件插槽&#8211;细节太多建议反复观看" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/882ee8810af2265fc981e697f5d3716a.webp" />
+        <meta property="og:release_date" content="2025-02-25T05:01:59" />
+    <meta property="og:updated_time" content="2025-02-25T05:01:59" />
+        <meta property="og:description" content="文章目录  Vue3组件化开发(二)-非父子组件通信及插槽的使用   非父子组件的通信   Provide和Inject   概述 Provide和Inject基本使用 Provide和Inject函" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vue3学习之旅&#8211;Vue3组件化开发(二)-非父子组件通信及组件插槽&#8211;细节太多建议反复观看">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                        <span>Singbox Node</span>
+                                                        </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">Vue3学习之旅&#8211;Vue3组件化开发(二)-非父子组件通信及组件插槽&#8211;细节太多建议反复观看</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#Vue3_15" rel="nofollow">Vue3组件化开发(二)-非父子组件通信及插槽的使用</a></li> <li> <ul> <li><a href="#_17" rel="nofollow">非父子组件的通信</a></li> <li> <ul> <li><a href="#ProvideInject_26" rel="nofollow">Provide和Inject</a></li> <li> <ul> <li><a href="#_28" rel="nofollow">概述</a></li> <li><a href="#ProvideInject_46" rel="nofollow">Provide和Inject基本使用</a></li> <li><a href="#ProvideInject_60" rel="nofollow">Provide和Inject函数的写法</a></li> <li> <ul> <li><a href="#_76" rel="nofollow">对象类型的写法</a></li> </ul> </li> <li><a href="#_92" rel="nofollow">处理响应式数据</a></li> </ul> </li> <li><a href="#mitt_237" rel="nofollow">全局事件总线mitt库</a></li> <li> <ul> <li><a href="#_264" rel="nofollow">使用事件总线工具</a></li> <li><a href="#Mitt_279" rel="nofollow">Mitt的事件取消</a></li> </ul> </li> </ul> </li> <li><a href="#Slot_297" rel="nofollow">组件插槽Slot</a></li> <li> <ul> <li><a href="#Slot_299" rel="nofollow">认识插槽Slot</a></li> <li><a href="#slot_317" rel="nofollow">如何使用插槽slot？</a></li> <li><a href="#_331" rel="nofollow">插槽的基本使用</a></li> <li> <ul> <li><a href="#_333" rel="nofollow">基本使用</a></li> <li><a href="#_351" rel="nofollow">插槽的默认内容</a></li> <li><a href="#_361" rel="nofollow">多个插槽的效果</a></li> <li><a href="#_369" rel="nofollow">具名插槽的使用</a></li> <li><a href="#_378" rel="nofollow">动态插槽名</a></li> <li><a href="#_394" rel="nofollow">具名插槽使用的时候缩写</a></li> </ul> </li> </ul> </li> <li><a href="#_405" rel="nofollow">渲染作用域</a></li> <li> <ul> <li><a href="#_421" rel="nofollow">认识作用域插槽</a></li> <li> <ul> <li><a href="#_445" rel="nofollow">独占默认插槽的缩写</a></li> <li><a href="#_459" rel="nofollow">默认插槽和具名插槽混合</a></li> </ul> </li> </ul> </li> </ul> </li> </ul> </div> <p><strong>vue3笔记</strong><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/118683938"  rel="nofollow">vue3学习之旅–邂逅vue3-了解认识Vue3</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/118691744"  rel="nofollow">vue3学习之旅–邂逅vue3-了解认识Vue3(二)</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/118756641?spm=1001.2014.3001.5501"  rel="nofollow">Vue3学习之旅–爱上Vue3–Vue3基础语法(一)–以及vscode基本使用和快速生成代码片段</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/119001378?spm=1001.2014.3001.5501"  rel="nofollow">Vue3学习之旅–爱上Vue3–Vue3的Options-API</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/119057831"  rel="nofollow">vue3学习之旅–vue的表单和开发模式–组件化开发初识</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/119108617"  rel="nofollow">Vue3学习之旅–初识webpack–webpack打包js，css，less等文件以及兼容性处理</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/119191938"  rel="nofollow">Vue3学习之旅–之webpack基础-进阶–webpack5?拿来吧你！</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/119272828"  rel="nofollow">vue3学习之旅–webpack5-babel整合sfc单文件vue组件</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/119330808"  rel="nofollow">Vue3学习之旅-webpack终章–热部署(更新)–跨域代理？拿来吧你！</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/119387905"  rel="nofollow">vue3学习之旅-Vue-CLI及其原理&amp;尤大大新宠Vite-下一代前端开发构建工具Vite:拿来吧你!</a><br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/weixin_45747310/article/details/119508838"  rel="nofollow">Vue3学习之旅-之vue3组件化(一)—＞父子组件通信</a></p> </h1> <h2> <a id="_17" rel="nofollow"></a>非父子组件的通信</h2> <p>在开发中，我们构建了组件树之后，除了<strong>父子组件之间的通信</strong>之外，还会有非父<strong>子组件之间的通信。</strong></p> <p><strong>这里我们主要讲两种方式：</strong></p> <ol> <li><strong>Provide/Inject；</strong></li> <li><strong>Mitt全局事件总线；</strong></li> </ol> <h3> <a id="ProvideInject_26" rel="nofollow"></a>Provide和Inject</h3> <h4> <a id="_28" rel="nofollow"></a>概述</h4> <p>Provide/Inject用于<strong>非父子组件之间共享数据</strong>：</p> <ol> <li>比如有一些<strong>深度嵌套的组件</strong>，子组件想要获取父组件的部分内 容；</li> <li>在这种情况下，如果我们仍然将props沿着组件链逐级传递下 去，就会非常的麻烦；</li> </ol> <p>对于这种情况下，我们可以使用 <strong>Provide 和 Inject</strong> ：</p> <ol> <li>无论层级结构有多深，父组件都可以作为其所有子组件的依赖 提供者</li> <li>父组件有一个 <strong>provide 选项</strong>来提供数据；</li> <li>子组件有一个 <strong>inject 选项</strong>来开始使用这些数据；</li> </ol> <p>实际上，你可以将依赖注入看作是“long range props”，除了：</p> <ol> <li>父组件不需要知道哪些子组件使用它 provide 的 property</li> <li>子组件不需要知道 inject 的 property 来自哪里</li> </ol> <h4> <a id="ProvideInject_46" rel="nofollow"></a>Provide和Inject基本使用</h4> <p><strong>我们开发一个这样的结构：</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/fd7d0480369981f5bab084e861a6c3a7.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/2efe9111d688425c99e5b5d607137e82.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/0b8985d1fc7b0a6c3cfc22627655ed1d.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/87df1ebdbd217ee0c54e1483df50ccae.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/2a8abaf6911a32c669cad1183228601a.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="ProvideInject_60" rel="nofollow"></a>Provide和Inject函数的写法</h4> <p>如果Provide中提供的一些数据是来自data，那么我们可能会想要通过this来获取：</p> <p><strong>这个时候会报错：</strong></p> <p>这里给大家留一个思考题，我们的this使用的是哪里的this？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/926c08293ffb41757636604f0ddf4f36.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/8a71ce5c713575f5109e01e89a13dbff.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/80193f82b6e6e7343445a60718c0140a.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h5> <a id="_76" rel="nofollow"></a>对象类型的写法</h5> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/ecc33d4bffb8b6a576a5553ce7706359.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/a84f02e8f1f5fef174e64573cadc6567.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><strong>我们发现往names里面添加元素，非子组件拿到的names的length也不会响应式的方式改变</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/80b839041d6fca662b32a46a1817e47e.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/78a2dae6df4267c0b7c995d49dd39160.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="_92" rel="nofollow"></a>处理响应式数据</h4> <p>我们先来验证一个结果：如果我们修改了this.names的内容，那么使用length的子组件会不会是响应式的？</p> <p>我们会发现对应的<strong>子组件中是没有反应的：</strong></p> <p>这是因为当我们修改了names之后，之前在provide中引入的 <strong>this.names.length</strong> 本身并不是响应式的；</p> <p><strong>那么怎么样可以让我们的数据变成响应式的呢？</strong></p> <ol> <li>非常的简单，我们可以使用<strong>响应式的一些API</strong>来完成这些功能，比如说computed函数；</li> <li>当然，这个<strong>computed是vue3</strong>的新特性，在后面我会专门讲解，这里大家可以先直接使用一下；</li> </ol> <p><strong>注意：我们在使用length的时候需要获取其中的value</strong></p> <p>这是因为computed返回的是一个ref对象，需要取出其中的value来使用；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/626149a38ea8ed8bb71f1e7912ed7640.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/c6fa626c03a19b9a8e31d0a562aa9d9e.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/f94b1f62a490639afc9b27f80ca58524.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <pre><code class="prism language-vue">App.vue  &lt;template&gt;   &lt;div&gt;     &lt;home&gt;&lt;/home&gt;     &lt;!-- 测试数组长度发生改变，通过provide传递到子组件的数组长度是否发生改变 --&gt;     &lt;button @click="names.push('张三')"&gt;添加names&lt;/button&gt;     &lt;!-- 结论：不会发生改变 --&gt;     &lt;ul&gt;       &lt;li v-for="item in names" :key="item"&gt;{<!-- -->{ item }}&lt;/li&gt;     &lt;/ul&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import Home from './Home.vue' // 导入 vue 中的computed函数 （暂时使用，后面会讲） import { computed } from 'vue'; export default {   components: { Home },   // 我们可以通过 provide属性 直接提供数据供任意层级的子类使用（比如孙子组件，曾孙组件）   /* provide: {     info: {       name: '毛毛',       age: 21,       message: '好好学vue.js！闷声发大财！'     },     test: '哈哈，测试一下别名好不好使！',     length:this.names.length   }, */   // 如果想要在provide中使用data中的数据，那也就是必须用到了this   // 那么这时候我们需要把provide写成函数的形式，返回一个对象   // 这样才能在使用this。函数绑定了当前组件的this   provide() {     return {       info: {         name: '毛毛',         age: 21,         message: '好好学vue.js！闷声发大财！'       },       test: '哈哈，测试一下别名好不好使！',       // 获取 names数组的长度 这种获取的方式并不是响应式的       // length: this.names.length,        // 通过 computed函数 响应式的传递数据       // computed函数的返回值是一个 ref对象       // 我们真正的值在 ref对象的value属性上,所以子类组件取值的时候，需要通过value属性获取       // 一旦我们监听的值发生了改变，就会重新计算       length: computed(() =&gt; this.names.length)     }   },   data() {     return {       names: ['哈哈', '哼哼', '呵呵']     }   }, } &lt;/script&gt;  &lt;style  scoped&gt; &lt;/style&gt; </code></pre> <pre><code class="prism language-vue">Home.vue  &lt;template&gt;   &lt;div&gt;     &lt;home-content&gt;&lt;/home-content&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import HomeContent from './HomeContent.vue' export default {   components: { HomeContent },  } &lt;/script&gt;  &lt;style  scoped&gt; &lt;/style&gt; </code></pre> <pre><code class="prism language-vue">HomeContent.vue  &lt;template&gt;   &lt;div&gt;     &lt;h2&gt;我是HomeContent.vue!&lt;/h2&gt;     &lt;ul&gt;       &lt;li v-for="value,key in info" :key="key"&gt;{<!-- -->{ key }}---&gt;{<!-- -->{ value }}&lt;/li&gt;     &lt;/ul&gt;     &lt;h3&gt;{<!-- -->{ homeTest }}&lt;/h3&gt;     &lt;!-- 提示 test 没有被定义 --&gt;     &lt;!-- &lt;h3&gt;{<!-- -->{ test }}&lt;/h3&gt; --&gt;     &lt;!-- 发现父类（统称）传递数据的时候使用了computed函数的话，       我们取值的时候通过该函数返回对象的value属性拿真正的值就是响应式的了     --&gt;     &lt;!-- &lt;h3&gt;{<!-- -->{ length }}&lt;/h3&gt; --&gt;     &lt;h3&gt;{<!-- -->{ length.value }}&lt;/h3&gt;   &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {   // provide提供数据的注入，需要什么属性对应的数据，就注入什么属性   // inject: ['info']   // 起别名： 别名：注册的属性。在组件中可以使用别名，不能使用父组件提供的原来的属性名了   inject: {     info: 'info',     homeTest: 'test',     length: 'length'   } } &lt;/script&gt;  &lt;style scoped&gt; &lt;/style&gt; </code></pre> <h3> <a id="mitt_237" rel="nofollow"></a>全局事件总线mitt库</h3> <p><strong>事件总线的函数可以自己写，本质上是使用了发布订阅的设计模式。</strong></p> <p>Vue3从实例中移除了 <strong><span class="katex--inline"><span class="katex"><span class="katex-mathml"></p> <p>         o</p> <p>         n</p> <p>         、</p> <p>        on、</p> <p>     </span><span class="katex-html"><span class="base"><span class="strut" style="height: 0.43056em; vertical-align: 0em;"></span><span class="mord mathdefault">o</span><span class="mord mathdefault">n</span><span class="mord cjk_fallback">、</span></span></span></span></span>off 和 $once</strong> 方法，所以我们如果希望继续使用全局事件总线，要通过第三方的库：</p> <ol> <li>Vue3官方有推荐一些库，例如 <strong>mitt</strong> 或 <strong>tiny-emitter；</strong> </li> <li>这里我们主要讲解一下mitt库的使用；</li> </ol> <p><strong>首先，我们需要先安装这个库：</strong></p> <pre><code class="prism language-shell"><span class="token function">npm</span> <span class="token function">install</span> mitt </code></pre> <p><strong>其次，我们可以封装一个工具eventbus.js：</strong></p> <pre><code class="prism language-js"><span class="token comment">/* 事件总线的封装 */</span> <span class="token comment">// 导入第三方库，返回值是一个函数</span> <span class="token keyword">import</span> mitt <span class="token keyword">from</span> <span class="token string">'mitt'</span><span class="token punctuation">;</span>  <span class="token keyword">const</span> emitter <span class="token operator">=</span> <span class="token function">mitt</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">export</span> <span class="token keyword">default</span> emitter </code></pre> <h4> <a id="_264" rel="nofollow"></a>使用事件总线工具</h4> <p><strong>在项目中可以使用它们：</strong></p> <ol> <li>我们在HomeContent.vue中监听事件；</li> <li>我们在Subling.vue中发射（触发）事件；</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/c213409cc80b28bf383646e9769abddb.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/f5256093ce7ec33c8ee986f5c8a4dc68.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/80efc2e38d33299068e0ffd9612294d8.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="Mitt_279" rel="nofollow"></a>Mitt的事件取消</h4> <p><strong>在某些情况下我们可能希望取消掉之前注册的函数监听：</strong></p> <ol> <li> <p><strong>取消所有的监听事件</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/f0b338a6d97b42470159ea1b15580550.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/821ccb0779eab7685f04a468f815bbea.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> </li> <li> <p><strong>取消某个事件的监听</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/45b3e7a0a788a4ad67f62549ed776de4.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> </li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/f722b887283d1fc5cdd35ab37202727e.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h2> <a id="Slot_297" rel="nofollow"></a>组件插槽Slot</h2> <h3> <a id="Slot_299" rel="nofollow"></a>认识插槽Slot</h3> <p><strong>在开发中，我们会经常封装一个个可复用的组件：</strong></p> <ol> <li>前面我们会通过props传递给组件一些数据，让组件来进行展示；</li> <li>但是为了让这个组件具备更强的通用性，我们不能将组件中的内容限制为固定的div、span等等这些元素；</li> <li>比如某种情况下我们使用组件，希望组件显示的是一个按钮，某种情况下我们使用组件希望显示的是一张图片；</li> <li>我们应该让使用者可以决定某一块区域到底存放什么内容和元素；</li> </ol> <p><strong>举个栗子：假如我们定制一个通用的导航组件 - NavBar</strong></p> <ol> <li>这个组件分成三块区域：左边-中间-右边，每块区域的内容是不固定；</li> <li>左边区域可能显示一个菜单图标，也可能显示一个返回按钮，可能什么都不显示；</li> <li>中间区域可能显示一个搜索框，也可能是一个列表，也可能是一个标题，等等；</li> <li>右边可能是一个文字，也可能是一个图标，也可能什么都不显示；</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/514844dfd09cae9f00ffeb6fd5be8b02.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h3> <a id="slot_317" rel="nofollow"></a>如何使用插槽slot？</h3> <p><strong>这个时候我们就可以来定义插槽slot：</strong></p> <ol> <li>插槽的使用过程其实是抽取共性、预留不同；</li> <li>我们会将共同的元素、内容依然在组件内进行封装；</li> <li>同时会将不同的元素使用slot作为占位，让外部决定到底显示什么样的元素；</li> </ol> <p><strong>如何使用slot呢？</strong></p> <ol> <li>Vue中将<code>&lt;slot&gt;</code> 元素作为承载分发内容的出口；</li> <li>在封装组件中，使用特殊的元素<code>&lt;slot&gt;</code>就可以为封装组件开启一个插槽；</li> <li>该插槽<strong>插入什么内容</strong>取决于父组件如何使用；</li> </ol> <h3> <a id="_331" rel="nofollow"></a>插槽的基本使用</h3> <h4> <a id="_333" rel="nofollow"></a>基本使用</h4> <p>我们一个组件MySlotCpn.vue：该组件中有一个插槽，我们可以在插槽中放入需要显示的内容；</p> <p>我们在App.vue中使用它们：我们可以插入普通的内容、html元素、组件元素，都可以是可以的；</p> <p><strong>预留的插槽我们不填充任何数据时：</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/14c1324641d6b96c9f04b3f967c67c46.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><strong>使用组件时往插槽插入数据：</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/fa4ab26e4a8be04bd07d2914589e22c8.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><strong>往组件插槽中填充自定义组件：</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/8e543fcda62f4c542ad154340f5b6072.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="_351" rel="nofollow"></a>插槽的默认内容</h4> <p>有时候我们希望在使用插槽时，如果没有插入对应的内容，那么我们需要显示一个<strong>默认的内容</strong>：</p> <p>当然这个默认的内容只会在没有提供插入的内容时，才会显示；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/c48303dc0890d6fc4e35395dd0c193d3.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="_361" rel="nofollow"></a>多个插槽的效果</h4> <p>我们先测试一个知识点：如果一个组件中含有<strong>多个插槽</strong>，我们插入多个内容时是什么效果？</p> <p>我们会发现默认情况下每个插槽都会获取到我们插入的内容来显示；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/53f5f8db335a364f233569a5584e7f93.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="_369" rel="nofollow"></a>具名插槽的使用</h4> <p>事实上，我们希望达到的效果是插槽对应的显示，这个时候我们就可以使用 具名插槽：</p> <ol> <li>具名插槽顾名思义就是给插槽起一个名字，<code>&lt;slot&gt;</code> 元素有一个特殊的 <strong>attribute：name；</strong> </li> <li>一个<strong>不带 name</strong> 的slot，会带有隐含的名字 default；</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/133827511849dd03a150ad73479a05b4.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="_378" rel="nofollow"></a>动态插槽名</h4> <p><strong>什么是动态插槽名呢？</strong></p> <ol> <li>目前我们使用的插槽名称都是固定的；</li> <li>比如 v-slot:left、v-slot:center等等；</li> <li>我们可以通过 v-slot:[dynamicSlotName]方式动态绑定一个名称；</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/9ca07f87c6762b1bdc5a635328124d78.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/c24d03f7d4db7e1244c44f2fa2481d99.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/503a41d782ec2ac35d85bccfb40bc77a.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="_394" rel="nofollow"></a>具名插槽使用的时候缩写</h4> <p><strong>具名插槽使用的时候缩写：</strong></p> <ol> <li>跟 <strong>v-on 和 v-bind</strong> 一样，<strong>v-slot</strong> 也有缩写；</li> <li>即把参数之前的所有内容 <strong>(v-slot:)</strong> 替换为字符 <strong>#</strong>；</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/aff8ee6b9e1faea148299f69255b7d0a.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h2> <a id="_405" rel="nofollow"></a>渲染作用域</h2> <p><strong>在Vue中有渲染作用域的概念：</strong></p> <ol> <li>父级模板里的所有内容都是在<strong>父级作用域</strong>中编译的；</li> <li>子模板里的所有内容都是在<strong>子作用域中编译</strong>的；</li> </ol> <p>如何理解这句话呢？我们来看一个案例：</p> <ol> <li>在我们的案例中ChildCpn自然是可以让问自己作用域中的title内容的；</li> <li>但是在App中，是访问不了ChildCpn中的内容的，因为它们是跨作用域的访问；</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/ae6eb8e0a9ee724ad188be1673c8d205.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/0aa0c841cbac70ce69399bc3e8b292db.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h3> <a id="_421" rel="nofollow"></a>认识作用域插槽</h3> <p><strong>但是有时候我们希望插槽可以访问到子组件中的内容是非常重要的：</strong></p> <ol> <li>当一个组件被用来渲染一个数组元素时，我们使用插槽，并且希望插槽中没有显示每项的内容；</li> <li>这个Vue给我们提供了作用域插槽；</li> </ol> <p><strong>我们来看下面的一个案例：</strong></p> <ol> <li>在App.vue中定义好数据</li> <li>传递给ShowNames组件中</li> <li>ShowNames组件中遍历names数据</li> <li>定义插槽的prop</li> <li>通过v-slot:default的方式获取到slot的props</li> <li>使用slotProps中的item和index</li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/4986f38934b340992c807a8f8079d494.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/ef29d21eb6c1ff1e1b2f149d0c7ae035.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><strong>发现我们传递的标签不同，最后的显示效果就不同，甚至我们还可以控制那些数据显示，那些不显示</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/79542150cf469089580c155fde49d153.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="_445" rel="nofollow"></a>独占默认插槽的缩写</h4> <p>如果我们的插槽是默认插槽default，那么在使用的时候 v-slot:default="slotProps"可以简写为v-slot=“slotProps”：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/f6456fc064efa00275cc4fd22ae7e327.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/0e13ba846431a7d2c17473ddcd79dac4.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p>并且如果我们的插槽只有默认插槽时，组件的标签可以被当做插槽的模板来使用，这样，我们就可以将 <strong>v-slot</strong> 直 接用在组件上：</p> <p><strong>这种写法是简写，可以不使用到template标签。但是有局限</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/f543e0b19b11e838092c1cde45e2d24b.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <h4> <a id="_459" rel="nofollow"></a>默认插槽和具名插槽混合</h4> <p><strong>但是，如果我们有默认插槽和具名插槽，那么按照完整的template来编写。</strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/5068c0874665e089b6729a7fedf36c75.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> <p><strong>只要出现多个插槽，请始终为所有的插槽使用完整的基于 <code>&lt;template&gt;语法</code></strong></p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/c334e3895b11469d0982f3f25eebe684.jpg" alt="Vue3学习之旅--Vue3组件化开发(二)-非父子组件通信及组件插槽--细节太多建议反复观看"></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62461.htm">动物疫苗多少钱一支啊图片及价格表（动物疫苗的作用）</a></p>
+                                        <p>下一个：<a href="/news/article-63061.htm">动物医疗机构的主管部门（动物医疗机构的主管部门是哪里）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-free-node-subscribe-links.htm" title="「11月8日」最高速度21.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月8日」最高速度21.6M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-45703.htm" title="Spring Boot运行原理">Spring Boot运行原理</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-node-share.htm" title="「11月7日」最高速度18.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月7日」最高速度18.8M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-43726.htm" title="成都宠物运输公司排名（成都宠物运送）">成都宠物运输公司排名（成都宠物运送）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-high-speed-nodes.htm" title="「11月24日」最高速度22.1M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月24日」最高速度22.1M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-node-share-links.htm" title="「11月6日」最高速度21M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「11月6日」最高速度21M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-free-node-subscribe-links.htm" title="「1月20日」最高速度21.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月20日」最高速度21.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-28714.htm" title="动物疫苗品牌排行榜前十（动物疫苗有哪些大厂家）">动物疫苗品牌排行榜前十（动物疫苗有哪些大厂家）</a></li>
+                        <li class="py-2"><a href="/news/article-40750.htm" title="宠物领养网免费同城多少钱一只 宠物领养网免费同城多少钱一只猫">宠物领养网免费同城多少钱一只 宠物领养网免费同城多少钱一只猫</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-node-subscribe.htm" title="「12月20日」最高速度20.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月20日」最高速度20.5M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
