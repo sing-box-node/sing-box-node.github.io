@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-66124.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>java数据类型（8个基本数据类型+3个引用数据类型）与数据类型转换知识点</title>
+        <meta name="description" content="&nbsp;读者手册（必读）_云边的快乐猫的博客-CSDN博客  java数据类型分为基本数据类型和引用数据类型 一、八大基本数据类型（变量名指向具体的数值）：  boolean bl = true;" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-66124.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="java数据类型（8个基本数据类型+3个引用数据类型）与数据类型转换知识点" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/246d752b0cd257f4d6be3a247a8989a4.webp" />
+        <meta property="og:release_date" content="2025-03-02T09:39:37" />
+    <meta property="og:updated_time" content="2025-03-02T09:39:37" />
+        <meta property="og:description" content="&nbsp;读者手册（必读）_云边的快乐猫的博客-CSDN博客  java数据类型分为基本数据类型和引用数据类型 一、八大基本数据类型（变量名指向具体的数值）：  boolean bl = true;" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java数据类型（8个基本数据类型+3个引用数据类型）与数据类型转换知识点">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                        <span>Singbox Node</span>
+                                                        </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">java数据类型（8个基本数据类型+3个引用数据类型）与数据类型转换知识点</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <blockquote> <p>&nbsp;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/m0_52861000/article/details/128148568?spm=1001.2014.3001.5502"  title="读者手册（必读）_云边的快乐猫的博客-CSDN博客" rel="nofollow">读者手册（必读）_云边的快乐猫的博客-CSDN博客</a></p> </blockquote> <p>java数据类型分为<span style="color:#0d0016;"><strong>基本数据类型</strong></span>和<span style="color:#0d0016;"><strong>引用数据类型</strong></span></p> <p><strong><span style="color:#fe2c24;">一、八大基本数据类型</span><span style="color:#0d0016;">（变量名指向具体的数值）：</span></strong></p> <blockquote> <pre>boolean bl = true;//1字节 byte b = 1;//1字节 char c = '2';//2字节,不可转 short s =3;//2字节 int i = 4;//4字节 float f =5;//4字节 double d = 6;//8字节 long l = 7;//8字节</pre> </blockquote> <p><span style="color:#ff9900;"><strong>1.数值型</strong></span></p> <p><strong><span style="color:#0d0016;">（整数）</span>：byte、short、int、long</strong></p> <p><strong>byte（字节型）</strong></p> <p>默认值：0</p> <p><img fetchpriority="high" decoding="async" alt="" height="72" src="http://img.555519.xyz/uploads/20230109/d0eb30f719ad87d2dac8168c750bbcbb.jpg"></p> <p>&nbsp;<strong>short（短整型）</strong></p> <p>默认值：0</p> <p><img decoding="async" alt="" height="71" src="http://img.555519.xyz/uploads/20230109/f3734c3c13e2104e4ef0f37588fd7c37.jpg"></p> <p>&nbsp;<strong>int（整形）</strong></p> <p>默认值：0</p> <p><img decoding="async" alt="" height="66" src="http://img.555519.xyz/uploads/20230109/60e5e0292a109e51465e51738323aacc.jpg"></p> <p><strong>long（长整型）</strong></p> <p>默认值：0L</p> <p><img loading="lazy" decoding="async" alt="" height="76" src="http://img.555519.xyz/uploads/20230109/b096fb3dd2b49b5207e05e26cb9e048c.jpg"></p> <p><strong>&nbsp;（浮点）：float、double</strong></p> <p><strong>float（单精度浮点型）</strong></p> <p>默认值：0.0F</p> <p><img loading="lazy" decoding="async" alt="" height="69" src="http://img.555519.xyz/uploads/20230109/c00bd9667ed0177624aaad7f63eddac1.jpg"></p> <p>&nbsp;<strong>double（双精度浮点型）</strong></p> <p>默认值：0.0</p> <p><img loading="lazy" decoding="async" alt="" height="68" src="http://img.555519.xyz/uploads/20230109/2e805f880d4e1d075eef4ddeb1d54e17.jpg"></p> <p><span style="color:#ff9900;"><strong>&nbsp;2.字符型</strong></span></p> <p><strong><span style="color:#0d0016;">char(字符型)</span></strong></p> <p>默认值：‘\u0’</p> <p><img loading="lazy" decoding="async" alt="" height="70" src="http://img.555519.xyz/uploads/20230109/2fc71eaa2e2ddacda1bf5d910b879182.jpg"></p> <p><span style="color:#ff9900;"><strong>&nbsp;3.布尔类型(boolean)：</strong></span></p> <p><strong>&nbsp;booolean(布尔型)</strong></p> <p>默认值：false</p> <p>具体占用多少字节视情况而定，true和false占1位</p> <p><img loading="lazy" decoding="async" alt="" height="69" src="http://img.555519.xyz/uploads/20230109/850497104a6d56008e27d5d714756856.jpg"></p> <p>或者</p> <p><img loading="lazy" decoding="async" alt="" height="73" src="http://img.555519.xyz/uploads/20230109/1e1be4156d5e2656bb2b2efba7a86a0a.jpg"></p> <p><strong><span style="color:#38d8f0;">数据类型转换</span></strong></p> <p>1.转化从低级到高级：byte,short,char（三者同级）—&gt; int —&gt; long—&gt; float —&gt; double</p> <p>&nbsp; 小数优先于整数<br /> 2.低级—&gt; 高级：自动类型转换&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 高级—&gt; 低级：强制类型转换</p> <p>3.强制类型转换可能找出数据丢失,内存溢出，精度问题，不能对布尔进行转换</p> <p>4.整形转换为字符型char，都要强制类型转换。</p> <p>5.整数之间进行转换，不管什么类型，最后都默认为int。除了有long在，就为long</p> <p><strong>直白解释强制转换：本来就是高级的，想要转成低级的</strong></p> <p><span style="color:#ff9900;"><strong>强制数据转换例子：</strong></span>（高—&gt;低）</p> <p>强制转换<span style="color:#ff9900;">方法</span>：在要转换的字符前<strong>要加上</strong>（要转换的类型）</p> <p><img loading="lazy" decoding="async" alt="" height="61" src="http://img.555519.xyz/uploads/20230109/de7f8c952e8f3676311feebc2827d07a.jpg"></p> <p>&nbsp;运行结果</p> <p><img loading="lazy" decoding="async" alt="" height="51" src="http://img.555519.xyz/uploads/20230109/4883fed67899eb2aa7ec15a1543ac16c.jpg"></p> <p>超过值范围：导致<span style="color:#ed7976;"><strong>内存溢出</strong></span>就会发生补码</p> <p><img loading="lazy" decoding="async" alt="" height="94" src="http://img.555519.xyz/uploads/20230109/a449b65a6fbdfdf961f73153744a06a9.jpg"></p> <p>&nbsp;运行结果</p> <p><img loading="lazy" decoding="async" alt="" height="55" src="http://img.555519.xyz/uploads/20230109/df6f9b3be0976c9901b367a920f80741.jpg"></p> <p><span style="color:#ff9900;"><strong>&nbsp;自动类型转换例子：</strong></span><span style="color:#0d0016;">（低</span>—&gt;<span style="color:#0d0016;">高）</span></p> <p><span style="color:#0d0016;">自动转换</span><span style="color:#ff9900;">方法</span><span style="color:#0d0016;">：</span>转换<strong>不用加</strong>（要转换的数据类型）</p> <p>自己本身低级，想要变成高级的</p> <p><img loading="lazy" decoding="async" alt="" height="91" src="http://img.555519.xyz/uploads/20230109/3fd89ad6e63c98d60e4b2f4a4632804c.jpg"></p> <p>&nbsp;运行结果</p> <p><img loading="lazy" decoding="async" alt="" height="58" src="http://img.555519.xyz/uploads/20230109/8c7e7760853d4888a1fd7b66cd197899.jpg"></p> <p><strong>默认转换大全</strong></p> <pre><code class="language-java">package learn; public class WrongCode {     public static void main(String[] args) {         byte b = 1;//1字节         short s = 2;//2字节         int i = 3;//4字节         long l =4;//8字节         float f = 5F;//4字节         double d = 6;//8字节          //byte转其他类型          short s1 =b;         int i1 = b;         long l1 =b;         float f1 =b;         double d1 =b;          //short转其他类型         int i2=s;         long l2=s;         float f2=s;         double d2=s;          //int转其他类型         long l3 = i;         float f3 = i;         double d3 = i;          //long转其他类型          float f4 =l;         double d4 =l;         //float转其他类型         double d5 = f;          //double转其他类型     } }</code></pre> <p><strong>强制转换大全</strong></p> <pre><code class="language-java">package learn; public class WrongCode {     public static void main(String[] args) {         byte b = 1;//1字节         short s = 2;//2字节         int i = 3;//4字节         long l =4;//8字节         float f = 5F;//4字节         double d = 6;//8字节          //byte转其他类型          //short转其他类型         byte s2 =(byte)s;          //int转其他类型         byte b3 = (byte) i;         short s3 = (short) i;          //long转其他类型          byte b4 = (byte) l;         short s4 = (short) l;         int i4= (int) l;          //float转其他类型         byte b5 = (byte) f;         short s5= (short) f;         int i5 = (int) f;         long l5 = (long) f;          //double转其他类型         byte b6 = (byte) d;         short s6 = (short) d;         int i6 = (int) d;         long l6 = (long) d;         float f6 = (float) d;     } }</code></pre> <p><strong><span style="color:#fe2c24;">二、 引用数据类型</span><span style="color:#0d0016;">（指向存数据的内存地址）：</span></strong></p> <p><span style="color:#0d0016;">默认值都为null</span></p> <p><span style="color:#ff9900;">1.数组</span></p> <p><span style="color:#ff9900;">2.接口</span></p> <p><span style="color:#ff9900;">3.类</span></p> <p>注意：String类型也属于类（引用数据类型）</p> <p>String</p> <p><img loading="lazy" decoding="async" alt="" height="64" src="http://img.555519.xyz/uploads/20230109/b1f48fc0d68ade4590446f9ef6272b54.jpg"></p> <p><strong>如果你觉得本篇文章对你有所帮助的，给个<span style="color:#ff9900;">一键三连</span>吧！！！</strong></p> <p><strong>点赞关注收藏，抱拳了！</strong></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-65495.htm">中国农大动物医院哪个医生好一点呢（中国农大动物医院哪个医生好一点呢视频）</a></p>
+                                        <p>下一个：<a href="/news/article-66125.htm">vue 动态样式绑定</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-free-subscribe-node.htm" title="「12月26日」最高速度19.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月26日」最高速度19.2M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-subscribe-node.htm" title="「12月18日」最高速度20.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月18日」最高速度20.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-61276.htm" title="Python用re模块实现简易tokenizer_在线工具">Python用re模块实现简易tokenizer_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-node-share-links.htm" title="「1月23日」最高速度18.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月23日」最高速度18.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-30605.htm" title="宠物领养平台的设计与实现方案怎么写的（领养宠物app的项目策划书）">宠物领养平台的设计与实现方案怎么写的（领养宠物app的项目策划书）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-high-speed-nodes.htm" title="「12月6日」最高速度22.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接">「12月6日」最高速度22.4M/S，2024年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-free-high-speed-nodes.htm" title="「3月3日」最高速度18.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「3月3日」最高速度18.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-55556.htm" title="Zookeeper采用Java客户端API">Zookeeper采用Java客户端API</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-free-subscribe-node.htm" title="「2月21日」最高速度19.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「2月21日」最高速度19.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-33435.htm" title="流浪猫要养多久才知道健康的情况（流浪小猫多久能养熟）">流浪猫要养多久才知道健康的情况（流浪小猫多久能养熟）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
