@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-71271.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>【Flutter】Flutter C/C++ 插件的开发 （支持 windows、macos、ios、android ）</title>
+        <meta name="description" content="一个各平台调用 C/C++ 源码的例子，如何共享代码，配置相关的编译 官方的例子：https://docs.flutter.dev/development/platform-integration/c" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-71271.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="【Flutter】Flutter C/C++ 插件的开发 （支持 windows、macos、ios、android ）" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/246d752b0cd257f4d6be3a247a8989a4.webp" />
+        <meta property="og:release_date" content="2025-03-10T04:38:05" />
+    <meta property="og:updated_time" content="2025-03-10T04:38:05" />
+        <meta property="og:description" content="一个各平台调用 C/C++ 源码的例子，如何共享代码，配置相关的编译 官方的例子：https://docs.flutter.dev/development/platform-integration/c" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【Flutter】Flutter C/C++ 插件的开发 （支持 windows、macos、ios、android ）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                        <span>Singbox Node</span>
+                                                        </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">【Flutter】Flutter C/C++ 插件的开发 （支持 windows、macos、ios、android ）</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>一个各平台调用 C/C++ 源码的例子，如何共享代码，配置相关的编译</p> <p>官方的例子：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.flutter.dev/development/platform-integration/c-interop"  target="_blank" rel="nofollow">https://docs.flutter.dev/development/platform-integration/c-interop</a></p> <p>源码地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/gaoshang212/flutter_native_demo"  target="_blank" rel="nofollow">https://github.com/gaoshang212/flutter_native_demo</a></p> <h3 id="创建一个插件">创建一个插件</h3> <p>可以执行下面的命令来创建一个插件</p> <pre><code class="language-bash">flutter create --template=plugin --platforms=windows,macos,ios,android,linux flutter_native_demo</code></pre> <p>--platforms 可以指定支持哪些平台，如 windows，macos，ios，android，linux</p> <p>如果没有创建相应平台目录，可以使用下面的命令开启相应的平台</p> <pre><code class="language-bash">flutter config --enable-linux-desktop  # 开启linux 桌面 flutter config --enable-macos-desktop  # 开启macos 桌面 flutter config --enable-ios # 开启ios  # 更多的命令可以通过help查看 flutter config --help</code></pre> <p>如果有字符串操作或转换，可以添加 ffi 的包：</p> <pre><code class="language-bash">flutter pub add ffi</code></pre> <p>项目结构</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/fd93ef6a904ee13614a09ab5f26695ea.jpg" alt="【Flutter】Flutter C/C++ 插件的开发 （支持 windows、macos、ios、android ）"></p> <h3 id="添加-cc-源码文件">添加 C/C++ 源码文件</h3> <p>很多时候我们各平台是会共用一套C/C++ 源码的，我们先创建一个源码，就按官网的来，但我们创建在一个公共目录（官网创建在IOS/Classes下面）</p> <p><em>libs/native_add/native_add.cpp</em></p> <pre><code class="language-cpp">#include &lt;stdint.h&gt;  #ifdef WIN32 #define DART_API extern "C" __declspec(dllexport) #else #define DART_API extern "C" __attribute__((visibility("default"))) __attribute__((used)) #endif  DART_API int32_t native_add(int32_t x, int32_t y) {     return x + y; }</code></pre> <h3 id="dart">Dart</h3> <p>在<em>lib/flutter_native_demo.dart</em> 中添加动态库的调用代码</p> <pre><code class="language-dart">final DynamicLibrary nativeAddLib = Platform.isMacOS || Platform.isIOS     ? DynamicLibrary.process()     : DynamicLibrary.open('libNativeAdd.${Platform.isWindows ? 'dll' : 'so'}');  final int Function(int x, int y) nativeAdd = nativeAddLib     .lookup&lt;NativeFunction&lt;Int32 Function(Int32, Int32)&gt;&gt;('native_add')     .asFunction();</code></pre> <p>我们改一下<em>example/lib/main.dart</em> 的代码</p> <pre><code class="language-dart">// 修改一下 platformVersion 的赋值 platformVersion = nativeAdd(1, 2).toString();</code></pre> <h3 id="windows-配置">Windows 配置</h3> <p>在<em>libs/native_add</em> 目录中添加一个 CMakeLists.txt ，用来编译 动态库。</p> <pre><code class="language-makefile">cmake_minimum_required(VERSION 3.10)  # 项目名称 set(PROJECT_NAME "libNativeAdd") project(${PROJECT_NAME} LANGUAGES CXX)  # 源文件 add_library(${PROJECT_NAME} SHARED     "./native_add.cpp" )  # 动态库的输出目录 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/$&lt;$&lt;CONFIG:DEBUG&gt;:Debug&gt;$&lt;$&lt;CONFIG:RELEASE&gt;:Release&gt;") # 安装动态库的目标目录 set(INSTALL_BUNDLE_LIB_DIR "${CMAKE_INSTALL_PREFIX}") # 安装动态库，到执行目录 install(FILES "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${PROJECT_NAME}.dll" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}" COMPONENT Runtime)</code></pre> <p>在<em>windows</em> 目录下面的<em>CMakeLists.txt</em> 中添加相应的子目录</p> <pre><code class="language-makefile">add_subdirectory("../libs/native_add" native_add)</code></pre> <p>在<em>example</em> 目录下面执行下面的命令，来运行程序.</p> <pre><code class="language-powershell">cd example flutter run -d windows -v</code></pre> <h3 id="android-配置">Android 配置</h3> <p>安卓的动态库，会自动添加lib头，我们改造一下<em>libs/native_add/CMakeLists.txt</em> 让他兼容windows和 android</p> <pre><code class="language-makefile">cmake_minimum_required(VERSION 3.4)  # 项目名称 if (CMAKE_SYSTEM_NAME MATCHES "Windows")      set(PROJECT_NAME "libNativeAdd") else()     set(PROJECT_NAME "NativeAdd") endif()  project(${PROJECT_NAME} LANGUAGES CXX)  # 源文件 add_library(${PROJECT_NAME} SHARED     "./native_add.cpp" )  # Windows 需要把dll拷贝到bin目录 IF (WIN32)     # 动态库的输出目录     set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/$&lt;$&lt;CONFIG:DEBUG&gt;:Debug&gt;$&lt;$&lt;CONFIG:RELEASE&gt;:Release&gt;")     # 安装动态库的目标目录     set(INSTALL_BUNDLE_LIB_DIR "${CMAKE_INSTALL_PREFIX}")     # 安装动态库，到执行目录     install(FILES "${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/${PROJECT_NAME}.dll" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}" COMPONENT Runtime) ENDIF()</code></pre> <p>在 android/build.gradle 文件中添加 CMakeList.txt 路径</p> <pre><code>android { 	externalNativeBuild {         // Encapsulates your CMake build configurations.         cmake { 		        // 指定一个CMake 编译脚本的相对目录。             path "../libs/native_add/CMakeLists.txt"         }    } }</code></pre> <p>在<em>example</em> 目录下面执行下面的命令，来运行程序</p> <pre><code class="language-powershell">cd example flutter run -d &lt;android&gt; -v</code></pre> <p>说明：可以用<em>flutter devices</em> 查看支持设备，来替换<em><android rel="nofollow"></android></em>。</p> <h3 id="macos-配置">macOS 配置</h3> <p>在<em>macos/Classes</em> 目录中执行下面的命令，给macOS<em>link</em> 相关的代码</p> <pre><code class="language-bash">ln -s ../../libs/native_add/native_add.cpp ./</code></pre> <p>然后回到<em>example</em> 目录中执行</p> <pre><code class="language-bash">flutter run -d macos -v</code></pre> <p>说明：国内使用时会，通过<strong><strong>CocoaPods</strong></strong> 安装包会很慢，可以切换到<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mirrors.tuna.tsinghua.edu.cn/help/CocoaPods/"  target="_blank" rel="nofollow">清华的镜像</a>。设置<em>example 目录下macos 的 Podfile。</em></p> <h3 id="ios-配置">IOS 配置</h3> <p>IOS 和 macOS 的配置基本是一样的，注意一下目录就好了。</p> <h3 id="执行效果">执行效果</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8e1edc8320fcde10b333ed66c28e73f7.jpg" alt="【Flutter】Flutter C/C++ 插件的开发 （支持 windows、macos、ios、android ）"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f36bc76011c430fbd098fcc840b10bf4.jpg" alt="【Flutter】Flutter C/C++ 插件的开发 （支持 windows、macos、ios、android ）"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-70595.htm">成都宠物领养中心官网电话号码（成都宠物领养公众号）</a></p>
+                                        <p>下一个：<a href="/news/article-71272.htm">QCustomPlot开发笔记：QCustomPlot简介、下载以及基础绘图_在线工具</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-node-share-links.htm" title="「1月29日」最高速度20.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月29日」最高速度20.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-45208.htm" title="代理宠物粮食生意怎么样 代理宠物粮食生意怎么样啊">代理宠物粮食生意怎么样 代理宠物粮食生意怎么样啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-free-node-subscribe.htm" title="「1月31日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月31日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-48164.htm" title="兽药疫苗冷藏室温度要求（兽用疫苗保存温度）">兽药疫苗冷藏室温度要求（兽用疫苗保存温度）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-node-subscribe.htm" title="「2月15日」最高速度19.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「2月15日」最高速度19.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-57239.htm" title="猫瘟疫苗多大可以打（猫瘟疫苗管多久）">猫瘟疫苗多大可以打（猫瘟疫苗管多久）</a></li>
+                        <li class="py-2"><a href="/news/article-43228.htm" title="国产宠物粮品牌排行榜最新排名（国产宠物粮品牌排行榜最新排名图片）">国产宠物粮品牌排行榜最新排名（国产宠物粮品牌排行榜最新排名图片）</a></li>
+                        <li class="py-2"><a href="/news/article-49672.htm" title="符合动物医院法定条件是什么意思（符合动物医院法定条件是什么意思啊）">符合动物医院法定条件是什么意思（符合动物医院法定条件是什么意思啊）</a></li>
+                        <li class="py-2"><a href="/news/article-36129.htm" title="哪里可以给动物打狂犬（动物到哪里打狂犬疫苗）">哪里可以给动物打狂犬（动物到哪里打狂犬疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-53895.htm" title="宠物领养机构哪里有卖（宠物领养去哪里领养）">宠物领养机构哪里有卖（宠物领养去哪里领养）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
