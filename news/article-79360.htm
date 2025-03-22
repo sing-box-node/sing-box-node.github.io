@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-79360.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>自定义指令（拖拽）</title>
+        <meta name="description" content="directives: {     go: {       inserted(el) {         //给el设置绝对定位         el.style.position = 'absolu" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-79360.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="自定义指令（拖拽）" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/58ea9c0795c5e014ff8cacb706be34ae.webp" />
+        <meta property="og:release_date" content="2025-03-22T08:51:06" />
+    <meta property="og:updated_time" content="2025-03-22T08:51:06" />
+        <meta property="og:description" content="directives: {     go: {       inserted(el) {         //给el设置绝对定位         el.style.position = 'absolu" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="自定义指令（拖拽）">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                        <span>Singbox Node</span>
+                                                        </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">自定义指令（拖拽）</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <pre><code class="prism language-javascript">  directives<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>     go<span class="token punctuation">:</span> <span class="token punctuation">{<!-- --></span>       <span class="token function">inserted</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">//给el设置绝对定位</span>         el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token string">'absolute'</span>         <span class="token comment">//给el添加鼠标按下的事件</span>         el<span class="token punctuation">.</span><span class="token function-variable function">onmousedown</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>           <span class="token comment">//用视口的位置减去相对于父元素的位置得到一个距离差</span>           <span class="token keyword">var</span> sx <span class="token operator">=</span> event<span class="token punctuation">.</span>clientX <span class="token operator">-</span> el<span class="token punctuation">.</span>offsetLeft           <span class="token keyword">var</span> sy <span class="token operator">=</span> event<span class="token punctuation">.</span>clientY <span class="token operator">-</span> el<span class="token punctuation">.</span>offsetTop           <span class="token comment">//当鼠标按下移动的时候求出一个新的位置</span>           document<span class="token punctuation">.</span><span class="token function-variable function">onmousemove</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             <span class="token comment">//获取大盒子的宽度和高度</span>             <span class="token keyword">var</span> bigW <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'box'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>offsetWidth             <span class="token keyword">var</span> elW <span class="token operator">=</span> el<span class="token punctuation">.</span>offsetWidth             <span class="token keyword">var</span> bigH <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'box'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>offsetHeight             <span class="token keyword">var</span> elH <span class="token operator">=</span> el<span class="token punctuation">.</span>offsetHeight             <span class="token keyword">var</span> x <span class="token operator">=</span> event<span class="token punctuation">.</span>clientX <span class="token operator">-</span> sx             <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&gt;</span> bigW <span class="token operator">-</span> elW<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>               x <span class="token operator">=</span> bigW <span class="token operator">-</span> elW             <span class="token punctuation">}</span>             <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>               x <span class="token operator">=</span> <span class="token number">0</span>             <span class="token punctuation">}</span>             <span class="token keyword">var</span> y <span class="token operator">=</span> event<span class="token punctuation">.</span>clientY <span class="token operator">-</span> sy             <span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">&gt;</span> bigH <span class="token operator">-</span> elH<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>               y <span class="token operator">=</span> bigH <span class="token operator">-</span> elH             <span class="token punctuation">}</span>             <span class="token keyword">if</span> <span class="token punctuation">(</span>y <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>               y <span class="token operator">=</span> <span class="token number">0</span>             <span class="token punctuation">}</span>             <span class="token comment">//给el赋值</span>             el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token string">'px'</span>             el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> y <span class="token operator">+</span> <span class="token string">'px'</span>           <span class="token punctuation">}</span>           <span class="token comment">//当鼠标弹起的时候移除move事件</span>           el<span class="token punctuation">.</span><span class="token function-variable function">onmouseup</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             document<span class="token punctuation">.</span>onmousemove <span class="token operator">=</span> <span class="token keyword">null</span>           <span class="token punctuation">}</span>         <span class="token punctuation">}</span>       <span class="token punctuation">}</span><span class="token punctuation">,</span>     <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">}</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78679.htm">动物医院大众点评文案怎么写（动物医院诊疗活动范围）</a></p>
+                                        <p>下一个：<a href="/news/article-79361.htm">宠物粮批发网站大全免费（宠物粮网店）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-14-free-subscribe-node.htm" title="「2月14日」最高速度18.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「2月14日」最高速度18.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-39759.htm" title="狗粮加盟代理怎么做（加盟狗粮公司代理点）">狗粮加盟代理怎么做（加盟狗粮公司代理点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-free-high-speed-nodes.htm" title="「1月30日」最高速度21.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月30日」最高速度21.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-38761.htm" title="免费领养宠物的软件有哪些（免费领养宠物的小程序）">免费领养宠物的软件有哪些（免费领养宠物的小程序）</a></li>
+                        <li class="py-2"><a href="/news/article-63061.htm" title="动物医疗机构的主管部门（动物医疗机构的主管部门是哪里）">动物医疗机构的主管部门（动物医疗机构的主管部门是哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-44229.htm" title="动物疫苗可以自己打吗现在（动物疫苗可以自己打吗现在疫情）">动物疫苗可以自己打吗现在（动物疫苗可以自己打吗现在疫情）</a></li>
+                        <li class="py-2"><a href="/news/article-35628.htm" title="动物疫苗公司 全球排行榜 动物疫苗公司 全球排行榜前十名">动物疫苗公司 全球排行榜 动物疫苗公司 全球排行榜前十名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-free-subscribe-node.htm" title="「2月3日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「2月3日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share.htm" title="「1月5日」最高速度18.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月5日」最高速度18.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-61275.htm" title="victoriaMetrics库之布隆过滤器">victoriaMetrics库之布隆过滤器</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
