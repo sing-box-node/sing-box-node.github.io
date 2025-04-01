@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-84279.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>C++笔记 第六十三课 C语言异常处理&#8212;狄泰学院</title>
+        <meta name="description" content="如果在阅读过程中发现有错误，望评论指正，希望大家一起学习，一起进步。 学习C++编译环境：Linux   1.异常处理 异常的概念 程序在运行过程中可能产生异常 异常（Exception）与Bug的区" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-84279.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="C++笔记 第六十三课 C语言异常处理&#8212;狄泰学院" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/e890e73aa6daf2aed8f18dde405a07b2.webp" />
+        <meta property="og:release_date" content="2025-03-29T09:03:43" />
+    <meta property="og:updated_time" content="2025-03-29T09:03:43" />
+        <meta property="og:description" content="如果在阅读过程中发现有错误，望评论指正，希望大家一起学习，一起进步。 学习C++编译环境：Linux   1.异常处理 异常的概念 程序在运行过程中可能产生异常 异常（Exception）与Bug的区" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C++笔记 第六十三课 C语言异常处理&#8212;狄泰学院">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                        <span>Singbox Node</span>
+                                                        </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">C++笔记 第六十三课 C语言异常处理&#8212;狄泰学院</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>如果在阅读过程中发现有错误，望评论指正，希望大家一起学习，一起进步。<br /> 学习C++编译环境：Linux</p> </h1> <h2> <a id="1_3" rel="nofollow"></a>1.异常处理</h2> <p>异常的概念<br /> 程序在运行过程中可能产生异常<br /> 异常（Exception）与Bug的区别<br /> 异常是程序运行时可预料的执行分支<br /> Bug是程序中的错误，是不被预期的运行方式<br /> 异常（Exception）与Bug的对比：<br /> 异常：<br /> 运行时产生除0的情况<br /> 需要打开的外部文件不存在<br /> 数组访问时越界<br /> Bug：<br /> 使用野指针<br /> 堆数组使用结束后未释放<br /> 选择排序无法处理长度为0 的数组</p> <h2> <a id="2_18" rel="nofollow"></a>2.异常处理的方式</h2> <p>C语言经典处理方式：if…else…<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230202/7bcaf96c5b9f9240699e5057cc9783cf.jpg" alt="C++笔记 第六十三课 C语言异常处理---狄泰学院"></p> <h3> <a id="631__21" rel="nofollow"></a>63-1 除法操作异常处理</h3> <pre><code>#include &lt;iostream&gt; #include &lt;string&gt; using namespace std; double divide(double a, double b, int* valid) {     const double delta = 0.000000000001;     double ret = 0;     if( !((-delta &lt; b) &amp;&amp; ( b &lt; delta)))     { 	ret = a / b; 	*valid = 1;     }     else     { 	*valid = 0 ;     }     return ret; } int main(int argc, char *argv[]) {     int valid = 0;     //double r = divide(1,1,&amp;valid); // r=1     double r = divide(1,0,&amp;valid); //Divided by zero...     if( valid )     { 	cout &lt;&lt; "r = "&lt;&lt;r &lt;&lt; endl;     }     else     { 	cout &lt;&lt; "Divided by zero..." &lt;&lt; endl;     }          return 0; } 运行结果 r=1 Divided by zero... </code></pre> <p>缺陷：<br /> divide函数有3个参数，难以理解其用法<br /> divide函数调用后必须判断valid代表的结果<br /> 当valid为true时，运算结果正常<br /> 当valid为false时，运算过程出现异常<br /> 通过setjmp()和longjmp()进行优化—这两个函数会破坏结构化程序设计的特性（顺序执行，分支执行，循环执行）<br /> int setjmp(jmp_buf env)<br /> 将当前上下文保存在jmp_buf结构体中<br /> void longjmp_(jmp_buf env, int val)<br /> 从jmp_buf结构体中恢复setjmp()保存的上下文<br /> 最终从setjmp函数调用点返回，返回值为val</p> <h3> <a id="632_631_72" rel="nofollow"></a>63-2 除法操作异常处理优化–由此程序得出还不如63-1程序好理解，好用</h3> <pre><code>#include &lt;iostream&gt; #include &lt;string&gt; #include &lt;csetjmp&gt;//两个函数所在的库 using namespace std; static jmp_buf env; double divide(double a, double b) {     const double delta = 0.000000000001;     double ret = 0;     if( !((-delta &lt; b) &amp;&amp; ( b &lt; delta)))     { 	ret = a / b;     }     else     { 	longjmp(env, 1);     }     return ret; } int main(int argc, char *argv[]) {     if( setjmp(env) == 0 )     { 	double r = divide(1,1); 	cout &lt;&lt; "r = "&lt;&lt; r &lt;&lt; endl;     }     else     { 	cout &lt;&lt; "Divided by zero..." &lt;&lt; endl;     }          return 0; } 运行结果 r = 1 </code></pre> <p>缺陷<br /> setjmp()和longjmp()的引入<br /> 必然涉及到使用全局变量<br /> 暴力跳转导致代码可读性降低<br /> 本质还是if…else…异常处理方式<br /> C语言中的经典异常处理方式会使得程序中逻辑中混入大量的处理异常的代码。正常逻辑代码和异常处理代码混合在一起，导致代码迅速膨胀，难以维护。</p> <h3> <a id="633__116" rel="nofollow"></a>63-3 异常处理代码分析</h3> <pre><code>#include &lt;iostream&gt; #include &lt;string&gt; using namespace std; #define SUCCESS           0  #define INVALID_POINTER   -1 #define INVALID_LENGTH    -2 #define INVALID_PARAMETER -3 int MemSet(void* dest, unsigned int length, unsigned char v) {     if( dest == NULL )     {         return INVALID_POINTER;     }          if( length &lt; 4 )     {         return INVALID_LENGTH;     }          if( (v &lt; 0) || (v &gt; 9) )     {         return INVALID_PARAMETER;     }          unsigned char* p = (unsigned char*)dest;          for(int i=0; i&lt;length; i++)     {         p[i] = v;     }          return SUCCESS; } int main(int argc, char *argv[]) {     int ai[5];     int ret = MemSet(ai, sizeof(ai), 0);          if( ret == SUCCESS )     {     }     else if( ret == INVALID_POINTER )     {     }     else if( ret == INVALID_LENGTH )     {     }     else if( ret == INVALID_PARAMETER )     {     }          return ret; } </code></pre> <p>由这个程序可以得出C语言没有办法进行更好的异常处理啦，等C++语言的啦。</p> <h2> <a id="3_173" rel="nofollow"></a>3.问题</h2> <p>C++中有没有更好的异常处理方式？有，64,65说明的<br /><mark>小结</mark><br /> 程序中不可避免的会发生异常<br /> 异常是在开发阶段就可以预见的运行时问题<br /> C语言中通过经典的if…else…方式处理异常<br /> C++中存在更好的异常处理方式</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83565.htm">云南农业大学动物医学院院长（云南农业大学动物科学）</a></p>
+                                        <p>下一个：<a href="/news/article-84280.htm">Springboot 使用Maven实现多环境打包</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-56112.htm" title="领养宠物还要押金嘛（领养宠物要钱么）">领养宠物还要押金嘛（领养宠物要钱么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-subscribe-node.htm" title="「1月25日」最高速度22.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「1月25日」最高速度22.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-70595.htm" title="成都宠物领养中心官网电话号码（成都宠物领养公众号）">成都宠物领养中心官网电话号码（成都宠物领养公众号）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-14-free-subscribe-node.htm" title="「2月14日」最高速度18.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「2月14日」最高速度18.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-55557.htm" title="十种不能养的狗（不能养的狗狗）">十种不能养的狗（不能养的狗狗）</a></li>
+                        <li class="py-2"><a href="/news/article-84976.htm" title="全国知名兽药生产厂家 全国知名兽药生产厂家有哪些">全国知名兽药生产厂家 全国知名兽药生产厂家有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-free-subscribe-node.htm" title="「2月21日」最高速度19.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「2月21日」最高速度19.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-82113.htm" title="使用VS  新建C++项目">使用VS  新建C++项目</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-17-free-high-speed-nodes.htm" title="「3月17日」最高速度21M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「3月17日」最高速度21M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-73241.htm" title="动物医院归哪里管理（动物医院属于什么性质）">动物医院归哪里管理（动物医院属于什么性质）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
