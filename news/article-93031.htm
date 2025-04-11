@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-93031.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>时间复杂度与空间复杂度</title>
+        <meta name="description" content="复杂度分析在我看来是数据结构与算法学习入门知识，尤为重要。 为什么复杂度分析重要？ 数据结构与算法的出现本就是为了花更少的时间和空间（储存）来解决问题。复杂度分析就是为解决如何“花更少的时间和空间（储" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-93031.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="时间复杂度与空间复杂度" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/fe2628acb9303137eef6c0dc0314c1ba.webp" />
+        <meta property="og:release_date" content="2025-04-10T08:20:39" />
+    <meta property="og:updated_time" content="2025-04-10T08:20:39" />
+        <meta property="og:description" content="复杂度分析在我看来是数据结构与算法学习入门知识，尤为重要。 为什么复杂度分析重要？ 数据结构与算法的出现本就是为了花更少的时间和空间（储存）来解决问题。复杂度分析就是为解决如何“花更少的时间和空间（储" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="时间复杂度与空间复杂度">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                        <span>Singbox Node</span>
+                                                        </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">时间复杂度与空间复杂度</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <p>复杂度分析在我看来是数据结构与算法学习入门知识，尤为重要。</p> <p>为什么复杂度分析重要？</p> <p>数据结构与算法的出现本就是为了花更少的时间和空间（储存）来解决问题。复杂度分析就是为解决如何“花更少的时间和空间（储存）”的问题。</p> <p>现在各种编译工具，代码跑完就能显示用了多少时间，占了多少内存。但是这些数据都是在完成代码编写之后才能得到的，这是事后统计方法。</p> <p>事后统计法得到的结果会因计算机性能和测试数据规模不同而有较大差异。这并不能体现出代码本身的效率、优劣程度，而且很可能写出的代码本身就不太行。。。</p> <p>而复杂度分析不依赖软硬件性能、数据规模等就能直接估算算法的效率、优劣，这就是其重要性。</p> <h2>时间复杂度</h2> <p>时间复杂度即算法的运行时间。</p> <p>用运行时间去描述算法的效率时，算法的执行总步数越多算法越慢，总步数越少则越快。</p> <p>假设每一行代码运行时间都为X，则<strong>算法的总运行时间等于运行的总代码行数。</strong></p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 128, 1)">1</span><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> sum(n):</span><span style="color: rgba(0, 128, 128, 1)">2</span>     sum =<span style="color: rgba(0, 0, 0, 1)"> 0</span><span style="color: rgba(0, 128, 128, 1)">3</span><span style="color: rgba(0, 128, 128, 1)">4</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):</span><span style="color: rgba(0, 128, 128, 1)">5</span>         sum +=<span style="color: rgba(0, 0, 0, 1)"> i</span><span style="color: rgba(0, 128, 128, 1)">6</span><span style="color: rgba(0, 0, 255, 1)">return</span> sum</pre> </div> <p>在上面代码中，假设运行一行需要 1t，则第二行运行时间为 1t，第四行、第五行执行了n遍，每行运行时间为 nt，则运行总时间就是（1+2n）t</p> <p>用函数来表示就是 T(n) = (1+2n) t，可以看出T(n)和总步数成正比关系。</p> <p>用 大O表示法 就是 T(n) = O(f(n))，f(n)为执行总步数。</p> <p>n可以是1到+∞，当其非常大的时候，一些相对于n来说小的部分就可以忽略了。</p> <p>拿前面的 1+2n 来说，当n = 100000时，1+2n = 2000001，n持续变大，常数1和系数2对结果影响就很微小了，直接忽略，最终变成了 T(n) = O(n)。</p> <hr/> <p>下面例子作为练习：</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 128, 128, 1)">1</span><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> sum(n):</span><span style="color: rgba(0, 128, 128, 1)">2</span>     sum =<span style="color: rgba(0, 0, 0, 1)"> 0</span><span style="color: rgba(0, 128, 128, 1)">3</span><span style="color: rgba(0, 128, 128, 1)">4</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):</span><span style="color: rgba(0, 128, 128, 1)">5</span><span style="color: rgba(0, 0, 255, 1)">for</span> j<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):</span><span style="color: rgba(0, 128, 128, 1)">6</span>             sum += i +<span style="color: rgba(0, 0, 0, 1)"> j</span><span style="color: rgba(0, 128, 128, 1)">7</span><span style="color: rgba(0, 0, 255, 1)">return</span> sum</pre> </div> <p>其中有个嵌套for循环，第四行执行1次，第五行、第六行执行n次<span style="font-size: 11.6667px"><br /></span></p> <p>第二行需要运行1次，第四行运行n次，第五行、第六行执行n<sup>2</sup>次，总步数 f(n) = 1 +n +2n<sup>2</sup></p> <p>当n非常大的时候，对运算结果有影响的是n<sup>2</sup>，常数1、n、系数2都可以忽略，则&nbsp;f(n) = n<sup>2</sup>，代码运行时间 T(n) = O(n<sup>2</sup>)。</p> <h3>常见时间复杂度</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4b430bcc4d227c6a14d2dacaf46508e7.jpg" alt="时间复杂度与空间复杂度"></p> <h2>最好情况、最坏情况和平均情况时间复杂度</h2> <p>一段代码中，数据的具体情况也会影响运行时间</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> test(list, num):      index</span>= -1<span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(len(list)):</span><span style="color: rgba(0, 0, 255, 1)">if</span> list[i] ==<span style="color: rgba(0, 0, 0, 1)"> num:             index</span>=<span style="color: rgba(0, 0, 0, 1)"> i</span><span style="color: rgba(0, 0, 255, 1)">break</span><span style="color: rgba(0, 0, 255, 1)">return</span> index</pre> </div> <p>这段代码是求 变量num 在上列表 list 中的索引</p> <p>假设输入的 list = [1,2,3,4,5]</p> <p>当 num = 1 时，自第一次执行时就在list中找到了，后面不再遍历，此时时间复杂度为 O(1)。</p> <p>当 num = 5 时，全部遍历完才找到，此时时间复杂度为 O(n)。</p> <p>当 num = 6 时，全部遍历完也没找到，此时时间复杂度也为 O(n)。</p> <p>这就是数据情况不同，时间复杂度不同。</p> <p>这样就出现 最好情况、最坏情况时间复杂度。</p> <p>最好情况时间复杂度就是最理想情况下代码复杂度，对应上面例子最好时间复杂度就是O(1)；</p> <p>最坏情况时间复杂度就是最不理想情况下代码复杂度，对应上面例子最好时间复杂度就是O(n)；</p> <p>平均时间复杂度根据加权平均值求得。拿上面例子来说就是 O((3n+1)/4) = O(n)</p> <p>像最好情况时间复杂度，平均时间复杂度并没有太大参考价值，一般都是拿最坏时间复杂度当时间复杂度，因为不会有比最坏的情况再坏的了，可以说最坏时间复杂度就是一个底线。</p> <h2>空间复杂度</h2> <p>空间复杂度反应的是代码运行过程中临时变量占用的内存空间。</p> <p>代码运行所占空间分为三种：1、代码本身所占空间；2、输入数据所占空间；3、临时变量所占空间</p> <p>1和2与代码性能无关，所以空间复杂度只考虑运行过程临时占用空间</p> <p>空间复杂度记作S(n)，表示形式同样为O(f(n))</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> sum(list):     sum</span>=<span style="color: rgba(0, 0, 0, 1)"> 0</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(len(list)):         sum</span>+=<span style="color: rgba(0, 0, 0, 1)"> list[i]</span><span style="color: rgba(0, 0, 255, 1)">return</span> sum</pre> </div> <p>该代码求输入列表list中所有元素的和。</p> <p>其中，输入的list空间不计，sum存储和，i存储元素索引，都是常数，其所占空间与n没有关系，所以该代码空间复杂度S(n) = O(1)</p> <h3>常见空间复杂度</h3> <p>O(n):</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> createList(n):     list</span>=<span style="color: rgba(0, 0, 0, 1)"> []</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):         list.append(i)</span><span style="color: rgba(0, 0, 255, 1)">return</span> list</pre> </div> <p>其中临时变量有 list和i</p> <p>list为空列表，所占用空间根据for循环次数增加，最大为n，所以list的空间复杂度为O(n)，i为常数阶，与n无关，则整个代码空间复杂度为O(n)</p> <p>O(n<sup>2</sup>):</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">def</span><span style="color: rgba(0, 0, 0, 1)"> createList(n):     list1</span>=<span style="color: rgba(0, 0, 0, 1)"> []</span><span style="color: rgba(0, 0, 255, 1)">for</span> i<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):         list2</span>=<span style="color: rgba(0, 0, 0, 1)"> []</span><span style="color: rgba(0, 0, 255, 1)">for</span> j<span style="color: rgba(0, 0, 255, 1)">in</span><span style="color: rgba(0, 0, 0, 1)"> range(n):             list2.append(j)         list1.append(list2)</span><span style="color: rgba(0, 0, 255, 1)">return</span> list1</pre> </div> <p>这段代码比上面那个多了一层嵌套for循环，list1的空间占用为n，list2的空间占用为n<sup>2</sup>，则整个代码空间复杂度为O(n<sup>2</sup>)</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-92297.htm">猫咪驱虫的多少钱（猫咪驱虫多少钱一针）</a></p>
+                                        <p>下一个：<a href="/news/article-93032.htm">宠物美容店开办和经营的步骤（想开个宠物美容店怎么入行）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-subscribe-node.htm" title="「3月10日」最高速度19.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「3月10日」最高速度19.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-5-node-share.htm" title="「4月5日」最高速度22.5M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「4月5日」最高速度22.5M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-73913.htm" title="宠物店买的狗粮好吗（宠物店的狗粮都是从哪里来的）">宠物店买的狗粮好吗（宠物店的狗粮都是从哪里来的）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-node-subscribe-links.htm" title="「3月24日」最高速度21.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「3月24日」最高速度21.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-node-share.htm" title="「3月7日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「3月7日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-81462.htm" title="动物防疫政策解读（动物防疫法新规）">动物防疫政策解读（动物防疫法新规）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-28-node-share.htm" title="「3月28日」最高速度19.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「3月28日」最高速度19.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-free-high-speed-nodes.htm" title="「3月13日」最高速度20.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「3月13日」最高速度20.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-93031.htm" title="时间复杂度与空间复杂度">时间复杂度与空间复杂度</a></li>
+                        <li class="py-2"><a href="/news/article-75930.htm" title="面试之Java String 编码相关">面试之Java String 编码相关</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
