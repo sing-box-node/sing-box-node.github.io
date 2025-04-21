@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sing-box-node.github.io/news/article-98934.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>JavaScript函数调用及函数上下文(this)</title>
+        <meta name="description" content="JavaScript中函数调用有如下4种方式： 1.作为一个函数直接被调用， func()。 &nbsp; &nbsp;此时，在非严格模式中函数上下文this指向全局window;在严格模式中指向un" />
+        <link rel="icon" href="/assets/website/img/sing_box_node/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Singbox Node机场订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sing-box-node.github.io/news/article-98934.htm" />
+    <meta property="og:site_name" content="Singbox Node机场订阅官网" />
+    <meta property="og:title" content="JavaScript函数调用及函数上下文(this)" />
+    <meta property="og:image" content="https://sing-box-node.github.io/uploads/20240825-1/8ca2485886964e2d5bd5b5465da841c1.webp" />
+        <meta property="og:release_date" content="2025-04-18T09:42:14" />
+    <meta property="og:updated_time" content="2025-04-18T09:42:14" />
+        <meta property="og:description" content="JavaScript中函数调用有如下4种方式： 1.作为一个函数直接被调用， func()。 &nbsp; &nbsp;此时，在非严格模式中函数上下文this指向全局window;在严格模式中指向un" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JavaScript函数调用及函数上下文(this)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/sing_box_node/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-51ZXJ2Q5DQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51ZXJ2Q5DQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+    
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- Start Header Area -->
+    <header class="header navbar-area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <!-- Start Navbar -->
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                        <span>Singbox Node</span>
+                                                        </a>
+                            <button class="navbar-toggler mobile-menu-btn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav>
+                        <!-- End Navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- End Header Area -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 offset-lg-2 col-md-12 col-12">
+                    <div class="breadcrumbs-content">
+                        <h1 class="page-title">JavaScript函数调用及函数上下文(this)</h1>
+                    </div>
+                    <ul class="breadcrumb-nav">
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/news/">新闻资讯</a></li>
+                        <li>正文</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    <!-- Start Departments  Area -->
+    <section class="departments section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>JavaScript中函数调用有如下4种方式：</p> <p><strong>1.作为一个函数直接被调用， func()。</strong></p> <p>&nbsp; &nbsp;此时，在非严格模式中函数上下文this指向全局window;在严格模式中指向undefined</p> <p><strong>2.作为一个对象的方法调用，obj.func()。</strong></p> <p>&nbsp; 此时，上下文this指向这个调用它的对象obj</p> <p><strong>3.作为构造函数调用new Func()，实例化一个新的对象。</strong></p> <p>&nbsp; 此时，构造函数内部的this指向其实例化的对象。</p> <pre class="has"><code class="language-javascript">function Func(name) {    this.name = name } let obj1 = new Func('zhangshan'); let obj2 = new Func('lisi');  obj1.name  // =&gt; 'zhangshan' obj2.name  // =&gt; 'lisi'</code></pre> <p>&nbsp; <strong>当通过new关键字调用构造函数时会做如下操作：</strong></p> <p>&nbsp; &nbsp; &nbsp; 1).创建一个新的空对象。</p> <p>&nbsp; &nbsp; &nbsp; 2).该对象作为this参数传递给构造函数，从而成为构造函数的函数上下文（构造函数的作用域赋给新对象，因此构造函数中&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 的&nbsp;this指向了这个新对象）。</p> <p>&nbsp; &nbsp; &nbsp; 3).以创建的对象为上下文执行构造函数中的代码（为新对象添加属性）</p> <p>&nbsp; &nbsp; &nbsp; 4).新构造的对象作为new运算符的返回值<br /> &nbsp; &nbsp; &nbsp; &nbsp;<strong>注：</strong><br /> &nbsp; &nbsp; &nbsp; &nbsp; a:如果构造函数返回一个对象，则该对象将作为整个表达式的值返回，&nbsp;而传入构造函数的this将被丢弃。<br /> &nbsp; &nbsp; &nbsp; &nbsp; b.如果构造函数返回的是非对象类型，则忽略返回值，返回新创建的对象。<br /> &nbsp; &nbsp; &nbsp; &nbsp; c.每个函数都有一个原型对象（可以通过函数的prototype属性访问），该原型对象将被自动设置为通过该函数创建对象的原型。函数的原型可以被任意替换，已经构建的实例引用旧的原型,重新定义函数原型对已经构建的实例没有影响。</p> <pre class="has"><code class="language-javascript">//new 操作过程可以用如下代码来表示  let obj = new Object(); Constructor = [].shift.call(arguments); obj.__proto__ = Constructor.prototype; let ret = Contructor.apply(obj, arguments); return typeof ret === 'object' ? ret : obj</code></pre> <pre class="has"><code class="language-javascript">function Func(name) {    this.name = name    return 1 }  let obj = new Func('zhangshan'); obj  // =&gt; 忽略构造函数中返回值1 还是返回对象 { name: 'zhangshan'};  function Func(name) {    this.name = name    return {      name: 'wang2'    } }  let obj2 = new Func('lisi); obj2 // =&gt; { name: 'wang2'} </code></pre> <p>4.通过函数的apply或者call方法——func.apply(obj)或者func.call(obj)。</p> <pre class="has"><code class="language-javascript">let obj1 = {   name: 'zhangshan' } let obj2 = {   name: 'lisi' }  function func(age) {   console.log(`${this.name} age ${age}`) }  func.call(obj1, 22) // =&gt; zhangshan age 22 func.call(obj2, 26) // =&gt; lisi age 26  //call, apply第一个参数是函数的上下文this //如果第一个参数是null，在非严格模式下this指向window, 严格模式下指向null //apply和call的用法是一样的除了call传递的参数必须一个一个列出来，apply是以数组形式传递参数 </code></pre> <p>在JavaScript中this的值会根据函数的调用方式不同而不同，有时候会使程序中this出现与预期不一致的情况。<br /> 决解方式有两种：使用es6的箭头函数 和 通过bind绑定上下文</p> <pre class="has"><code class="language-javascript">function Ninja(){   this.whoAmI = () =&gt; this; } var ninja1 = new Ninja(); var ninja2 = {   whoAmI: ninja1.whoAmI };  ninja1.whoAmI() === ninja1 //true ninja2.whoAmI() === ninja2 //false   //在箭头函数中this等于函数定义时的上下文 //在这个例子中this是指向ninja1 //所以ninja2.whoAmI() 还是指向ninja1  function Ninja(){   this.whoAmI = function(){     return this;   }.bind(this); } var ninja1 = new Ninja(); var ninja2 = {   whoAmI: ninja1.whoAmI };  ninja1.whoAmI() === ninja1  // true ninja2.whoAmI() === ninja2  //false  //在实例化ninja1的时候， ninja1.whoAmI中的this被绑定为ninja1 //所以不管怎样的方式调用ninja1.whoAmI都是指向 ninja1  //注：此例摘录自 《JavaSript忍者秘籍第2版》</code></pre> <pre class="has"><code class="language-javascript">    const obj = {       func1() {         return this === obj       },       func2: () =&gt; this === window     }     console.log(obj.func1()) //true     console.log(obj.func2()) //true </code></pre> <p>&nbsp;</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-98933.htm">PHP字符串运算符详解</a></p>
+                                        <p>下一个：<a href="/news/article-99718.htm">成都宠物领养平台领养可靠吗知乎文章下载（成都宠物领养网）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-87854.htm" title="动物疫苗怎么注射的图片（动物疫苗的使用方法及注意事项）">动物疫苗怎么注射的图片（动物疫苗的使用方法及注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-80732.htm" title="广州宠物领养微信群（广州宠物狗领养网站）">广州宠物领养微信群（广州宠物狗领养网站）</a></li>
+                        <li class="py-2"><a href="/news/article-90807.htm" title="vue路由守卫，限制前端页面访问权限">vue路由守卫，限制前端页面访问权限</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-8-node-share.htm" title="「4月8日」最高速度19.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「4月8日」最高速度19.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-83564.htm" title="十大进口猫粮排行2018（十大进口猫粮排行2018年）">十大进口猫粮排行2018（十大进口猫粮排行2018年）</a></li>
+                        <li class="py-2"><a href="/news/article-77989.htm" title="HBase架构中各种组件的作用">HBase架构中各种组件的作用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-free-high-speed-nodes.htm" title="「4月11日」最高速度21.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「4月11日」最高速度21.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-26-free-subscribe-node.htm" title="「3月26日」最高速度20.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「3月26日」最高速度20.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-node-subscribe-links.htm" title="「3月24日」最高速度21.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「3月24日」最高速度21.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-94112.htm" title="宠物医院好评200字通用评论怎么写 宠物医院好评200字通用评论怎么写的">宠物医院好评200字通用评论怎么写 宠物医院好评200字通用评论怎么写的</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">63</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /End Departments  Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer overlay">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="content">
+                                <p class="copyright-text">
+                                                    <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                                Singbox Node机场订阅官网 版权所有
+                                <br />
+                                Powered by WordPress
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/sing_box_node/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/sing_box_node/main.js"></script>
+    <script type="text/javascript">
+    //======== Hero Slider
+    var slider = new tns({
+        container: '.hero-slider',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: false,
+        controls: true,
+        controlsText: [
+            '<i class="lni lni-chevron-left"></i>',
+            '<i class="lni lni-chevron-right"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+    //========= testimonial 
+    tns({
+        container: '.testimonial-slider',
+        items: 3,
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        nav: true,
+        controls: false,
+        controlsText: ['<i class="lni lni-arrow-left"></i>', '<i class="lni lni-arrow-right"></i>'],
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 1,
+            },
+            768: {
+                items: 2,
+            },
+            992: {
+                items: 2,
+            },
+            1170: {
+                items: 3,
+            }
+        }
+    });
+
+    //====== counter up 
+    var cu = new counterUp({
+        start: 0,
+        duration: 2000,
+        intvalues: true,
+        interval: 100,
+        append: " ",
+    });
+    cu.start();
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
