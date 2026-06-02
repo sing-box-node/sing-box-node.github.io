@@ -176,29 +176,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 精确端口分流如何提升游戏体验？</h5></div>
-    <div class="panel-body">
-        Sing-box 可按端口设置流量分流规则，将游戏流量分配到低延迟节点。结合策略组使用，可保证游戏连接稳定，减少延迟和掉线，提高流畅度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess 配置 TLS+WebSocket 有哪些性能优势？</h5></div>
-    <div class="panel-body">
-        TLS+WebSocket 可伪装 HTTPS 流量，增强抗封锁能力，同时降低被封检测风险。结合策略组和节点延迟检测，可保证访问速度和连接稳定性，适合视频和游戏场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的混淆方式如何选择最合适？</h5></div>
-    <div class="panel-body">
-        根据网络环境选择适合的混淆方式，如 tls1.2_ticket_auth 模拟 HTTPS 流量，可隐藏真实特征。结合协议插件使用，可以提高抗封锁能力和节点可用性。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 用户流量配额如何设置？</h5></div>
     <div class="panel-body">
         管理员可为每个用户设置带宽和流量上限，超出限制时可降速或阻止访问。确保服务器资源合理分配，避免单用户占用过多带宽，提高整体网络公平性和使用效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何选择全局代理与规则代理模式？</h5></div>
-    <div class="panel-body">
-        全局代理适合所有流量走节点，如游戏和全局科学上网；规则代理仅针对指定应用、IP 或端口走节点，可优化带宽使用和访问效率，根据使用场景选择模式。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的端口复用有什么风险？</h5></div>
@@ -206,14 +186,19 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         SSR 支持多端口配置以复用服务，但若端口过多或设置冲突，可能被扫描工具识别或误判为异常服务。建议保持配置简洁，并合理分配端口范围以减少暴露风险。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何按域名分流优化浏览器流量？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 精确端口分流如何提升游戏体验？</h5></div>
     <div class="panel-body">
-        Sing-box 可通过规则匹配域名，将浏览器流量分配到最优节点。结合策略组，可保证网页访问速度和稳定性，同时优化视频和游戏等其他流量，提高整体网络体验。<hr />    </div>
+        Sing-box 可按端口设置流量分流规则，将游戏流量分配到低延迟节点。结合策略组使用，可保证游戏连接稳定，减少延迟和掉线，提高流畅度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 模式在移动网络下表现如何？</h5></div>
+    <div class="panel-heading"><h5>SSR 的混淆方式如何选择最合适？</h5></div>
     <div class="panel-body">
-        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定移动网络。结合策略组和多出口节点，可提高访问速度和连接稳定性，保证用户体验流畅。<hr />    </div>
+        根据网络环境选择适合的混淆方式，如 tls1.2_ticket_auth 模拟 HTTPS 流量，可隐藏真实特征。结合协议插件使用，可以提高抗封锁能力和节点可用性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess 配置 TLS+WebSocket 有哪些性能优势？</h5></div>
+    <div class="panel-body">
+        TLS+WebSocket 可伪装 HTTPS 流量，增强抗封锁能力，同时降低被封检测风险。结合策略组和节点延迟检测，可保证访问速度和连接稳定性，适合视频和游戏场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 的 DNS 模块如何工作？</h5></div>
@@ -221,9 +206,24 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Sing-box 内置 DNS 模块，支持 fake-ip 模式和纯直连模式。它可根据规则选择不同的上游 DNS 服务，从而实现国内外域名智能分流，减少访问延迟。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Sing-box 如何按域名分流优化浏览器流量？</h5></div>
+    <div class="panel-body">
+        Sing-box 可通过规则匹配域名，将浏览器流量分配到最优节点。结合策略组，可保证网页访问速度和稳定性，同时优化视频和游戏等其他流量，提高整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Hiddify Next 支持 Reality 吗？</h5></div>
     <div class="panel-body">
-        支持。Hiddify Next 基于 sing-box 内核，可加载 Vless+Reality、Trojan+TLS 等高级协议配置。用户可直接导入机场订阅，无需手动修改复杂参数。    </div>
+        支持。Hiddify Next 基于 sing-box 内核，可加载 Vless+Reality、Trojan+TLS 等高级协议配置。用户可直接导入机场订阅，无需手动修改复杂参数。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 模式在移动网络下表现如何？</h5></div>
+    <div class="panel-body">
+        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定移动网络。结合策略组和多出口节点，可提高访问速度和连接稳定性，保证用户体验流畅。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 如何选择全局代理与规则代理模式？</h5></div>
+    <div class="panel-body">
+        全局代理适合所有流量走节点，如游戏和全局科学上网；规则代理仅针对指定应用、IP 或端口走节点，可优化带宽使用和访问效率，根据使用场景选择模式。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -246,22 +246,43 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default box right-ad-box">
+    <div class="panel-heading">
+        <h3 class="panel-title">特别推荐</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="text-center">
+                <a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">
+                    <img src="/assets/website/img/G/luniuyun.webp" class="avatar" alt="绿牛云">
+                </a>
+                <dl>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></dt>
+                    <dd>
+                        <p>高速稳定的网络加速</p>
+                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
+全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p>                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">热门文章</h3>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-5-1-free-node-subscribe.htm" title="「5月1日」最高速度19.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月1日」最高速度19.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-21-free-high-speed-nodes.htm" title="「4月21日」最高速度20.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「4月21日」最高速度20.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-15-node-share.htm" title="「5月15日」最高速度20.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月15日」最高速度20.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-11-node-share.htm" title="「5月11日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月11日」最高速度22.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-10-free-node-subscribe.htm" title="「5月10日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月10日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-25-free-node-subscribe.htm" title="「5月25日」最高速度22.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月25日」最高速度22.1M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-23-free-node-subscribe.htm" title="「5月23日」最高速度21.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月23日」最高速度21.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-6-free-high-speed-nodes.htm" title="「5月6日」最高速度22.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月6日」最高速度22.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-12-node-share-links.htm" title="「5月12日」最高速度19.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月12日」最高速度19.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-25-free-node-subscribe-links.htm" title="「4月25日」最高速度22.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「4月25日」最高速度22.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-12-node-share-links.htm" title="「5月12日」最高速度19.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月12日」最高速度19.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-10-free-node-subscribe.htm" title="「5月10日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月10日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-26-free-subscribe-node.htm" title="「5月26日」最高速度22.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月26日」最高速度22.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-31-free-node-subscribe-links.htm" title="「5月31日」最高速度20.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月31日」最高速度20.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-27-node-share.htm" title="「5月27日」最高速度18.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月27日」最高速度18.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-19-free-node-subscribe-links.htm" title="「5月19日」最高速度19.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月19日」最高速度19.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-14-free-node-subscribe.htm" title="「5月14日」最高速度22.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月14日」最高速度22.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-24-free-node-subscribe.htm" title="「5月24日」最高速度23M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月24日」最高速度23M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-5-node-share-links.htm" title="「5月5日」最高速度18.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「5月5日」最高速度18.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-6-1-free-high-speed-nodes.htm" title="「6月1日」最高速度19.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「6月1日」最高速度19.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -273,10 +294,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                     </ul>
     </div>
@@ -309,6 +330,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></b> <p>高速稳定的网络加速</p>
+                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
+全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p></div>
                                                     Singbox Node机场订阅官网 版权所有
                                 <br />
                                 Powered by WordPress
