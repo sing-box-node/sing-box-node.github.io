@@ -354,17 +354,18 @@ sudo </span><span><span class="hljs-built_in">rm</span></span><span> -rf ~/Libra
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/free-high-speed-nodes-2026-10-15.htm">「10月15日」最高速度20.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></p>
+        <p>下一个：<a href="/free-nodes/free-high-speed-nodes-2026-10-17.htm">「10月17日」最高速度18.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a></p>
     </div>
 <h4>FAQ</h4>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何给 Clash 或 Sing-box 添加本地广告屏蔽规则？</h5></div>
+    <div class="panel-body">
+        可导入公共广告域名列表（如 ads、trackers）并将其指向 `REJECT` 或 `DIRECT`（根据需求）；还可以使用 rule-provider 自动更新广告规则，并结合 hosts 或 DNS 层面进行联合拦截以提升屏蔽效果。<hr />    </div>
+</div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 节点无法连接时应如何排查？</h5></div>
     <div class="panel-body">
         首先检查服务器是否在线，其次查看端口、防火墙和 TLS 配置是否正确。还可以通过日志观察 handshake 是否成功，或尝试更换传输协议如 WS、gRPC 来确认问题来源。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Sing-box 如何按端口分流流量？</h5></div>
-    <div class="panel-body">
-        Sing-box 支持根据端口匹配流量，将不同应用流量分配到指定节点。结合策略组使用，可精准分流，提高访问速度和网络稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Nekobox 是否支持跨客户端节点管理？</h5></div>
@@ -387,14 +388,9 @@ sudo </span><span><span class="hljs-built_in">rm</span></span><span> -rf ~/Libra
         Matsuri 的延迟测试使用 ICMP 与 TCP 双重检测方式，可较准确反映节点实际响应时间。不过受网络波动影响，建议多次测试并结合速度测试结果综合判断。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何区分全局代理和规则代理？</h5></div>
+    <div class="panel-heading"><h5>Sing-box 如何按端口分流流量？</h5></div>
     <div class="panel-body">
-        全局代理会将所有流量通过节点转发，而规则代理仅对指定 IP、端口或应用生效。用户可根据需求选择代理模式，实现流量优化和不同应用的最佳网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
-    <div class="panel-body">
-        支持。Matsuri 会自动测试节点延迟并按结果排序。用户可快速选择延迟最低或速度最快的节点，提高网络访问速度，尤其适合游戏或视频场景。<hr />    </div>
+        Sing-box 支持根据端口匹配流量，将不同应用流量分配到指定节点。结合策略组使用，可精准分流，提高访问速度和网络稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 节点测速功能如何优化连接？</h5></div>
@@ -402,9 +398,14 @@ sudo </span><span><span class="hljs-built_in">rm</span></span><span> -rf ~/Libra
         Shadowrocket 定期测速节点延迟和丢包率，并结合策略组自动切换到最佳节点。保证网页、视频和游戏流量通过最优路径，提高访问速度和连接稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何给 Clash 或 Sing-box 添加本地广告屏蔽规则？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 是否支持延迟排序节点？</h5></div>
     <div class="panel-body">
-        可导入公共广告域名列表（如 ads、trackers）并将其指向 `REJECT` 或 `DIRECT`（根据需求）；还可以使用 rule-provider 自动更新广告规则，并结合 hosts 或 DNS 层面进行联合拦截以提升屏蔽效果。    </div>
+        支持。Matsuri 会自动测试节点延迟并按结果排序。用户可快速选择延迟最低或速度最快的节点，提高网络访问速度，尤其适合游戏或视频场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 如何区分全局代理和规则代理？</h5></div>
+    <div class="panel-body">
+        全局代理会将所有流量通过节点转发，而规则代理仅对指定 IP、端口或应用生效。用户可根据需求选择代理模式，实现流量优化和不同应用的最佳网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -452,16 +453,16 @@ sudo </span><span><span class="hljs-built_in">rm</span></span><span> -rf ~/Libra
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-18-free-node-subscribe.htm" title="「9月18日」最高速度18.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月18日」最高速度18.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-12-free-node-subscribe.htm" title="「9月12日」最高速度20.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月12日」最高速度20.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-4-free-subscribe-node.htm" title="「10月4日」最高速度18.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「10月4日」最高速度18.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-19.htm" title="「9月19日」最高速度19.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月19日」最高速度19.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-25.htm" title="「9月25日」最高速度21.5M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月25日」最高速度21.5M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-14-node-share.htm" title="「10月14日」最高速度18.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「10月14日」最高速度18.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-13.htm" title="「10月13日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「10月13日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-23.htm" title="「9月23日」最高速度22.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月23日」最高速度22.9M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-11.htm" title="「9月11日」最高速度22.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月11日」最高速度22.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-13.htm" title="「9月13日」最高速度22.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月13日」最高速度22.6M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-5.htm" title="「9月5日」最高速度20.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月5日」最高速度20.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-9.htm" title="「9月9日」最高速度19.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月9日」最高速度19.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-8-free-subscribe-node.htm" title="「10月8日」最高速度19M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「10月8日」最高速度19M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-3.htm" title="「10月3日」最高速度22.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「10月3日」最高速度22.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-7.htm" title="「9月7日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月7日」最高速度21.8M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-18-node-share.htm" title="「10月18日」最高速度19.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「10月18日」最高速度19.4M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-9-15.htm" title="「9月15日」最高速度18.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月15日」最高速度18.3M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-10-21.htm" title="「10月21日」最高速度21.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「10月21日」最高速度21.2M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-22-node-share.htm" title="「10月22日」最高速度19.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「10月22日」最高速度19.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-14-free-subscribe-node.htm" title="「9月14日」最高速度18.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接">「9月14日」最高速度18.7M/S，2025年Singbox Node每天更新免费机场订阅节点链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -473,7 +474,7 @@ sudo </span><span><span class="hljs-built_in">rm</span></span><span> -rf ~/Libra
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
